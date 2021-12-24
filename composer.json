@@ -1,0 +1,54 @@
+{
+    "name": "forme/framework",
+    "description": "An MVC framework for WordPress.",
+    "authors": [
+        {
+            "name": "Moussa Clarke",
+            "email": "moussaclarke@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3|^8.0",
+        "symfony/yaml": "^5.0",
+        "php-di/php-di": "^6.2",
+        "symfony/string": "^5.1",
+        "robmorgan/phinx": "^0.12.4",
+        "illuminate/database": "^8.10",
+        "ramsey/uuid": "^4.1",
+        "monolog/monolog": "^2.1",
+        "vlucas/phpdotenv": "^5.2",
+        "laminas/laminas-diactoros": "^2.5",
+        "http-interop/response-sender": "^1.0",
+        "rareloop/psr7-server-request-extension": "^2.1",
+        "altorouter/altorouter": "^2.0",
+        "twig/twig": "^3.0",
+        "jenssegers/blade": "^1.4",
+        "league/plates": "^3.4",
+        "relay/relay": "^2.1",
+        "papertower/wp-rest-api-psr7": "^0.8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Forme\\Framework\\": "src/"
+        },
+        "files": [
+            "src/helpers.php",
+            "src/View/Plates/Template/match.php",
+            "src/View/Plates/Extension/Data/data.php",
+            "src/View/Plates/Extension/Path/path.php",
+            "src/View/Plates/Extension/RenderContext/func.php",
+            "src/View/Plates/Extension/RenderContext/render-context.php",
+            "src/View/Plates/Extension/LayoutSections/layout-sections.php",
+            "src/View/Plates/Extension/Folders/folders.php",
+            "src/View/Plates/Util/util.php"
+        ]
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.98",
+        "szepeviktor/phpstan-wordpress": "^0.7.7",
+        "php-stubs/woocommerce-stubs": "^5.6",
+        "php-stubs/acf-pro-stubs": "5.9.9",
+        "php-stubs/wp-cli-stubs": "^2.5",
+        "filp/whoops": "^2.14"
+    }
+}

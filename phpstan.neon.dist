@@ -1,0 +1,12 @@
+# Copy to phpstan.neon and edit according to your specific setup
+includes:
+  - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+  level: 6
+  bootstrapFiles:
+    - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+    - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
+    - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
+  ignoreErrors:
+    - "#Unsafe usage of new static#"
+  checkMissingIterableValueType: false
