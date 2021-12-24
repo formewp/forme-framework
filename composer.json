@@ -1,6 +1,7 @@
 {
     "name": "forme/framework",
     "description": "An MVC framework for WordPress.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Moussa Clarke",
