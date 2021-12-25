@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3|^8.0",
+        "php": "^8.0",
         "symfony/yaml": "^5.0",
         "php-di/php-di": "^6.2",
         "symfony/string": "^5.1",
