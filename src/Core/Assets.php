@@ -35,7 +35,10 @@ class Assets
      */
     public static function uri(string $relativefilePath): string
     {
-        $relativefilePath = self::resolveManifestPath($relativefilePath);
+        // if there is a webpack dist then the manifest has our uri
+        if (self::distExists()) {
+            return self::resolveManifestPath($relativefilePath);
+        }
         if (self::isPlugin()) {
             // we have to add a dummy because plugin_dir_ul assumes a file in a dir
             return plugin_dir_url(self::basePath() . 'dummy') . $relativefilePath;
@@ -109,7 +112,7 @@ class Assets
         $pathKey = ltrim(self::basePathPart(), '/') . $path;
 
         if (isset($manifestData[$pathKey])) {
-            return basename($manifestData[$pathKey]);
+            return $manifestData[$pathKey];
         }
 
         return $path;
