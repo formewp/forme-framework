@@ -16,7 +16,7 @@ class BladeView implements ViewInterface
     public function __construct(Directives $directives)
     {
         $this->view = new Blade($this->getDir() . '/../../views', FORME_PRIVATE_ROOT . 'view-cache');
-        $directives->directives()
+        $directives->collect()
                 ->each(function ($directive, $function) {
                     $this->view->directive($function, $directive);
                 });

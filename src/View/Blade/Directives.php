@@ -32,7 +32,7 @@ final class Directives
         return null;
     }
 
-    public function directives(): Collection
+    public function collect(): Collection
     {
         return collect($this->directives)
             ->flatMap(function ($directive) {
