@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\View\Blade;
 
+use Illuminate\Support\Collection;
 use Log1x\SageDirectives\Directives as SageDirectives;
 
 final class Directives
@@ -18,14 +19,7 @@ final class Directives
         'WordPress',
     ];
 
-    /**
-     * Returns the specified directives as an array.
-     *
-     * @param string $name
-     *
-     * @return ?array
-     */
-    private function get($name)
+    private function get(string $name): ?array
     {
         // we need to get log1x directives vendor directory via reflection
         $reflector = new \ReflectionClass(SageDirectives::class);
@@ -38,12 +32,7 @@ final class Directives
         return null;
     }
 
-    /**
-     * Returns a collection of directives.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function directives()
+    public function directives(): Collection
     {
         return collect($this->directives)
             ->flatMap(function ($directive) {
