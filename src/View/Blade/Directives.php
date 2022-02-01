@@ -9,8 +9,6 @@ use Log1x\SageDirectives\Directives as SageDirectives;
 final class Directives
 {
     /**
-     * Directives.
-     *
      * @var array
      */
     private $directives = [
@@ -21,7 +19,6 @@ final class Directives
 
     private function get(string $name): ?array
     {
-        // we need to get log1x directives vendor directory via reflection
         $reflector = new \ReflectionClass(SageDirectives::class);
         $dir       = dirname($reflector->getFileName());
 
