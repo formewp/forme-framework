@@ -5,7 +5,7 @@ return [
     'bloginfo' => function ($name = '\'\'') {
         return '<?php bloginfo(' . $name . '); ?>';
     },
-    'languageAtrributes' => function ($doctype = '\'html\'') {
+    'languageatrributes' => function ($doctype = '\'html\'') {
         return '<?php language_attributes(' . $doctype . '); ?>';
     },
 ];
