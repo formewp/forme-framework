@@ -15,6 +15,7 @@ final class Directives
         'ACF',
         'Helpers',
         'WordPress',
+        'Local',
     ];
 
     private function get(string $name): ?array
@@ -35,6 +36,10 @@ final class Directives
             ->flatMap(function ($directive) {
                 if ($directive === 'ACF' && !function_exists('acf')) {
                     return null;
+                }
+
+                if ($directive === 'Local') {
+                    return require_once __DIR__ . '/Local.php';
                 }
 
                 return $this->get($directive);
