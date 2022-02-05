@@ -1,7 +1,35 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.2] - 2022-01-31
+## [1.2.3] - 2022-02-03
+
+### Bug Fixes
+
+- Lower case blade directive
+
+## [1.2.2] - 2022-02-03
+
+### Features
+
+- Add local directives
+
+## [1.2.1] - 2022-02-01
+
+### Miscellaneous Tasks
+
+- Add strict typing to directives
+
+### Refactor
+
+- Remove unneeded comments and update typing
+- Better method names
+- Remove superfluous comments
+
+## [1.2] - 2022-02-01
+
+### Documentation
+
+- Add changelog
 
 ### Features
 
