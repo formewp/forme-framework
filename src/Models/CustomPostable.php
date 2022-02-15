@@ -6,6 +6,9 @@ namespace Forme\Framework\Models;
 use Illuminate\Database\Eloquent\Builder;
 use function Symfony\Component\String\u;
 
+/**
+ * @property string $postType
+ */
 trait CustomPostable
 {
     /**
