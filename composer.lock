@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c46a18572bca13466d96f72b6d483f8",
+    "content-hash": "1b7d02275a2a13d6e8baf5f615534881",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -4392,16 +4392,16 @@
         },
         {
             "name": "php-stubs/acf-pro-stubs",
-            "version": "v5.9.9",
+            "version": "v5.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/acf-pro-stubs.git",
-                "reference": "b18a8470f14222e12b90b1bd3bf8503a67df2467"
+                "reference": "a79d5b7727895821c6d50f7e1acf3c7abc828b0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/acf-pro-stubs/zipball/b18a8470f14222e12b90b1bd3bf8503a67df2467",
-                "reference": "b18a8470f14222e12b90b1bd3bf8503a67df2467",
+                "url": "https://api.github.com/repos/php-stubs/acf-pro-stubs/zipball/a79d5b7727895821c6d50f7e1acf3c7abc828b0d",
+                "reference": "a79d5b7727895821c6d50f7e1acf3c7abc828b0d",
                 "shasum": ""
             },
             "require": {
@@ -4430,9 +4430,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/acf-pro-stubs/issues",
-                "source": "https://github.com/php-stubs/acf-pro-stubs/tree/v5.9.9"
+                "source": "https://github.com/php-stubs/acf-pro-stubs/tree/v5.10.2"
             },
-            "time": "2021-08-06T07:49:36+00:00"
+            "time": "2021-10-06T03:29:13+00:00"
         },
         {
             "name": "php-stubs/woocommerce-stubs",
