@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Forme\Framework\View;
 
+use Forme\Framework\View\Blade\Blade;
 use Forme\Framework\View\Blade\Directives;
-use Jenssegers\Blade\Blade;
 
 class BladeView implements ViewInterface
 {
