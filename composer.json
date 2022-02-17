@@ -46,11 +46,10 @@
         ]
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.12.98",
-        "szepeviktor/phpstan-wordpress": "^0.7.7",
-        "php-stubs/woocommerce-stubs": "^5.6",
+        "phpstan/phpstan": "^1.4.0",
+        "szepeviktor/phpstan-wordpress": "^1.0.2",
+        "php-stubs/woocommerce-stubs": "^6.0",
         "php-stubs/acf-pro-stubs": "^5.9.9",
-        "php-stubs/wp-cli-stubs": "^2.5",
         "filp/whoops": "^2.14"
     }
 }
