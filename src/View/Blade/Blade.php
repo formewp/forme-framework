@@ -14,6 +14,9 @@ use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory;
 use Illuminate\View\ViewServiceProvider;
 
+/**
+ * Based on https://github.com/jenssegers/blade.
+ */
 class Blade implements FactoryContract
 {
     /**
