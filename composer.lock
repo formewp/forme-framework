@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "056e41b676e383bfd75d2a9f3aed16bc",
+    "content-hash": "306892d07b65814f1bfc547861f44b0e",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -706,6 +706,54 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-02-09T14:26:32+00:00"
+        },
+        {
+            "name": "illuminate/config",
+            "version": "v9.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/config.git",
+                "reference": "d2dc74fdcc89239e1910a8d08b2b2e5ad26a043c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/config/zipball/d2dc74fdcc89239e1910a8d08b2b2e5ad26a043c",
+                "reference": "d2dc74fdcc89239e1910a8d08b2b2e5ad26a043c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/collections": "^9.0",
+                "illuminate/contracts": "^9.0",
+                "php": "^8.0.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Config\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Config package.",
+            "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-02-01T16:16:50+00:00"
         },
         {
             "name": "illuminate/container",

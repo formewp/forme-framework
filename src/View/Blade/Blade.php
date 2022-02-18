@@ -2,6 +2,7 @@
 
 namespace Forme\Framework\View\Blade;
 
+use Illuminate\Config\Repository as Config;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\Container as ContainerInterface;
 use Illuminate\Contracts\Foundation\Application;
@@ -125,10 +126,10 @@ class Blade implements FactoryContract
         }, true);
 
         $this->container->bindIf('config', function () use ($viewPaths, $cachePath) {
-            return [
+            return new Config([
                 'view.paths'    => $viewPaths,
                 'view.compiled' => $cachePath,
-            ];
+            ]);
         }, true);
 
         Facade::setFacadeApplication($this->container);

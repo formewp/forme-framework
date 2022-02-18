@@ -27,7 +27,8 @@
         "league/plates": "^3.4",
         "relay/relay": "^2.1",
         "papertower/wp-rest-api-psr7": "^0.8.0",
-        "log1x/sage-directives": "^1.1"
+        "log1x/sage-directives": "^1.1",
+        "illuminate/config": "^9.1"
     },
     "autoload": {
         "psr-4": {
