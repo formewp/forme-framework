@@ -13,7 +13,7 @@
         "symfony/yaml": "^6.0",
         "php-di/php-di": "^6.2",
         "symfony/string": "^6.0",
-        "robmorgan/phinx": "^0.12.4",
+        "robmorgan/phinx": "^0.12.10",
         "illuminate/database": "^9.0",
         "illuminate/view": "^9.0",
         "ramsey/uuid": "^4.1",
