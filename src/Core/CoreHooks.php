@@ -29,6 +29,7 @@ final class CoreHooks
             }
         }
 
-        add_filter('template_include', \Forme\getInstance(TemplateHandler::class));
+        // priority set to 11 to ensure that we run after third party plugins, specifically WooCommerce
+        add_filter('template_include', \Forme\getInstance(TemplateHandler::class), 11);
     }
 }
