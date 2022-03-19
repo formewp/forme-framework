@@ -43,7 +43,8 @@ class Shutdown
         // Add the previously sent headers into the response
         // Note: You can't mutate a response so we need to use the reduce to end up with a response
         // object with all the correct headers
-        $responseToSend = collect($headersToAdd)->reduce(function ($newResponse, $header) {
+        /** @var ResponseInterface */
+        $responseToSend = collect($headersToAdd)->reduce(function (ResponseInterface $newResponse, array $header) {
             return $newResponse->withAddedHeader($header[0], $header[1]);
         }, $response);
 
