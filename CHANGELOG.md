@@ -2,11 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [1.3.1]
+
+### Documentation
+
+- Update changelog
+
+### Features
+
+- Delay template include for woo commerce
 
 ### Miscellaneous Tasks
 
 - Increment min phinx version
+- Add git cliff config
+
+### Refactor
+
+- Fix typing
 
 ## [1.3.0] - 2022-02-18
 
