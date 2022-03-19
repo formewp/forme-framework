@@ -1,5 +1,56 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
+
+## [unreleased]
+
+### Miscellaneous Tasks
+
+- Increment min phinx version
+
+## [1.3.0] - 2022-02-18
+
+### Documentation
+
+- Attribution comment
+
+### Miscellaneous Tasks
+
+- Update laravel deps
+- Update blade integration for laravel 9
+
+## [1.2.7] - 2022-02-17
+
+### Miscellaneous Tasks
+
+- Update symfony deps
+
+### Refactor
+
+- Remove dep on abandoned jenssegers blade
+
+## [1.2.6] - 2022-02-17
+
+### Miscellaneous Tasks
+
+- Update phpstan config
+
+## [1.2.5] - 2022-02-17
+
+### Miscellaneous Tasks
+
+- Update acf pro stubs
+
+## [1.2.4] - 2022-02-17
+
+### Documentation
+
+- Update changelog
+
+### Miscellaneous Tasks
+
+- Type custom postable property
+- Update deps
 
 ## [1.2.3] - 2022-02-03
 
