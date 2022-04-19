@@ -18,7 +18,7 @@ trait PluginOrThemeable
      */
     protected static function getFileName()
     {
-        $reflector = new \ReflectionClass(get_called_class());
+        $reflector = new \ReflectionClass(static::class);
 
         return $reflector->getFileName();
     }

@@ -35,6 +35,7 @@ class UserRepository implements RepositoryInterface
             // otherwise get acf/meta
             return $this->getByMeta($value, $type);
         }
+
         // TODO: Add get by role type
     }
 
@@ -51,6 +52,7 @@ class UserRepository implements RepositoryInterface
 
     public function add(array $data): ?int
     {
+        $id = null;
         // wp_insert_user
         // update_field
         if (!empty($data['wp'])) {
@@ -59,9 +61,11 @@ class UserRepository implements RepositoryInterface
             // convert wp error to false
             $id = is_wp_error($id) ? false : $id;
         }
+
         if (!empty($data['ac']) && $id) {
             $this->updateAcfFields($id, $data['ac']);
         }
+
         // TODO add groups
         return $id ?? null;
     }
@@ -77,9 +81,11 @@ class UserRepository implements RepositoryInterface
             // convert wp error to false
             $id = is_wp_error($id) ? null : $id;
         }
+
         if (!empty($data['ac']) && $id) {
             $this->updateAcfFields($id, $data['ac']);
         }
+
         // TODO: handle groups
         return $id;
     }

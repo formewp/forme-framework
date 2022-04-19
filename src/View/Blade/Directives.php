@@ -8,10 +8,7 @@ use Log1x\SageDirectives\Directives as SageDirectives;
 
 final class Directives
 {
-    /**
-     * @var array
-     */
-    private $directives = [
+    private array $directives = [
         'ACF',
         'Helpers',
         'WordPress',

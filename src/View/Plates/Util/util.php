@@ -7,9 +7,7 @@ use Forme\Framework\View\Plates\Exception\StackException;
 
 function id()
 {
-    return function ($arg) {
-        return $arg;
-    };
+    return fn ($arg) => $arg;
 }
 
 /** wraps a closure in output buffering and returns the buffered
@@ -23,8 +21,7 @@ function obWrap(callable $wrap)
         $wrap();
 
         return ob_get_clean();
-    } catch (\Exception $e) {
-    } catch (\Throwable $e) {
+    } catch (\Exception|\Throwable $e) {
     }
 
     // clean the ob stack
@@ -47,12 +44,10 @@ function phpEcho()
 /** stack a set of functions into each other and returns the stacked func */
 function stack(array $funcs)
 {
-    return array_reduce($funcs, function ($next, $func) {
-        return function (...$args) use ($next, $func) {
-            $args[] = $next;
+    return array_reduce($funcs, fn ($next, $func) => function (...$args) use ($next, $func) {
+        $args[] = $next;
 
-            return $func(...$args);
-        };
+        return $func(...$args);
     }, function () {
         throw new StackException('No handler was able to return a result.');
     });
@@ -82,11 +77,7 @@ function compose(...$funcs)
 /** pipe(f, g)(x) = g(f(x)) */
 function pipe(...$funcs)
 {
-    return function ($arg) use ($funcs) {
-        return array_reduce($funcs, function ($acc, $func) {
-            return $func($acc);
-        }, $arg);
-    };
+    return fn ($arg) => array_reduce($funcs, fn ($acc, $func) => $func($acc), $arg);
 }
 
 function joinPath(array $parts, $sep = DIRECTORY_SEPARATOR)
@@ -102,16 +93,19 @@ function joinPath(array $parts, $sep = DIRECTORY_SEPARATOR)
 
 function isAbsolutePath($path)
 {
-    return strpos($path, '/') === 0;
+    return str_starts_with($path, '/');
 }
+
 function isRelativePath($path)
 {
-    return strpos($path, './') === 0 || strpos($path, '../') === 0;
+    return str_starts_with($path, './') || str_starts_with($path, '../');
 }
+
 function isResourcePath($path)
 {
-    return strpos($path, '://') !== false;
+    return str_contains($path, '://');
 }
+
 function isPath($path)
 {
     return isAbsolutePath($path) || isRelativePath($path) || isResourcePath($path);
@@ -121,7 +115,7 @@ function isPath($path)
 function debugType($v)
 {
     if (is_object($v)) {
-        return 'object ' . get_class($v);
+        return 'object ' . $v::class;
     }
 
     return gettype($v);
@@ -170,7 +164,5 @@ function cachedFileExists(Psr\SimpleCache\CacheInterface $cache, $ttl = 3600, $f
 /** Invokes the callable if the predicate returns true. Returns the value otherwise. */
 function when(callable $predicate, callable $fn)
 {
-    return function ($arg) use ($predicate, $fn) {
-        return $predicate($arg) ? $fn($arg) : $arg;
-    };
+    return fn ($arg) => $predicate($arg) ? $fn($arg) : $arg;
 }

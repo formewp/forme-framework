@@ -17,6 +17,6 @@ class Comment extends Model
      */
     public function post(): HasOne
     {
-        return $this->hasOne('Forme\Framework\Models\Post');
+        return $this->hasOne(\Forme\Framework\Models\Post::class);
     }
 }

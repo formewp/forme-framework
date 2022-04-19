@@ -19,20 +19,12 @@ class CustomRouteHandler implements HandlerInterface
 {
     use HasMiddleware;
 
-    /** @var AltoRouter */
-    protected $router;
-
     /** @var bool */
     protected $matched = false;
 
-    /** @var Shutdown */
-    private $shutdown;
-
-    public function __construct(AltoRouter $altoRouter, Shutdown $shutdown)
+    public function __construct(protected AltoRouter $router, private Shutdown $shutdown)
     {
-        $this->router = $altoRouter;
         $this->initRouter();
-        $this->shutdown = $shutdown;
         // TODO possibly move this from here, feels weird.
         add_action('wp_loaded', $this);
     }
@@ -50,6 +42,7 @@ class CustomRouteHandler implements HandlerInterface
                 if (isset($route['params'])) {
                     $request     = $request->withParsedBody($route['params']);
                 }
+
                 // we pass the response closure into the dispatcher
                 $responseFunc = function ($request, $handler) use ($route) {
                     $response = call_user_func($route['target'], $request);
@@ -87,12 +80,13 @@ class CustomRouteHandler implements HandlerInterface
         if (strpos($routeString, '[') > -1) {
             return $routeString;
         }
-        $routeString = preg_replace('/(:)\w+/', '/[$0]', $routeString);
+
+        $routeString = preg_replace('#(:)\w+#', '/[$0]', $routeString);
         $routeString = str_replace('[[', '[', $routeString);
         $routeString = str_replace(']]', ']', $routeString);
         $routeString = str_replace('[/:', '[:', $routeString);
         $routeString = str_replace('//[', '/[', $routeString);
-        if (strpos($routeString, '/') === 0) {
+        if (str_starts_with($routeString, '/')) {
             $routeString = substr($routeString, 1);
         }
 
@@ -105,12 +99,14 @@ class CustomRouteHandler implements HandlerInterface
         $siteUrl      = get_bloginfo('url');
         $siteUrlParts = explode('/', $siteUrl);
         $siteUrlParts = array_slice($siteUrlParts, 3);
+
         $basePath     = implode('/', $siteUrlParts);
-        if (!$basePath) {
+        if ($basePath === '' || $basePath === '0') {
             $basePath = '/';
         } else {
             $basePath = '/' . $basePath . '/';
         }
+
         // Clean any double slashes that have resulted
         $basePath = str_replace('//', '/', $basePath);
         $this->router->setBasePath($basePath);

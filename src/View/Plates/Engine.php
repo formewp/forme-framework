@@ -38,7 +38,6 @@ final class Engine
         return $plates;
     }
 
-    /** @return string */
     public function render(string $template_name, array $data = [], array $attributes = []): string
     {
         return $this->container->get('renderTemplate')->renderTemplate(new Template(
@@ -60,7 +59,7 @@ final class Engine
             return $methods[$method]($this, ...$args);
         }
 
-        throw new \BadMethodCallException("No method {$method} found for engine.");
+        throw new \BadMethodCallException(sprintf('No method %s found for engine.', $method));
     }
 
     public function register(Extension $extension)

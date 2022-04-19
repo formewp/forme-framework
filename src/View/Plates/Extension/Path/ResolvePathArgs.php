@@ -6,15 +6,8 @@ use Forme\Framework\View\Plates\Template;
 
 class ResolvePathArgs
 {
-    public $path;
-    public $context;
-    public $template;
-
-    public function __construct($path, array $context, Template $template)
+    public function __construct(public $path, public array $context, public Template $template)
     {
-        $this->path     = $path;
-        $this->context  = $context;
-        $this->template = $template;
     }
 
     public function withPath($path)

@@ -5,29 +5,23 @@ namespace Forme\Framework\View\Plates;
 /** Template value object */
 final class Template
 {
-    public $name;
-    public $data;
-    public $attributes;
     public $reference;
-    public $parent;
+
 
     public function __construct(
-        $name,
-        array $data = [],
-        array $attributes = [],
+        public $name,
+        public array $data = [],
+        public array $attributes = [],
         TemplateReference $ref = null,
-        TemplateReference $parent = null
+        public TemplateReference $parent = null
     ) {
-        $this->name = $name;
-        $this->data = $data;
-        $this->attributes = $attributes;
         $this->reference = ($ref ?: new TemplateReference)->update($this);
-        $this->parent = $parent;
     }
 
     public function with($key, $value) {
         return $this->withAddedAttributes([$key => $value]);
     }
+
     public function get($key, $default = null) {
         return array_key_exists($key, $this->attributes)
             ? $this->attributes[$key]

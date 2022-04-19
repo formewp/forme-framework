@@ -4,28 +4,22 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Core;
 
+use function Forme\getContainer;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use Symfony\Component\Yaml\Yaml;
 
 class Loader
 {
-    /**
-     * @var array
-     */
-    private $actions = [];
+    private array $actions = [];
 
-    /**
-     * @var array
-     */
-    private $filters = [];
+    private array $filters = [];
 
-    /** @var ContainerInterface */
-    private $container;
+    private ContainerInterface $container;
 
     public function __construct()
     {
-        $this->container = \Forme\getContainer();
+        $this->container = getContainer();
     }
 
     /**
@@ -52,17 +46,18 @@ class Loader
         $config = Yaml::parse($yaml);
         if (isset($config['actions'])) {
             foreach ($config['actions'] as $action) {
-                $method    = isset($action['method']) ? $action['method'] : 'default';
-                $priority  = isset($action['priority']) ? $action['priority'] : 10;
-                $arguments = isset($action['arguments']) ? $action['arguments'] : 1;
+                $method    = $action['method']    ?? 'default';
+                $priority  = $action['priority']  ?? 10;
+                $arguments = $action['arguments'] ?? 1;
                 $this->addAction($action['hook'], $action['class'], $method, $priority, $arguments);
             }
         }
+
         if (isset($config['filters'])) {
             foreach ($config['filters'] as $filter) {
-                $method    = isset($filter['method']) ? $filter['method'] : 'default';
-                $priority  = isset($filter['priority']) ? $filter['priority'] : 10;
-                $arguments = isset($filter['arguments']) ? $filter['arguments'] : 1;
+                $method    = $filter['method']    ?? 'default';
+                $priority  = $filter['priority']  ?? 10;
+                $arguments = $filter['arguments'] ?? 1;
                 $this->addFilter($filter['hook'], $filter['class'], $method, $priority, $arguments);
             }
         }

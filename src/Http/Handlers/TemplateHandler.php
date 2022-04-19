@@ -14,16 +14,8 @@ class TemplateHandler implements HandlerInterface
 {
     use HasMiddleware;
 
-    /** @var ContainerInterface */
-    private $container;
-
-    /** @var Shutdown */
-    private $shutdown;
-
-    public function __construct(ContainerInterface $container, Shutdown $shutdown)
+    public function __construct(private ContainerInterface $container, private Shutdown $shutdown)
     {
-        $this->container           = $container;
-        $this->shutdown            = $shutdown;
     }
 
     /** @return void|null */
@@ -32,6 +24,7 @@ class TemplateHandler implements HandlerInterface
         if (!$template) {
             return null;
         }
+
         include $template;
 
         $controller = $this->getControllerClassFromTemplate($template);
@@ -52,12 +45,13 @@ class TemplateHandler implements HandlerInterface
         return $this->getNameSpace($template) . '\\' . $controllerName;
     }
 
-    /** @return void|null */
+    /** @return null */
     private function handleRequest(string $controllerName)
     {
         if (!class_exists($controllerName)) {
             return null;
         }
+
         /** @var ControllerInterface */
         $controller  = $this->container->get($controllerName);
         $this->addMiddlewareQueue($controller->getMiddlewareQueue());

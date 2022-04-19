@@ -13,10 +13,8 @@ final class PlatesExtension implements Extension
             'php_extensions'   => ['php', 'phtml'],
             'image_extensions' => ['png', 'jpg'],
         ]);
-        $c->addComposed('compose', function () { return []; });
-        $c->add('fileExists', function ($c) {
-            return 'file_exists';
-        });
+        $c->addComposed('compose', fn () => []);
+        $c->add('fileExists', fn ($c) => 'file_exists');
         $c->add('renderTemplate', function ($c) {
             $rt = new RenderTemplate\FileSystemRenderTemplate([
                 [
@@ -35,30 +33,21 @@ final class PlatesExtension implements Extension
             if ($c->get('config')['validate_paths']) {
                 $rt = new RenderTemplate\ValidatePathRenderTemplate($rt, $c->get('fileExists'));
             }
-            $rt = array_reduce($c->get('renderTemplate.factories'), function ($rt, $create) {
-                return $create($rt);
-            }, $rt);
+
+            $rt = array_reduce($c->get('renderTemplate.factories'), fn ($rt, $create) => $create($rt), $rt);
             $rt = new RenderTemplate\ComposeRenderTemplate($rt, $c->get('compose'));
 
             return $rt;
         });
-        $c->add('renderTemplate.bind', function () {
-            return Util\id();
-        });
-        $c->add('renderTemplate.factories', function () {
-            return [];
-        });
+        $c->add('renderTemplate.bind', fn () => Util\id());
+        $c->add('renderTemplate.factories', fn () => []);
 
         $plates->addMethods([
             'pushComposers' => function (Engine $e, $def_composer) {
-                $e->getContainer()->wrapComposed('compose', function ($composed, $c) use ($def_composer) {
-                    return array_merge($composed, $def_composer($c));
-                });
+                $e->getContainer()->wrapComposed('compose', fn ($composed, $c) => array_merge($composed, $def_composer($c)));
             },
             'unshiftComposers' => function (Engine $e, $def_composer) {
-                $e->getContainer()->wrapComposed('compose', function ($composed, $c) use ($def_composer) {
-                    return array_merge($def_composer($c), $composed);
-                });
+                $e->getContainer()->wrapComposed('compose', fn ($composed, $c) => array_merge($def_composer($c), $composed));
             },
             'addConfig' => function (Engine $e, array $config) {
                 $e->getContainer()->merge('config', $config);

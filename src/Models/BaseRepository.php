@@ -56,15 +56,18 @@ class BaseRepository implements RepositoryInterface
 
     public function add(array $data): ?int
     {
+        $id = null;
         // wp_insert_post
         // update_field
         if (!empty($data['wp'])) {
             $postData = array_merge(['post_type' => $this->postType], $data['wp']);
             $id       = wp_insert_post($postData);
         }
+
         if (!empty($data['ac']) && $id) {
             $this->updateAcfFields($id, $data['ac']);
         }
+
         if (!empty($data['tg']) && $id) {
             $this->updateTaxonomies($id, $data['tg']);
         }
@@ -79,14 +82,17 @@ class BaseRepository implements RepositoryInterface
         if (!$this->isModel($id)) {
             return null;
         }
+
         if (!empty($data['wp'])) {
             // merge post data
             $postData = array_merge(['ID' => $id], $data['wp']);
             wp_update_post($postData);
         }
+
         if (!empty($data['ac'])) {
             $this->updateAcfFields($id, $data['ac']);
         }
+
         if (!empty($data['tg'])) {
             $this->updateTaxonomies($id, $data['tg']);
         }

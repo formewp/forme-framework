@@ -13,27 +13,22 @@ class Migrations
 {
     use PluginOrThemeable;
 
+    /**
+     * @var string
+     */
     public const DB_DIR = '/app/Database/Migrations';
 
     /** @var TextWrapper */
     protected $phinxApplication;
 
-    /** @var LoggerInterface */
-    protected $logger;
-
-    /** @var MigrationInitialiser */
-    protected $initialiser;
-
     /** @var string */
     protected $phinxConfigLocation;
 
-    public function __construct(PhinxApplication $phinxApplication, LoggerInterface $logger, MigrationInitialiser $initialiser)
+    public function __construct(PhinxApplication $phinxApplication, protected LoggerInterface $logger, protected MigrationInitialiser $initialiser)
     {
         // wrap Phinx in the textwrapper as per https://github.com/cakephp/phinx/blob/master/app/web.php
         $this->phinxConfigLocation = FORME_PRIVATE_ROOT . 'phinx.yml';
         $this->phinxApplication    = new TextWrapper($phinxApplication, ['configuration' => $this->phinxConfigLocation]);
-        $this->logger              = $logger;
-        $this->initialiser         = $initialiser;
     }
 
     public function migrate(): array
@@ -55,6 +50,7 @@ class Migrations
             $migrationPaths = [];
             $this->logger->info('Initialising migration paths');
         }
+
         // add plugin/theme paths if not in
         if (self::isPlugin() && !in_array(self::getPluginPath() . self::DB_DIR, $migrationPaths)) {
             $migrationPaths[] = self::getPluginPath() . self::DB_DIR;
@@ -63,11 +59,13 @@ class Migrations
             $migrationPaths[] = self::getThemePath() . self::DB_DIR;
             $this->logger->info('Adding theme migration path');
         }
+
         // add framework path if not in
         if (!in_array(__DIR__ . '/Migrations', $migrationPaths)) {
             $migrationPaths[] = __DIR__ . '/Migrations';
             $this->logger->info('Adding framework migration path');
         }
+
         $phinxConfig['paths']['migrations'] = $migrationPaths;
         // save to phinx.yml if things have changed
         if ($phinxConfig !== $originalConfig) {
@@ -76,9 +74,10 @@ class Migrations
             $messages[] = ['type' => 'success', 'text' => 'Forme phinx.yml saved, check ' . $this->phinxConfigLocation];
             $this->logger->info('phinx.yml saved after path changes');
         }
+
         $this->logger->info('Migration path config completed');
         // run migrations
-        $output = call_user_func([$this->phinxApplication, 'getMigrate'], WP_ENV ?: 'development');
+        $output = $this->phinxApplication->getMigrate(WP_ENV ?: 'development');
         $this->logger->info($output);
         $messages[] = ['type' => 'success', 'text' => 'Forme Migration completed, check server logs for more info'];
 

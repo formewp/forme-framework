@@ -9,8 +9,7 @@ class LegacyPlatesView implements ViewInterface
 {
     use GetsDirectory;
 
-    /** @var Engine */
-    private $view;
+    private \Forme\Framework\View\Plates\Engine $view;
 
     public function __construct()
     {

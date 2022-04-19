@@ -9,15 +9,13 @@ use Forme\Framework\View\Plates\Template;
 
 function sectionsCompose()
 {
-    return function (Template $template) {
-        return $template->with('sections', $template->parent ? $template->parent()->get('sections') : new Sections());
-    };
+    return fn (Template $template) => $template->with('sections', $template->parent ? $template->parent()->get('sections') : new Sections());
 }
 
 function layoutFunc()
 {
     return function (FuncArgs $args) {
-        list($name, $data) = $args->args;
+        [$name, $data] = $args->args;
 
         $layout = $args->template()->fork($name, $data ?: []);
         $args->template()->with('layout', $layout->reference);
@@ -29,7 +27,7 @@ function layoutFunc()
 function sectionFunc()
 {
     return function (FuncArgs $args) {
-        list($name, $else) = $args->args;
+        [$name, $else] = $args->args;
 
         $res = $args->template()->get('sections')->get($name);
         if ($res || !$else) {
@@ -49,18 +47,16 @@ const START_REPLACE = 2;
 /** Starts the output buffering for a section, update of 0 = replace, 1 = append, 2 = prepend */
 function startFunc($update = START_REPLACE)
 {
-    return startBufferFunc(function (FuncArgs $args) use ($update) {
-        return function ($contents) use ($update, $args) {
-            $name = $args->args[0];
-            $sections = $args->template()->get('sections');
+    return startBufferFunc(fn (FuncArgs $args) => function ($contents) use ($update, $args) {
+        $name     = $args->args[0];
+        $sections = $args->template()->get('sections');
 
-            if ($update === START_APPEND) {
-                $sections->append($name, $contents);
-            } elseif ($update === START_PREPEND) {
-                $sections->prepend($name, $contents);
-            } else {
-                $sections->add($name, $contents);
-            }
-        };
+        if ($update === START_APPEND) {
+            $sections->append($name, $contents);
+        } elseif ($update === START_PREPEND) {
+            $sections->prepend($name, $contents);
+        } else {
+            $sections->add($name, $contents);
+        }
     });
 }

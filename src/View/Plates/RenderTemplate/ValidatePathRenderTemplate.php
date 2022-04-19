@@ -6,11 +6,8 @@ use Forme\Framework\View\Plates;
 
 final class ValidatePathRenderTemplate extends RenderTemplateDecorator
 {
-    private $file_exists;
-
-    public function __construct(Plates\RenderTemplate $render, $file_exists = 'file_exists') {
+    public function __construct(Plates\RenderTemplate $render, private $file_exists = 'file_exists') {
         parent::__construct($render);
-        $this->file_exists = $file_exists;
     }
 
     public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {

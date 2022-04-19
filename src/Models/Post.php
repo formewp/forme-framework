@@ -13,7 +13,14 @@ class Post extends Model
 
     protected $primaryKey = 'ID';
 
+    /**
+     * @var string
+     */
     public const CREATED_AT = 'post_date';
+
+    /**
+     * @var string
+     */
     public const UPDATED_AT = 'post_modified';
 
     /**
@@ -49,7 +56,7 @@ class Post extends Model
      */
     public function comments(): HasMany
     {
-        return $this->hasMany('Forme\Framework\Models\Comment', 'comment_post_ID');
+        return $this->hasMany(Comment::class, 'comment_post_ID');
     }
 
     /**
@@ -57,7 +64,7 @@ class Post extends Model
      */
     public function meta(): HasMany
     {
-        return $this->hasMany('Forme\Framework\Models\PostMeta', 'post_id');
+        return $this->hasMany(PostMeta::class, 'post_id');
     }
 
     public function generateSlug(): void

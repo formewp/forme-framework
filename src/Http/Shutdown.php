@@ -13,7 +13,7 @@ class Shutdown
 {
     public function shutdown(ResponseInterface $response = null): void
     {
-        if ($response) {
+        if ($response !== null) {
             global $wp;
             $wp->send_headers();
 
@@ -36,17 +36,13 @@ class Shutdown
             header_remove($parts[0]);
 
             return $parts;
-        })->filter(function ($header) {
-            return !in_array(strtolower($header[0]), ['content-type']);
-        });
+        })->filter(fn ($header) => strtolower($header[0]) != 'content-type');
 
         // Add the previously sent headers into the response
         // Note: You can't mutate a response so we need to use the reduce to end up with a response
         // object with all the correct headers
         /** @var ResponseInterface */
-        $responseToSend = collect($headersToAdd)->reduce(function (ResponseInterface $newResponse, array $header) {
-            return $newResponse->withAddedHeader($header[0], $header[1]);
-        }, $response);
+        $responseToSend = collect($headersToAdd)->reduce(fn (ResponseInterface $newResponse, array $header) => $newResponse->withAddedHeader($header[0], $header[1]), $response);
 
         return $responseToSend;
     }

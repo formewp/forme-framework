@@ -7,7 +7,7 @@ trait GetsDirectory
 {
     private function getDir(): string
     {
-        $reflector = new \ReflectionClass(get_class($this));
+        $reflector = new \ReflectionClass($this::class);
         $filename  = $reflector->getFileName();
 
         return dirname($filename);

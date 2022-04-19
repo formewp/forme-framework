@@ -13,12 +13,8 @@ class AjaxHandler implements HandlerInterface
     /** @var callable */
     private $handler;
 
-    /** @var Shutdown */
-    private $shutdown;
-
-    public function __construct(Shutdown $shutdown)
+    public function __construct(private Shutdown $shutdown)
     {
-        $this->shutdown = $shutdown;
     }
 
     public function setHandler(callable $handler): void

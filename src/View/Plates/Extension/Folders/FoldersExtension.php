@@ -10,22 +10,16 @@ final class FoldersExtension implements Plates\Extension
     {
         $c = $plates->getContainer();
         $c->add('folders.folders', []);
-        $c->wrapStack('path.resolvePath', function ($stack, $c) {
-            $config = $c;
-
-            return array_merge($stack, [
-                'folders' => foldersResolvePath(
-                    $c->get('folders.folders'),
-                    $c->get('config')['folder_separator'],
-                    $c->get('fileExists')
-                ),
-            ]);
-        });
-        $c->wrapComposed('path.normalizeName', function ($composed, $c) {
-            return array_merge($composed, [
-                'folders.stripFolders' => stripFoldersNormalizeName($c->get('folders.folders')),
-            ]);
-        });
+        $c->wrapStack('path.resolvePath', fn ($stack, $c) => array_merge($stack, [
+            'folders' => foldersResolvePath(
+                $c->get('folders.folders'),
+                $c->get('config')['folder_separator'],
+                $c->get('fileExists')
+            ),
+        ]));
+        $c->wrapComposed('path.normalizeName', fn ($composed, $c) => array_merge($composed, [
+            'folders.stripFolders' => stripFoldersNormalizeName($c->get('folders.folders')),
+        ]));
 
         $plates->defineConfig([
             'folder_separator' => '::',
@@ -36,6 +30,7 @@ final class FoldersExtension implements Plates\Extension
                 if ($fallback) {
                     $prefixes[] = '';
                 }
+
                 $plates->getContainer()->merge('folders.folders', [
                     $folder => [
                         'folder'   => $folder,

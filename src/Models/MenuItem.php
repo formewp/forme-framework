@@ -27,6 +27,7 @@ class MenuItem extends Post
         if (!$indexedItems) {
             return null;
         }
+
         // convert to an array of ids
         $itemIds = array_keys($indexedItems);
 
@@ -47,13 +48,13 @@ class MenuItem extends Post
         }
 
         return $collection->map(function ($item) use ($indexedItems, $type) {
-            $item->menuType = $type;
-            $WPMenuItem = $indexedItems[$item->ID];
-            $item->title = $WPMenuItem->title;
-            $item->url = $WPMenuItem->url;
-            $item->classes = $WPMenuItem->classes;
-            $item->target = $WPMenuItem->target;
-            $item->description = $WPMenuItem->description;
+            $item->menuType          = $type;
+            $WPMenuItem              = $indexedItems[$item->ID];
+            $item->title             = $WPMenuItem->title;
+            $item->url               = $WPMenuItem->url;
+            $item->classes           = $WPMenuItem->classes;
+            $item->target            = $WPMenuItem->target;
+            $item->description       = $WPMenuItem->description;
             $item->wordPressMenuItem = $indexedItems[$item->ID];
 
             return $item;
@@ -85,6 +86,7 @@ class MenuItem extends Post
         foreach ($items as $item) {
             $indexedItems[$item->ID] = $item;
         }
+
         array_walk($items, function ($item) use ($indexedItems) {
             $indexedItems[$item->ID] = $item;
         });

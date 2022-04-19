@@ -8,16 +8,11 @@ use Symfony\Component\Yaml\Yaml;
 
 class MigrationInitialiser
 {
-    /** @var LoggerInterface */
-    private $logger;
+    private string $defaultConfigLocation;
 
-    /** @var string */
-    private $defaultConfigLocation;
-
-    public function __construct(LoggerInterface $logger)
+    public function __construct(private LoggerInterface $logger)
     {
         $this->defaultConfigLocation = realpath(__DIR__ . '/phinx.default.yml');
-        $this->logger                = $logger;
     }
 
     /**
@@ -48,6 +43,7 @@ class MigrationInitialiser
             $defaultEnvironment                                 = $phinxConfig['environments']['default_environment'];
             $this->logger->info('Setting the Phinx db environment to ' . $defaultEnvironment);
         }
+
         // if db credentials do not match, let's set them - host/port//name/user/pass/charset
         $dbCredentials = $phinxConfig['environments'][$defaultEnvironment];
         if (
@@ -59,7 +55,7 @@ class MigrationInitialiser
         ) {
             $hostPort                                         = explode(':', DB_HOST);
             $dbCredentials['host']                            = $hostPort[0];
-            $dbCredentials['port']                            = isset($hostPort[1]) ? $hostPort[1] : 3306;
+            $dbCredentials['port']                            = $hostPort[1] ?? 3306;
             $dbCredentials['name']                            = DB_NAME;
             $dbCredentials['user']                            = DB_USER;
             $dbCredentials['pass']                            = DB_PASSWORD;
@@ -67,13 +63,15 @@ class MigrationInitialiser
             $phinxConfig['environments'][$defaultEnvironment] = $dbCredentials;
             $this->logger->info('Updating the db credentials for Phinx');
         }
+
         // add db_prefix
         $dbPrefix = $wpdb->prefix ?: 'wp_';
         foreach (array_keys($phinxConfig['environments']) as $key) {
-            if (substr($key, 0, 8) !== 'default_') {
+            if (!str_starts_with($key, 'default_')) {
                 $phinxConfig['environments'][$key]['table_prefix'] = $dbPrefix;
             }
         }
+
         $this->logger->info('Adding db prefix ' . $dbPrefix);
         // save to phinx.yml if things have changed
         if ($phinxConfig !== $originalConfig) {

@@ -19,6 +19,7 @@ final class CustomStrategy implements StrategyInterface
         if ($method && !in_array($method, ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])) {
             throw new InvalidArgumentException('Invalid Custom Route Method');
         }
+
         /** @var CustomRouteHandler */
         $customRouteHandler = $this->container->make(CustomRouteHandler::class);
         $customRouteHandler->map($route, $handler, $method ?? 'GET');

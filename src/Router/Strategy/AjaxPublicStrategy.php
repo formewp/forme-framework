@@ -10,12 +10,8 @@ use InvalidArgumentException;
 
 final class AjaxPublicStrategy implements StrategyInterface
 {
-    /** @var FactoryInterface */
-    private $container;
-
-    public function __construct(FactoryInterface $container)
+    public function __construct(private FactoryInterface $container)
     {
-        $this->container = $container;
     }
 
     public function convert(string $route, callable $handler, ?string $method): HandlerInterface
@@ -23,6 +19,7 @@ final class AjaxPublicStrategy implements StrategyInterface
         if ($method && $method !== 'POST') {
             throw new InvalidArgumentException('Ajax routes can only be POST');
         }
+
         /** @var AjaxHandler */
         $ajaxHandler = $this->container->make(AjaxHandler::class);
         $ajaxHandler->setHandler($handler);

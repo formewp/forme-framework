@@ -16,18 +16,17 @@ final class LayoutSectionsExtension implements Plates\Extension
             if ($default_layout_path) {
                 $factories[] = DefaultLayoutRenderTemplate::factory($default_layout_path);
             }
+
             $factories[] = LayoutRenderTemplate::factory();
 
             return $factories;
         });
 
         $plates->defineConfig(['default_layout_path' => null]);
-        $plates->pushComposers(function ($c) {
-            return ['layoutSections.sections' => sectionsCompose()];
-        });
+        $plates->pushComposers(fn ($c) => ['layoutSections.sections' => sectionsCompose()]);
         $plates->addFuncs(function ($c) {
             $template_args = RenderContext\assertTemplateArgsFunc();
-            $one_arg = RenderContext\assertArgsFunc(1);
+            $one_arg       = RenderContext\assertArgsFunc(1);
 
             return [
                 'layout'  => [layoutFunc(), $template_args],

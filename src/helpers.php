@@ -25,6 +25,7 @@ function getContainer(string $logFile = FORME_PRIVATE_ROOT . '/logs/forme.log'):
     if (isset($GLOBALS['__forme_container__'])) {
         return $GLOBALS['__forme_container__'];
     }
+
     $builder = new ContainerBuilder();
     $builder->addDefinitions([
         LoggerInterface::class => factory(function () use ($logFile) {
@@ -36,7 +37,7 @@ function getContainer(string $logFile = FORME_PRIVATE_ROOT . '/logs/forme.log'):
         }),
     ]);
     $container  = $builder->build();
-    $connection = $container->get('Forme\Framework\Database\Connection');
+    $connection = $container->get(\Forme\Framework\Database\Connection::class);
     $connection->bootstrap();
     $GLOBALS['__forme_container__'] = $container;
 
@@ -67,6 +68,7 @@ function loadWhoops(): void
         if (env('WHOOPS_EDITOR')) {
             $handler->setEditor(env('WHOOPS_EDITOR'));
         }
+
         $whoops->pushHandler($handler);
         $whoops->register();
         set_error_handler(function ($level, $message, $file, $line) {
@@ -114,13 +116,14 @@ function request(): ServerRequestInterface
  * Useful for acf fields array (which is usually snake_case)
  * When it gets changed to scoped vars (which should be camelCase).
  */
-function arrayKeysToCamelCase($array)
+function arrayKeysToCamelCase(array $array): array
 {
     $arr = [];
     foreach ($array as $key => $value) {
         if (is_string($key)) {
             $key = u($key)->camel()->toString();
         }
+
         if (is_array($value)) {
             $value = arrayKeysToCamelCase($value);
         }
@@ -134,7 +137,7 @@ function arrayKeysToCamelCase($array)
 /**
  * Log convenience function.
  */
-function log()
+function log(): LoggerInterface
 {
     return getInstance(LoggerInterface::class);
 }

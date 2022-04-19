@@ -9,17 +9,13 @@ final class PathExtension implements Plates\Extension
     public function register(Plates\Engine $plates)
     {
         $c = $plates->getContainer();
-        $c->add('path.resolvePath.prefixes', function ($c) {
-            return (array) ($c->get('config')['base_dir'] ?? []);
-        });
-        $c->addComposed('path.normalizeName', function ($c) {
-            return [
-                'path.stripExt'    => stripExtNormalizeName(),
-                'path.stripPrefix' => stripPrefixNormalizeName($c->get('path.resolvePath.prefixes')),
-            ];
-        });
+        $c->add('path.resolvePath.prefixes', fn ($c) => (array) ($c->get('config')['base_dir'] ?? []));
+        $c->addComposed('path.normalizeName', fn ($c) => [
+            'path.stripExt'    => stripExtNormalizeName(),
+            'path.stripPrefix' => stripPrefixNormalizeName($c->get('path.resolvePath.prefixes')),
+        ]);
         $c->addStack('path.resolvePath', function ($c) {
-            $config = $c->get('config');
+            $config   = $c->get('config');
             $prefixes = $c->get('path.resolvePath.prefixes');
 
             return array_filter([
@@ -33,11 +29,9 @@ final class PathExtension implements Plates\Extension
             'ext'      => 'phtml',
             'base_dir' => null,
         ]);
-        $plates->pushComposers(function ($c) {
-            return [
-                'path.normalizeName' => normalizeNameCompose($c->get('path.normalizeName')),
-                'path.resolvePath'   => resolvePathCompose($c->get('path.resolvePath')),
-            ];
-        });
+        $plates->pushComposers(fn ($c) => [
+            'path.normalizeName' => normalizeNameCompose($c->get('path.normalizeName')),
+            'path.resolvePath'   => resolvePathCompose($c->get('path.resolvePath')),
+        ]);
     }
 }

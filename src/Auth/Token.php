@@ -15,7 +15,7 @@ class Token
     {
         $this->purge();
         $result = Capsule::table('forme_auth_tokens')->where('name', '=', $name)->first();
-        if (!$result) {
+        if ($result === null) {
             $result = $this->create($name);
         }
 
@@ -26,11 +26,8 @@ class Token
     {
         $this->purge();
         $result = Capsule::table('forme_auth_tokens')->where('name', '=', $name)->first();
-        if ($result && $result->token === $token) {
-            return true;
-        }
 
-        return false;
+        return $result && $result->token === $token;
     }
 
     /**
@@ -42,6 +39,7 @@ class Token
         $expiry = strtotime('+2 hours', time());
         $dt     = new DateTime();
         $dt->setTimestamp($expiry);
+
         $id = Capsule::table('forme_auth_tokens')->insertGetId(
             ['name' => $name, 'token' => $token, 'expiry' => $dt->format('Y-m-d H:i:s')]
         );

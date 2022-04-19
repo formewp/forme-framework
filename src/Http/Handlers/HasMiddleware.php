@@ -13,10 +13,7 @@ trait HasMiddleware
     /** @var array */
     protected $middlewareQueue = [];
 
-    /**
-     * @param MiddlewareInterface|string $middleware
-     */
-    public function addMiddleware($middleware)
+    public function addMiddleware(MiddlewareInterface|string $middleware)
     {
         $this->middlewareQueue[] = $middleware;
     }
@@ -34,9 +31,7 @@ trait HasMiddleware
     public function dispatchMiddleware(RequestInterface $request, callable $responseFunc): ResponseInterface
     {
         $queue    = array_merge($this->middlewareQueue ?? [], [$responseFunc]);
-        $resolver = function ($entry) {
-            return is_string($entry) ? \Forme\getInstance($entry) : $entry;
-        };
+        $resolver = fn ($entry) => is_string($entry) ? \Forme\getInstance($entry) : $entry;
         $relay = new Relay($queue, $resolver);
 
         return $relay->handle($request);

@@ -4,8 +4,9 @@ namespace Forme\Framework\View\Plates\Util;
 
 final class Container
 {
-    private $boxes  = [];
-    private $cached = [];
+    private array $boxes  = [];
+
+    private array $cached = [];
 
     public static function create(array $defs)
     {
@@ -22,14 +23,13 @@ final class Container
         if (array_key_exists($id, $this->cached)) {
             throw new \LogicException('Cannot add service after it has been frozen.');
         }
-        $this->boxes[$id] = [$value, $value instanceof \Closure ? true : false];
+
+        $this->boxes[$id] = [$value, $value instanceof \Closure];
     }
 
     public function addComposed($id, callable $define_composers)
     {
-        $this->add($id, function ($c) use ($id) {
-            return compose(...array_values($c->get($id . '.composers')));
-        });
+        $this->add($id, fn ($c) => compose(...array_values($c->get($id . '.composers'))));
         $this->add($id . '.composers', $define_composers);
     }
 
@@ -40,9 +40,7 @@ final class Container
 
     public function addStack($id, callable $define_stack)
     {
-        $this->add($id, function ($c) use ($id) {
-            return stack($c->get($id . '.stack'));
-        });
+        $this->add($id, fn ($c) => stack($c->get($id . '.stack')));
         $this->add($id . '.stack', $define_stack);
     }
 
@@ -62,10 +60,9 @@ final class Container
         if (!$this->has($id)) {
             throw new \LogicException('Cannot wrap service ' . $id . ' that does not exist.');
         }
+
         $box              = $this->boxes[$id];
-        $this->boxes[$id] = [function ($c) use ($box, $wrapper) {
-            return $wrapper($this->unbox($box, $c), $c);
-        }, true];
+        $this->boxes[$id] = [fn ($c) => $wrapper($this->unbox($box, $c), $c), true];
     }
 
     public function get($id)
@@ -73,9 +70,11 @@ final class Container
         if (array_key_exists($id, $this->cached)) {
             return $this->cached[$id];
         }
+
         if (!$this->has($id)) {
             throw new \LogicException('Cannot retrieve service ' . $id . ' that does exist.');
         }
+
         $result = $this->unbox($this->boxes[$id], $this);
         if ($this->boxes[$id][1]) { // only cache services
             $this->cached[$id] = $result;
@@ -91,7 +90,7 @@ final class Container
 
     private function unbox($box, Container $c)
     {
-        list($value, $is_factory) = $box;
+        [$value, $is_factory] = $box;
         if (!$is_factory) {
             return $value;
         }

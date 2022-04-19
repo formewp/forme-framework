@@ -6,11 +6,8 @@ namespace Forme\Framework\View\Plates\Extension\LayoutSections;
     so that references can be shared across templates. */
 final class Sections
 {
-    private $sections;
-
-    public function __construct(array $sections = [])
+    public function __construct(private array $sections = [])
     {
-        $this->sections = $sections;
     }
 
     public function add($name, $content)
@@ -35,9 +32,7 @@ final class Sections
 
     public function get($name)
     {
-        return array_key_exists($name, $this->sections)
-            ? $this->sections[$name]
-            : null;
+        return $this->sections[$name] ?? null;
     }
 
     public function merge(Sections $sections)

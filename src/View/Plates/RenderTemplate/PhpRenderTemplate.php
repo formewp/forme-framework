@@ -23,7 +23,8 @@ final class PhpRenderTemplate implements Plates\RenderTemplate
 
     private static function createInclude() {
         return function() {
-            extract(func_get_arg(1));
+            $funcGetArg = func_get_arg(1);
+            extract($funcGetArg);
             include func_get_arg(0);
         };
     }

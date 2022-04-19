@@ -10,15 +10,13 @@ final class RenderContextExtension implements Plates\Extension
     public function register(Plates\Engine $plates)
     {
         $c = $plates->getContainer();
-        $c->addStack('renderContext.func', function ($c) {
-            return [
-                'notFound' => notFoundFunc(),
-                'plates'   => Plates\Util\stackGroup([
-                    splitByNameFunc($c->get('renderContext.func.funcs')),
-                    aliasNameFunc($c->get('renderContext.func.aliases')),
-                ]),
-            ];
-        });
+        $c->addStack('renderContext.func', fn ($c) => [
+            'notFound' => notFoundFunc(),
+            'plates'   => Plates\Util\stackGroup([
+                splitByNameFunc($c->get('renderContext.func.funcs')),
+                aliasNameFunc($c->get('renderContext.func.aliases')),
+            ]),
+        ]);
         $c->add('renderContext.func.aliases', [
             'e'        => 'escape',
             '__invoke' => 'escape',
@@ -26,8 +24,8 @@ final class RenderContextExtension implements Plates\Extension
         ]);
         $c->add('renderContext.func.funcs', function ($c) {
             $template_args = assertTemplateArgsFunc();
-            $one_arg = assertArgsFunc(1);
-            $config = $c->get('config');
+            $one_arg       = assertArgsFunc(1);
+            $config        = $c->get('config');
 
             return [
                 'insert' => [insertFunc(), $template_args],
@@ -46,29 +44,23 @@ final class RenderContextExtension implements Plates\Extension
                 'end'       => [endFunc()],
             ];
         });
-        $c->add('include.bind', function ($c) {
-            return renderContextBind($c->get('config')['render_context_var_name']);
-        });
-        $c->add('renderContext.factory', function ($c) {
-            return RenderContext::factory(
-                function () use ($c) { return $c->get('renderTemplate'); },
-                $c->get('renderContext.func')
-            );
-        });
+        $c->add('include.bind', fn ($c) => renderContextBind());
+        $c->add('renderContext.factory', fn ($c) => RenderContext::factory(
+            fn () => $c->get('renderTemplate'),
+            $c->get('renderContext.func')
+        ));
 
         $plates->defineConfig([
             'render_context_var_name' => 'v',
             'escape_encoding'         => null,
             'escape_flags'            => null,
         ]);
-        $plates->pushComposers(function ($c) {
-            return [
-                'renderContext.renderContext' => renderContextCompose(
-                    $c->get('renderContext.factory'),
-                    $c->get('config')['render_context_var_name']
-                ),
-            ];
-        });
+        $plates->pushComposers(fn ($c) => [
+            'renderContext.renderContext' => renderContextCompose(
+                $c->get('renderContext.factory'),
+                $c->get('config')['render_context_var_name']
+            ),
+        ]);
 
         $plates->addMethods([
             'registerFunction' => function (Plates\Engine $e, $name, callable $func, callable $assert_args = null, $simple = true) {

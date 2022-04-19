@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Forme\Framework\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Model
 {
@@ -15,11 +16,9 @@ class User extends Model
 
     /**
      * Relation for user meta.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function meta()
+    public function meta(): HasMany
     {
-        return $this->hasMany('Forme\Framework\Models\UserMeta', 'user_id');
+        return $this->hasMany(UserMeta::class, 'user_id');
     }
 }

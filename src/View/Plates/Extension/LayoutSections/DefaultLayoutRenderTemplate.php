@@ -6,11 +6,8 @@ use Forme\Framework\View\Plates;
 
 final class DefaultLayoutRenderTemplate extends Plates\RenderTemplate\RenderTemplateDecorator
 {
-    private $layout_path;
-
-    public function __construct(Plates\RenderTemplate $render, $layout_path) {
+    public function __construct(Plates\RenderTemplate $render, private $layout_path) {
         parent::__construct($render);
-        $this->layout_path = $layout_path;
     }
 
     public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
@@ -32,8 +29,6 @@ final class DefaultLayoutRenderTemplate extends Plates\RenderTemplate\RenderTemp
     }
 
     public static function factory($layout_path) {
-        return function(Plates\RenderTemplate $rt) use ($layout_path) {
-            return new self($rt, $layout_path);
-        };
+        return fn(Plates\RenderTemplate $rt) => new self($rt, $layout_path);
     }
 }

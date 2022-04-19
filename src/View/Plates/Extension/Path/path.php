@@ -6,26 +6,22 @@ use Forme\Framework\View\Plates;
 
 function resolvePathCompose(callable $resolve_path)
 {
-    return function (Plates\Template $template) use ($resolve_path) {
-        return $template->with('path', $resolve_path(ResolvePathArgs::fromTemplate($template, $resolve_path)));
-    };
+    return fn (Plates\Template $template) => $template->with('path', $resolve_path(ResolvePathArgs::fromTemplate($template)));
 }
 
 function normalizeNameCompose(callable $normalize_name)
 {
-    return function (Plates\Template $template) use ($normalize_name) {
-        return $template->with(
-            'normalized_name',
-             Plates\Util\isPath($template->name) ? $normalize_name($template->get('path')) : $template->name
-        );
-    };
+    return fn (Plates\Template $template) => $template->with(
+        'normalized_name',
+         Plates\Util\isPath($template->name) ? $normalize_name($template->get('path')) : $template->name
+    );
 }
 
 function stripExtNormalizeName()
 {
     return function ($name) {
         $ext = pathinfo($name, PATHINFO_EXTENSION);
-        if (!$ext) {
+        if ($ext === '' || $ext === '0') {
             return $name;
         }
 
@@ -39,7 +35,7 @@ function stripPrefixNormalizeName(array $prefixes)
 
     return function ($name) use ($prefixes) {
         foreach ($prefixes as $prefix) {
-            if (strpos($name, $prefix . '/') === 0) {
+            if (str_starts_with($name, $prefix . '/')) {
                 return substr($name, strlen($prefix) + 1); // +1 for the trailing `/`
             }
         }
@@ -67,7 +63,7 @@ function extResolvePath($ext = 'phtml')
 function prefixResolvePath(array $prefixes, $file_exists = 'file_exists')
 {
     return function (ResolvePathArgs $args, $next) use ($prefixes, $file_exists) {
-        if (!$prefixes) {
+        if ($prefixes === []) {
             return $next($args);
         }
 
@@ -87,7 +83,7 @@ function prefixResolvePath(array $prefixes, $file_exists = 'file_exists')
             // if there is one since this might a be a relative path
             $stripped_args = null;
             foreach ($prefixes as $prefix) {
-                if (strpos($path, $prefix) === 0) {
+                if (str_starts_with($path, $prefix)) {
                     $stripped_args = $args->withPath(substr($path, strlen($prefix))); // remove the prefix
                     break;
                 }
@@ -126,7 +122,5 @@ function relativeResolvePath()
 
 function idResolvePath()
 {
-    return function (ResolvePathArgs $args, $next) {
-        return $args->path;
-    };
+    return fn (ResolvePathArgs $args, $next) => $args->path;
 }

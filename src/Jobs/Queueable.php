@@ -7,27 +7,27 @@ trait Queueable
 {
     public function dispatch(array $args = []): void
     {
-        $queue = \Forme\getInstance('Forme\\Framework\\Jobs\\Queue');
-        $queue->dispatch(['class' => get_class($this), 'arguments' => $args]);
+        $queue = \Forme\getInstance(\Forme\Framework\Jobs\Queue::class);
+        $queue->dispatch(['class' => $this::class, 'arguments' => $args]);
     }
 
     public function schedule(array $args = []): void
     {
-        $queue         = \Forme\getInstance('Forme\\Framework\\Jobs\\Queue');
-        $args['class'] = get_class($this);
+        $queue         = \Forme\getInstance(\Forme\Framework\Jobs\Queue::class);
+        $args['class'] = $this::class;
         $queue->schedule($args);
     }
 
     public function start(array $args = []): void
     {
-        $queue         = \Forme\getInstance('Forme\\Framework\\Jobs\\Queue');
-        $args['class'] = get_class($this);
+        $queue         = \Forme\getInstance(\Forme\Framework\Jobs\Queue::class);
+        $args['class'] = $this::class;
         $queue->start($args);
     }
 
     public function stop(): void
     {
-        $queue = \Forme\getInstance('Forme\\Framework\\Jobs\\Queue');
-        $queue->stop(['class' => get_class($this)]);
+        $queue = \Forme\getInstance(\Forme\Framework\Jobs\Queue::class);
+        $queue->stop(['class' => $this::class]);
     }
 }

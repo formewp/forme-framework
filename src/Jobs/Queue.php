@@ -11,16 +11,8 @@ use Psr\Log\LoggerInterface;
 
 class Queue
 {
-    /** @var ContainerInterface */
-    private $container;
-
-    /** @var LoggerInterface */
-    private $logger;
-
-    public function __construct(ContainerInterface $container, LoggerInterface $logger)
+    public function __construct(private ContainerInterface $container, private LoggerInterface $logger)
     {
-        $this->container = $container;
-        $this->logger    = $logger;
     }
 
     /**
@@ -35,7 +27,7 @@ class Queue
         // class, arguments
         $job                    = new QueuedJob();
         $job->class             =$args['class'];
-        $job->arguments         = json_encode($args['arguments']);
+        $job->arguments         = json_encode($args['arguments'], JSON_THROW_ON_ERROR);
         $job->scheduled_for     = Carbon::now();
         $job->save();
         $this->logger->info('Added job ' . $job->id . ' to the queue');
@@ -55,8 +47,9 @@ class Queue
         // class, arguments, schedule
         $job                    = new QueuedJob();
         $job->class             = $args['class'];
-        $arguments              = json_encode($args['arguments']);
+        $arguments              = json_encode($args['arguments'], JSON_THROW_ON_ERROR);
         $job->arguments         = $arguments === 'null' ? '{}' : $arguments;
+
         $job->scheduled_for     = Carbon::parse($args['next']);
         $job->frequency         = $args['frequency'] ?? null;
         $job->save();
@@ -71,12 +64,13 @@ class Queue
         if (!isset($args['frequency'])) {
             throw new Exception('Job frequency missing');
         }
+
         $jobExists = QueuedJob::where('class', $args['class'])->whereNull('started_at')->first();
         if (!$jobExists) {
             $this->logger->info('Starting recurring job ' . $args['class']);
             $this->schedule($args);
         } else {
-            $this->logger->info('Didn\'t start recurring job ' . $args['class'] . ' as it already exists with id ' . $jobExists->id);
+            $this->logger->info("Didn't start recurring job " . $args['class'] . ' as it already exists with id ' . $jobExists->id);
         }
     }
 
@@ -90,7 +84,7 @@ class Queue
             $jobExists->delete();
             $this->logger->info('Stopped recurring job ' . $args['class']);
         } else {
-            $this->logger->info('Didn\'t stop recurring job ' . $args['class'] . ' as it does not exist');
+            $this->logger->info("Didn't stop recurring job " . $args['class'] . ' as it does not exist');
         }
     }
 
@@ -102,8 +96,9 @@ class Queue
 
             return 'No jobs in the queue';
         }
+
         $jobClass          = $this->container->get($job->class);
-        $arguments         = json_decode($job->arguments, true);
+        $arguments         = json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR);
         $job->started_at   = Carbon::now();
         $job->save();
         $response          = $jobClass->handle($arguments);
@@ -116,7 +111,7 @@ class Queue
             $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
             $this->schedule([
                 'class'     => $job->class,
-                'arguments' => json_decode($job->arguments, true),
+                'arguments' => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
                 'next'      => $nextTime,
                 'frequency' => $job->frequency,
             ]);

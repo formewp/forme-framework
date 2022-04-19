@@ -39,11 +39,12 @@ class Assets
         if (self::distExists()) {
             return self::resolveManifestPath($relativefilePath);
         }
+
         if (self::isPlugin()) {
             // we have to add a dummy because plugin_dir_ul assumes a file in a dir
             return plugin_dir_url(self::basePath() . 'dummy') . $relativefilePath;
         } else {
-            return get_template_directory_uri(self::basePath()) . self::basePathPart() . $relativefilePath;
+            return get_template_directory_uri() . self::basePathPart() . $relativefilePath;
         }
     }
 
@@ -107,7 +108,7 @@ class Assets
         }
 
         $manifestFileLocation = self::basePath() . 'manifest.json';
-        $manifestData         = json_decode(file_get_contents($manifestFileLocation), true);
+        $manifestData         = json_decode(file_get_contents($manifestFileLocation), true, 512, JSON_THROW_ON_ERROR);
 
         $pathKey = ltrim(self::basePathPart(), '/') . $path;
 

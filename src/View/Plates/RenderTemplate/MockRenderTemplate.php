@@ -6,10 +6,8 @@ use Forme\Framework\View\Plates;
 
 final class MockRenderTemplate implements Plates\RenderTemplate
 {
-    private $mocks;
-
-    public function __construct(array $mocks) {
-        $this->mocks = $mocks;
+    public function __construct(private array $mocks)
+    {
     }
 
     public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {

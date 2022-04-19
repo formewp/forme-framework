@@ -14,13 +14,11 @@ final class DataExtension implements Plates\Extension
         $c->add('data.template_data', []);
 
         $plates->defineConfig(['merge_parent_data' => true]);
-        $plates->pushComposers(function ($c) {
-            return array_filter([
-                'data.addGlobals'      => $c->get('data.globals') ? addGlobalsCompose($c->get('data.globals')) : null,
-                'data.mergeParentData' => $c->get('config')['merge_parent_data'] ? mergeParentDataCompose() : null,
-                'data.perTemplateData' => $c->get('data.template_data') ? perTemplateDataCompose($c->get('data.template_data')) : null,
-            ]);
-        });
+        $plates->pushComposers(fn ($c) => array_filter([
+            'data.addGlobals'      => $c->get('data.globals') ? addGlobalsCompose($c->get('data.globals')) : null,
+            'data.mergeParentData' => $c->get('config')['merge_parent_data'] ? mergeParentDataCompose() : null,
+            'data.perTemplateData' => $c->get('data.template_data') ? perTemplateDataCompose($c->get('data.template_data')) : null,
+        ]));
 
         $plates->addMethods([
             'addGlobals' => function (Plates\Engine $e, array $data) {
@@ -39,6 +37,7 @@ final class DataExtension implements Plates\Extension
                 if (!isset($template_data[$name])) {
                     $template_data[$name] = [];
                 }
+
                 $template_data[$name] = array_merge($template_data[$name], $data);
                 $e->getContainer()->add('data.template_data', $template_data);
             },

@@ -10,12 +10,8 @@ use InvalidArgumentException;
 
 final class RestStrategy implements StrategyInterface
 {
-    /** @var FactoryInterface */
-    private $container;
-
-    public function __construct(FactoryInterface $container)
+    public function __construct(private FactoryInterface $container)
     {
-        $this->container = $container;
     }
 
     public function convert(string $route, callable $handler, ?string $method): HandlerInterface
@@ -23,6 +19,7 @@ final class RestStrategy implements StrategyInterface
         if ($method && !in_array($method, ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])) {
             throw new InvalidArgumentException('Invalid REST Route Method');
         }
+
         /** @var RestHandler */
         $restHandler = $this->container->make(RestHandler::class);
         $restHandler->setHandler($handler);

@@ -6,17 +6,8 @@ use Forme\Framework\View\Plates;
 
 final class FuncArgs
 {
-    public $render;
-    public $ref;
-    public $func_name;
-    public $args;
-
-    public function __construct(Plates\RenderTemplate $render, Plates\TemplateReference $ref, $func_name, $args = [])
+    public function __construct(public Plates\RenderTemplate $render, public Plates\TemplateReference $ref, public $func_name, public $args = [])
     {
-        $this->render    = $render;
-        $this->ref       = $ref;
-        $this->func_name = $func_name;
-        $this->args      = $args;
     }
 
     public function template()

@@ -9,14 +9,13 @@ use function Symfony\Component\String\u;
 
 class StrategyFactory
 {
+    /**
+     * @var string[]
+     */
     public const TYPES = ['ajax-public', 'ajax-private', 'rest', 'custom'];
 
-    /** @var ContainerInterface */
-    private $container;
-
-    public function __construct(ContainerInterface $container)
+    public function __construct(private ContainerInterface $container)
     {
-        $this->container = $container;
     }
 
     public function get(string $type): StrategyInterface

@@ -25,15 +25,9 @@ class Blade implements FactoryContract
      */
     protected $container;
 
-    /**
-     * @var Factory
-     */
-    private $factory;
+    private Factory $factory;
 
-    /**
-     * @var BladeCompiler
-     */
-    private $compiler;
+    private BladeCompiler $compiler;
 
     public function __construct(array|string $viewPaths, string $cachePath, ContainerInterface $container = null)
     {
@@ -117,20 +111,14 @@ class Blade implements FactoryContract
 
     protected function setupContainer(array $viewPaths, string $cachePath): void
     {
-        $this->container->bindIf('files', function () {
-            return new Filesystem();
-        }, true);
+        $this->container->bindIf('files', fn () => new Filesystem(), true);
 
-        $this->container->bindIf('events', function () {
-            return new Dispatcher();
-        }, true);
+        $this->container->bindIf('events', fn () => new Dispatcher(), true);
 
-        $this->container->bindIf('config', function () use ($viewPaths, $cachePath) {
-            return new Config([
-                'view.paths'    => $viewPaths,
-                'view.compiled' => $cachePath,
-            ]);
-        }, true);
+        $this->container->bindIf('config', fn () => new Config([
+            'view.paths'    => $viewPaths,
+            'view.compiled' => $cachePath,
+        ]), true);
 
         Facade::setFacadeApplication($this->container);
     }

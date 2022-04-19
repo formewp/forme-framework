@@ -21,7 +21,7 @@ class ServerRequest extends DiactorosServerRequest implements ArrayAccess
 
         // Is this a JSON request?
         if (stripos($request->getHeaderLine('Content-Type'), 'application/json') !== false) {
-            $parsedBody = @json_decode($request->getBody()->getContents(), true);
+            $parsedBody = @json_decode($request->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
         }
 
         return new static(

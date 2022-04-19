@@ -11,8 +11,7 @@ class TwigView implements ViewInterface
 {
     use GetsDirectory;
 
-    /** @var Environment */
-    private $view;
+    private \Twig\Environment $view;
 
     public function __construct()
     {
@@ -21,6 +20,7 @@ class TwigView implements ViewInterface
         if (WP_ENV==='production') {
             $options['cache'] =  FORME_PRIVATE_ROOT . 'view-cache';
         }
+
         $this->view = new Environment($loader, $options);
         $this->view->addExtension(getInstance(TwigExtension::class));
     }

@@ -24,12 +24,11 @@ trait CustomPostable
             // if posttype is set we use that
             $postType = self::$postType;
         } else {
+            $explode = explode('\\', static::class);
             // otherwise try snake case version of the class name
-            $postType = u(end(explode('\\', get_called_class())))->snake()->toString();
+            $postType = u(end($explode))->snake()->toString();
         }
 
-        static::addGlobalScope('postType', function (Builder $query) use ($postType) {
-            return $query->where('post_type', '=', $postType);
-        });
+        static::addGlobalScope('postType', fn (Builder $query) => $query->where('post_type', '=', $postType));
     }
 }

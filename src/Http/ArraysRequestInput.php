@@ -12,7 +12,7 @@ trait ArraysRequestInput
 
     public function offsetGet(mixed $offset): mixed
     {
-        return isset($this->input()[$offset]) ? $this->input()[$offset] : null;
+        return $this->input()[$offset] ?? null;
     }
 
     public function offsetSet(mixed $offset, mixed $value): void

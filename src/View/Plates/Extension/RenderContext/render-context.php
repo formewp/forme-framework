@@ -18,9 +18,7 @@ function renderContextCompose(callable $render_context_factory, $var_name)
 
 function renderContextBind()
 {
-    return function (Closure $inc, Template $template) {
-        return $template->get('render_context')
-            ? $inc->bindTo($template->get('render_context'))
-            : $inc;
-    };
+    return fn (Closure $inc, Template $template) => $template->get('render_context')
+        ? $inc->bindTo($template->get('render_context'))
+        : $inc;
 }

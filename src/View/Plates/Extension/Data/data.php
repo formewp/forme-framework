@@ -6,18 +6,14 @@ use Forme\Framework\View\Plates\Template;
 
 function addGlobalsCompose(array $globals)
 {
-    return function (Template $template) use ($globals) {
-        return $template->withData(array_merge($globals, $template->data));
-    };
+    return fn (Template $template) => $template->withData(array_merge($globals, $template->data));
 }
 
 function mergeParentDataCompose()
 {
-    return function (Template $template) {
-        return $template->parent
-            ? $template->withData(array_merge($template->parent()->data, $template->data))
-            : $template;
-    };
+    return fn (Template $template) => $template->parent
+        ? $template->withData(array_merge($template->parent()->data, $template->data))
+        : $template;
 }
 
 function perTemplateDataCompose(array $template_data_map)

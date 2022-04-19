@@ -7,17 +7,13 @@ use Forme\Framework\View\Plates;
 
 final class RenderContext
 {
-    private $render;
-    private $ref;
     private $func_stack;
 
     public function __construct(
-        Plates\RenderTemplate $render,
-        Plates\TemplateReference $ref,
+        private Plates\RenderTemplate $render,
+        private Plates\TemplateReference $ref,
         $func_stack = null
     ) {
-        $this->render     = $render;
-        $this->ref        = $ref;
         $this->func_stack = $func_stack ?: Plates\Util\stack([platesFunc()]);
     }
 
@@ -44,7 +40,7 @@ final class RenderContext
         return $this->invokeFuncStack($name, $args);
     }
 
-    public function __invoke(...$args)
+    public function __invoke(array $args = [])
     {
         if (!$this->func_stack) {
             throw new BadMethodCallException('Cannot invoke the render context because no func stack has been setup.');
@@ -65,12 +61,10 @@ final class RenderContext
 
     public static function factory(callable $create_render, $func_stack = null)
     {
-        return function (Plates\TemplateReference $ref) use ($create_render, $func_stack) {
-            return new self(
-                $create_render(),
-                $ref,
-                $func_stack
-            );
-        };
+        return fn (Plates\TemplateReference $ref) => new self(
+            $create_render(),
+            $ref,
+            $func_stack
+        );
     }
 }

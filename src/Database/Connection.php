@@ -7,12 +7,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Connection
 {
-    /** @var Capsule */
-    private $capsule;
-
-    public function __construct(Capsule $capsule)
+    public function __construct(private Capsule $capsule)
     {
-        $this->capsule = $capsule;
     }
 
     public function bootstrap(): void
@@ -26,12 +22,13 @@ class Connection
             'username' => DB_USER,
             'password' => DB_PASSWORD,
             'charset'  => DB_CHARSET,
-            //'collation' => DB_COLLATE,
+            // 'collation' => DB_COLLATE,
             'prefix'   => $wpdb->prefix ?: 'wp_',
         ];
         if (DB_COLLATE) {
             $args['collation'] = DB_COLLATE;
         }
+
         $this->capsule->addConnection($args);
 
         // Make this Capsule instance available globally via static methods

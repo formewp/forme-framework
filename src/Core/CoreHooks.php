@@ -21,10 +21,10 @@ final class CoreHooks
                 $filter = array_values($filter);
                 $filter = $filter[0];
                 if (is_array($filter['function']) && isset($filter['function'][0])) {
-                    return str_contains(get_class($filter['function'][0]), 'TemplateHandler');
+                    return str_contains($filter['function'][0]::class, 'TemplateHandler');
                 }
             });
-            if ($alreadySet) {
+            if ($alreadySet !== []) {
                 return;
             }
         }
