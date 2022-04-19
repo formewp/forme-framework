@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.3] - 2022-04-19
+
+### Miscellaneous Tasks
+
+- Update composer deps
+
 ## [1.3.2] - 2022-04-19
+
+### Documentation
+
+- Update changelog
 
 ### Features
 
