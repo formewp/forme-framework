@@ -2,10 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.3.1]
+## [1.3.2] - 2022-04-19
+
+### Features
+
+- Install and configure rector
+
+### Refactor
+
+- Automated rector plus manual
+
+## [1.3.1] - 2022-03-19
 
 ### Documentation
 
+- Update changelog
 - Update changelog
 
 ### Features
