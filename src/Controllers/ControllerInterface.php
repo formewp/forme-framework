@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Controllers;
 
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
 interface ControllerInterface
@@ -17,10 +18,7 @@ interface ControllerInterface
      */
     public function handle($request);
 
-    /**
-     * @param MiddlewareInterface|string $middleware
-     */
-    public function addMiddleware($middleware);
+    public function addMiddleware(MiddlewareInterface|string $middleware): void;
 
     public function getMiddlewareQueue(): array;
 }
