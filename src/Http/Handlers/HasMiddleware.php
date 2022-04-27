@@ -13,7 +13,7 @@ trait HasMiddleware
     /** @var array */
     protected $middlewareQueue = [];
 
-    public function addMiddleware(MiddlewareInterface|string $middleware)
+    public function addMiddleware(MiddlewareInterface|string $middleware): void
     {
         $this->middlewareQueue[] = $middleware;
     }

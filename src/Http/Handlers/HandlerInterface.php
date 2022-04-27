@@ -9,10 +9,7 @@ use Psr\Http\Server\MiddlewareInterface;
 
 interface HandlerInterface
 {
-    /**
-     * @param MiddlewareInterface|string $middleware
-     */
-    public function addMiddleware($middleware);
+    public function addMiddleware(MiddlewareInterface|string $middleware): void;
 
     public function dispatchMiddleware(RequestInterface $request, callable $responseFunc): ResponseInterface;
 }
