@@ -23,14 +23,14 @@ trait HasMiddleware
         return $this->middlewareQueue;
     }
 
-    public function addMiddlewareQueue(array $queue)
+    public function addMiddlewareQueue(array $queue): void
     {
         $this->middlewareQueue = array_merge($this->middlewareQueue, $queue);
     }
 
     public function dispatchMiddleware(RequestInterface $request, callable $responseFunc): ResponseInterface
     {
-        $queue    = array_merge($this->middlewareQueue ?? [], [$responseFunc]);
+        $queue    = array_merge($this->middlewareQueue ?: [], [$responseFunc]);
         $resolver = fn ($entry) => is_string($entry) ? \Forme\getInstance($entry) : $entry;
         $relay = new Relay($queue, $resolver);
 

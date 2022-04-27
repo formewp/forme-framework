@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property int    $ID
+ * @property string $post_title
+ * @property string $post_status
+ * @property string $post_type
+ * @property int    $post_parent
+ * @property string $post_name
+ */
 class Post extends Model
 {
     protected $table = 'posts';

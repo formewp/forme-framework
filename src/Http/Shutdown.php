@@ -11,7 +11,10 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Shutdown
 {
-    public function shutdown(ResponseInterface $response = null): void
+    /**
+     * @return never
+     */
+    public function shutdown(ResponseInterface $response = null)
     {
         if ($response !== null) {
             global $wp;

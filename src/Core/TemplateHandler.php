@@ -55,7 +55,7 @@ class TemplateHandler
         return $this->controllerNameSpace . $controllerName;
     }
 
-    /** @return void|null */
+    /** @return never|null */
     private function handleRequest(string $controllerName)
     {
         if (!class_exists($controllerName)) {

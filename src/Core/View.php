@@ -10,9 +10,10 @@ class View
 {
     use PluginOrThemeable;
 
+    /** @var string */
     private $basePath;
 
-    public function __construct($basePath = '')
+    public function __construct(string $basePath = '')
     {
         // if this is a plugin and no basepath is passed in, let's populate it automatically
         if (!$basePath && self::isPlugin()) {
@@ -22,6 +23,9 @@ class View
         }
     }
 
+    /**
+     * @return void|string|false
+     */
     public function render(string $file, array $fields = [], bool $returnString = false)
     {
         /**
