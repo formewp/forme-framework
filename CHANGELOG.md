@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.2] - 2022-05-06
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [2.0.1] - 2022-05-06
 
 ### Bug Fixes
 
 - Dont replace body with params
+
+### Documentation
+
+- Changelog
 
 ### Refactor
 
