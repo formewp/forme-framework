@@ -9,6 +9,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Rareloop\Psr7ServerRequestExtension\InteractsWithInput;
 use Rareloop\Psr7ServerRequestExtension\InteractsWithUri;
 
+/**
+ * @implements ArrayAccess<string, mixed>
+ */
 class ServerRequest extends DiactorosServerRequest implements ArrayAccess
 {
     use InteractsWithInput;

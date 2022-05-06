@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Http\Handlers;
 
-use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Relay\Relay;
 
@@ -28,7 +28,7 @@ trait HasMiddleware
         $this->middlewareQueue = array_merge($this->middlewareQueue, $queue);
     }
 
-    public function dispatchMiddleware(RequestInterface $request, callable $responseFunc): ResponseInterface
+    public function dispatchMiddleware(ServerRequestInterface $request, callable $responseFunc): ResponseInterface
     {
         $queue    = array_merge($this->middlewareQueue ?: [], [$responseFunc]);
         $resolver = fn ($entry) => is_string($entry) ? \Forme\getInstance($entry) : $entry;

@@ -9,6 +9,9 @@ use Rareloop\Psr7ServerRequestExtension\InteractsWithInput;
 use Rareloop\Psr7ServerRequestExtension\InteractsWithUri;
 use WPRestApi\PSR7\WP_REST_PSR7_ServerRequest as WPRestServerRequest;
 
+/**
+ * @implements ArrayAccess<string, mixed>
+ */
 class ServerRequest extends WPRestServerRequest implements ServerRequestInterface, ArrayAccess
 {
     use InteractsWithInput;

@@ -100,7 +100,7 @@ function loadDotenv(): void
 /**
  * Get the current request.
  */
-function request(): ServerRequestInterface
+function request(): ServerRequestInterface|ServerRequest
 {
     return ServerRequest::fromRequest(ServerRequestFactory::fromGlobals(
         $_SERVER,
