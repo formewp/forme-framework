@@ -2,7 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2022-05-06
+
+### Bug Fixes
+
+- Dont replace body with params
+
+### Refactor
+
+- Typing
+
+## [2.0.0] - 2022-04-28
+
+### Miscellaneous Tasks
+
+- Remove deprecated functionality
+
+## [1.3.6] - 2022-04-27
+
+### Refactor
+
+- Return types
+- Typing
+
+## [1.3.5] - 2022-04-27
+
+### Bug Fixes
+
+- Controller interface signature
+
+## [1.3.4] - 2022-04-27
+
+### Bug Fixes
+
+- Handler interface and trait
+
 ## [1.3.3] - 2022-04-19
+
+### Documentation
+
+- Update changelog
 
 ### Miscellaneous Tasks
 
