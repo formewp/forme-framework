@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.3] - 2022-05-07
+
+### Features
+
+- Add route params to the query
+
 ## [2.0.2] - 2022-05-06
+
+### Documentation
+
+- Update changelog
 
 ### Miscellaneous Tasks
 
