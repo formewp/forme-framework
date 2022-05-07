@@ -39,6 +39,9 @@ class CustomRouteHandler implements HandlerInterface
                 // but TODO: test for side-effects?
                 do_action('template_redirect');
                 $request     = \Forme\request();
+                if (isset($route['params'])) {
+                    $request = $request->withQueryParams($route['params'] + $request->getQueryParams());
+                }
 
                 // we pass the response closure into the dispatcher
                 $responseFunc = function ($request, $handler) use ($route) {
