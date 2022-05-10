@@ -53,6 +53,14 @@
         "php-stubs/acf-pro-stubs": "^5.9.9",
         "filp/whoops": "^2.14",
         "rector/rector": "^0.12.21",
-        "php-stubs/wp-cli-stubs": "^2.6"
+        "php-stubs/wp-cli-stubs": "^2.6",
+        "friendsofphp/php-cs-fixer": "^3.8"
+    },
+    "scripts": {
+        "stan": "./vendor/bin/phpstan",
+        "rector:check": "./vendor/bin/rector process src --dry-run",
+        "rector:fix": "./vendor/bin/rector process src",
+        "cs:check": "./vendor/bin/php-cs-fixer fix --config ./.php-cs-fixer.dist --dry-run --diff",
+        "cs:fix": "./vendor/bin/php-cs-fixer fix --config ./.php-cs-fixer.dist --diff"
     }
 }

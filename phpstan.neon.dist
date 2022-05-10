@@ -11,4 +11,4 @@ parameters:
     - "#Unsafe usage of new static#"
   checkMissingIterableValueType: false
   paths:
-   - ./src
+    - ./src
