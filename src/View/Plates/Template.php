@@ -13,7 +13,7 @@ final class Template
         public array $data = [],
         public array $attributes = [],
         TemplateReference $ref = null,
-        public TemplateReference $parent = null
+        public ?TemplateReference $parent = null
     ) {
         $this->reference = ($ref ?: new TemplateReference)->update($this);
     }
