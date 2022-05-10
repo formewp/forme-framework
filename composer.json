@@ -52,6 +52,7 @@
         "php-stubs/woocommerce-stubs": "^6.0",
         "php-stubs/acf-pro-stubs": "^5.9.9",
         "filp/whoops": "^2.14",
-        "rector/rector": "^0.12.21"
+        "rector/rector": "^0.12.21",
+        "php-stubs/wp-cli-stubs": "^2.6"
     }
 }
