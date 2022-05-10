@@ -11,7 +11,7 @@ function addGlobalsCompose(array $globals)
 
 function mergeParentDataCompose()
 {
-    return fn (Template $template) => $template->parent
+    return fn (Template $template) => $template->parent !== null
         ? $template->withData(array_merge($template->parent()->data, $template->data))
         : $template;
 }

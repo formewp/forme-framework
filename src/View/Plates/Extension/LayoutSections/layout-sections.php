@@ -9,7 +9,7 @@ use Forme\Framework\View\Plates\Template;
 
 function sectionsCompose()
 {
-    return fn (Template $template) => $template->with('sections', $template->parent ? $template->parent()->get('sections') : new Sections());
+    return fn (Template $template) => $template->with('sections', $template->parent !== null ? $template->parent()->get('sections') : new Sections());
 }
 
 function layoutFunc()

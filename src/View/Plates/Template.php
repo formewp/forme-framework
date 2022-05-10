@@ -30,7 +30,7 @@ final class Template
 
     /** Returns the deferenced parent template */
     public function parent() {
-        return $this->parent ? ($this->parent)() : null;
+        return $this->parent !== null ? ($this->parent)() : null;
     }
 
     public function withName($name) {
