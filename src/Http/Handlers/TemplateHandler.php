@@ -62,8 +62,8 @@ class TemplateHandler implements HandlerInterface
         $request     = \Forme\request();
         $request     = $request->withParsedBody([
             'postId'  => $postId,
-            'fields'  => arrayKeysToCamelCase($fields),
-            'options' => arrayKeysToCamelCase($options),
+            'fields'  => $fields ? arrayKeysToCamelCase($fields) : [],
+            'options' => $options ? arrayKeysToCamelCase($options) : [],
         ]);
         // we pass the response closure into the dispatcher
         $responseFunc = function ($request, $handler) use ($controller) {
