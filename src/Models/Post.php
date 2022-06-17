@@ -50,7 +50,7 @@ class Post extends Model
     /**
      * Filter by post author.
      */
-    public function scopeAuthor(Builder $query, string $author = null): ?Builder
+    public function scopeAuthor(Builder $query, ?string $author = null): ?Builder
     {
         if ($author) {
             return $query->where('post_author', '=', $author);

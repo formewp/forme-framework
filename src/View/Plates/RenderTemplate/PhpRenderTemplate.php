@@ -12,7 +12,7 @@ final class PhpRenderTemplate implements Plates\RenderTemplate
         $this->bind = $bind;
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $render = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $render = null) {
         $inc = self::createInclude();
         $inc = $this->bind ? ($this->bind)($inc, $template) : $inc;
 

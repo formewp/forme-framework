@@ -10,7 +10,7 @@ final class DefaultLayoutRenderTemplate extends Plates\RenderTemplate\RenderTemp
         parent::__construct($render);
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         if ($template->parent || $template->get('no_layout')) {
             return $this->render->renderTemplate($template, $rt ?: $this);
         }

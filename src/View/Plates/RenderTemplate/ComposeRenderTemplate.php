@@ -13,7 +13,7 @@ final class ComposeRenderTemplate extends RenderTemplateDecorator
         $this->compose = $compose;
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         return $this->render->renderTemplate(($this->compose)($template), $rt ?: $this);
     }
 }

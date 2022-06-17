@@ -6,7 +6,7 @@ use Forme\Framework\View\Plates;
 
 final class LayoutRenderTemplate extends Plates\RenderTemplate\RenderTemplateDecorator
 {
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         $ref = $template->reference;
         $content = $this->render->renderTemplate($template, $rt ?: $this);
 

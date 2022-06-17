@@ -10,5 +10,5 @@ abstract class RenderTemplateDecorator implements Plates\RenderTemplate
     {
     }
 
-    abstract public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null);
+    abstract public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null);
 }

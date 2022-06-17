@@ -12,7 +12,7 @@ final class StaticFileRenderTemplate implements Plates\RenderTemplate
     {
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         $path = $template->get('path');
         return ($this->get_contents)($path);
     }

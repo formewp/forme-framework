@@ -7,7 +7,7 @@ final class Engine
 {
     private $container;
 
-    public function __construct(Util\Container $container = null)
+    public function __construct(?Util\Container $container = null)
     {
         $this->container = $container ?: Util\Container::create(['engine_methods' => []]);
     }

@@ -9,10 +9,10 @@ final class Template
 
 
     public function __construct(
-        public $name,
+        public string $name,
         public array $data = [],
         public array $attributes = [],
-        TemplateReference $ref = null,
+        ?TemplateReference $ref = null,
         public ?TemplateReference $parent = null
     ) {
         $this->reference = ($ref ?: new TemplateReference)->update($this);

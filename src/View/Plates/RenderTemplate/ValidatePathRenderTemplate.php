@@ -10,7 +10,7 @@ final class ValidatePathRenderTemplate extends RenderTemplateDecorator
         parent::__construct($render);
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         $path = $template->get('path');
         if (!$path || ($this->file_exists)($path)) {
             return $this->render->renderTemplate($template, $rt ?: null);

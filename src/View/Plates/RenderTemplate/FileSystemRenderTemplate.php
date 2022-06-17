@@ -10,7 +10,7 @@ final class FileSystemRenderTemplate implements Plates\RenderTemplate
     {
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         foreach ($this->render_sets as [$match, $render]) {
             if ($match($template)) {
                 return $render->renderTemplate($template, $rt ?: $this);

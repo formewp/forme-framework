@@ -13,7 +13,7 @@ final class MapContentRenderTemplate extends RenderTemplateDecorator
         $this->map_content = $map_content;
     }
 
-    public function renderTemplate(Plates\Template $template, Plates\RenderTemplate $rt = null) {
+    public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $rt = null) {
         return ($this->map_content)($this->render->renderTemplate($template, $rt ?: $this));
     }
 

@@ -14,7 +14,7 @@ class Shutdown
     /**
      * @return never
      */
-    public function shutdown(ResponseInterface $response = null)
+    public function shutdown(?ResponseInterface $response = null)
     {
         if ($response !== null) {
             global $wp;

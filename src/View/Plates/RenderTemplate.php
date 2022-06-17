@@ -7,5 +7,5 @@ namespace Forme\Framework\View\Plates;
 interface RenderTemplate
 {
     /** @return string */
-    public function renderTemplate(Template $template, RenderTemplate $rt = null);
+    public function renderTemplate(Template $template, ?RenderTemplate $rt = null);
 }
