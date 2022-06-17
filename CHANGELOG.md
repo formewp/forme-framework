@@ -2,7 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.5] - 2022-06-17
+
+### Bug Fixes
+
+- Acf might be false
+
+## [2.0.4] - 2022-06-17
+
+### Bug Fixes
+
+- Typing in plates
+- Nullable types
+
+### Features
+
+- Use local phpcs and add composer scripts
+
+### Miscellaneous Tasks
+
+- Add wp cli stubs
+- Remove cli from phpstan config
+- Add back wp cli stubs
+
+### Refactor
+
+- Rector pass
+
 ## [2.0.3] - 2022-05-07
+
+### Documentation
+
+- Changelog
 
 ### Features
 
