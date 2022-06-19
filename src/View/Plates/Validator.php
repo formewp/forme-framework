@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\View\Plates;
 
-use Forme\Framework\View\Plates\Exception\RenderTemplateException;
+use Forme\Framework\View\Plates\Exception\TemplateErrorException;
 
 final class Validator
 {
@@ -39,7 +39,7 @@ final class Validator
         array_map(function (array $rule) use ($contents, $path) {
             $errorLine = self::checkAndReturnLine($rule['pattern'], $contents);
             if ($errorLine) {
-                throw new RenderTemplateException($rule['message'] . ' Line ' . $errorLine . ' in ' . $path);
+                throw new TemplateErrorException(message: $rule['message'], line: $errorLine, filename: $path);
             }
         }, self::RULES);
     }
