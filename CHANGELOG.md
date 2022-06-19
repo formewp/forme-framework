@@ -2,11 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.6] - 2022-06-19
+
+### Features
+
+- Add validator for legacy plates tpls
+- Add some line numbers to validator
+
+### Miscellaneous Tasks
+
+- Typo
+
+### Refactor
+
+- Validation config pattern
+
 ## [2.0.5] - 2022-06-17
 
 ### Bug Fixes
 
 - Acf might be false
+
+### Documentation
+
+- Update changelog
 
 ## [2.0.4] - 2022-06-17
 
