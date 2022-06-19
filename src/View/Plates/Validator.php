@@ -39,7 +39,7 @@ final class Validator
         array_map(function (array $rule) use ($contents, $path) {
             $errorLine = self::checkAndReturnLine($rule['pattern'], $contents);
             if ($errorLine) {
-                throw new RenderTemplateException($rule['message'] . ' on line ' . $errorLine . ' in ' . $path);
+                throw new RenderTemplateException($rule['message'] . ' Line ' . $errorLine . ' in ' . $path);
             }
         }, self::RULES);
     }
