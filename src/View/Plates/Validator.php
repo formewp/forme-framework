@@ -7,35 +7,41 @@ use Forme\Framework\View\Plates\Exception\RenderTemplateException;
 
 final class Validator
 {
+    public const RULES = [
+        [
+            'pattern' => '/\s*if\s*\(.*\)\s*\{.*\}/m',
+            'message' => 'Single line if statements are not allowed in Plates. Use a ternary or split up the statement.',
+        ],
+        [
+            'pattern' => '/\s*echo\s*;/m',
+            'message' => 'Echo statements are not allowed in Plates. Use "<?=" instead.',
+        ],
+        [
+            'pattern' => '/(?=.*<\?php)(?!.*\?>)/m',
+            'message' => 'Multiline php statements are not allowed in Plates. Split this up or extract the logic.',
+        ],
+        [
+            'pattern' => '/\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\s*=/m',
+            'message' => 'Variable assignments are not allowed in Plates. Move to a controller or extract into a helper function.',
+        ],
+        [
+            'pattern' => '/(if|foreach|switch|for|while)\s*\(.*\).*\n*.*\{/m',
+            'message' => 'Plates does not allow curly brackets in control structures. You must use short syntax.',
+        ],
+    ];
+
     public static function validate(Template $template): void
     {
         // get the contents of the template
-        $contents = file_get_contents($template->get('path'));
-        // disallow single line if statements - e.g. if ($foo) {echo 'bar';};
-        $errorLine = self::checkAndReturnLine('/\s*if\s*\(.*\)\s*\{.*\}/m', $contents);
-        if ($errorLine) {
-            throw new RenderTemplateException('Single line if statements are not allowed in templates. Use a ternary or split up the statement. Line ' . $errorLine . ' in ' . $template->get('path'));
-        }
-        // check if it contains "echo"
-        $errorLine = self::checkAndReturnLine('/\s*echo\s*;/m', $contents);
-        if ($errorLine) {
-            throw new RenderTemplateException('Use of "echo" is not allowed in templates. Use "<?=" instead. Line ' . $errorLine . ' in ' . $template->get('path'));
-        }
-        // check if any multiline php statements are present
-        $errorLine = self::checkAndReturnLine('/(?=.*<\?php)(?!.*\?>)/m', $contents);
-        if ($errorLine) {
-            throw new RenderTemplateException('Multiline php statements are not allowed in templates. Line ' . $errorLine . ' in ' . $template->get('path'));
-        }
-        // check if any variable assignments are present - e.g. $foo = 'bar'
-        $errorLine = self::checkAndReturnLine('/\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\s*=/m', $contents);
-        if ($errorLine) {
-            throw new RenderTemplateException('Variable assignments are not allowed in templates. Move this to a controller or extract into a helper function. Line ' . $errorLine . ' in ' . $template->get('path'));
-        }
-        // check for control structures with curly brackets
-        $errorLine = self::checkAndReturnLine('/(if|foreach|switch|for|while)\s*\(.*\).*\n*.*\{/m', $contents);
-        if ($errorLine) {
-            throw new RenderTemplateException('Curly brackets are not allowed in template control structures. Please use alternative short syntax. ' . $errorLine . ' in ' . $template->get('path'));
-        }
+        $path     = $template->get('path');
+        $contents = file_get_contents($path);
+
+        array_map(function (array $rule) use ($contents, $path) {
+            $errorLine = self::checkAndReturnLine($rule['pattern'], $contents);
+            if ($errorLine) {
+                throw new RenderTemplateException($rule['message'] . ' on line ' . $errorLine . ' in ' . $path);
+            }
+        }, self::RULES);
     }
 
     private static function checkAndReturnLine(string $pattern, string $content): ?int
