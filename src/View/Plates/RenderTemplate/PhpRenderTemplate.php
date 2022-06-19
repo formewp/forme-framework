@@ -3,6 +3,7 @@
 namespace Forme\Framework\View\Plates\RenderTemplate;
 
 use Forme\Framework\View\Plates;
+use Forme\Framework\View\Plates\Validator;
 
 final class PhpRenderTemplate implements Plates\RenderTemplate
 {
@@ -13,6 +14,7 @@ final class PhpRenderTemplate implements Plates\RenderTemplate
     }
 
     public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $render = null) {
+        Validator::validate($template);
         $inc = self::createInclude();
         $inc = $this->bind ? ($this->bind)($inc, $template) : $inc;
 
