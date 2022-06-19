@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.7] - 2022-06-19
+
+### Bug Fixes
+
+- Validator logic
+
 ## [2.0.6] - 2022-06-19
+
+### Documentation
+
+- Update changelog
 
 ### Features
 
