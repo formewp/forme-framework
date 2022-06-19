@@ -48,11 +48,15 @@ final class Validator
     {
         $match = preg_match(pattern: $pattern, subject: $content, matches: $matches, flags: PREG_OFFSET_CAPTURE);
 
-        if ($match === false) {
+        if (!$match) {
             return null;
         }
 
         $characterPosition = (int) $matches[0][1];
+
+        if ($characterPosition === 0) {
+            return 1;
+        }
 
         list($before) = str_split($content, $characterPosition);
 
