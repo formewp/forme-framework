@@ -2,11 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.11] - 2022-06-20
+
+### Bug Fixes
+
+- Variable assignment rule
+
 ## [2.0.10] - 2022-06-20
 
 ### Bug Fixes
 
 - Multi statement regex
+
+### Documentation
+
+- Update changelog
+
+### Miscellaneous Tasks
+
+- Update changelog
 
 ## [2.0.9] - 2022-06-19
 
