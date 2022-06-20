@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Bug Fixes
+
+- Multi statement regex
+
 ## [2.0.9] - 2022-06-19
+
+### Documentation
+
+- Update changelog
 
 ### Features
 
