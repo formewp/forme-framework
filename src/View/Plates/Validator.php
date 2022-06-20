@@ -25,7 +25,7 @@ final class Validator
             'message' => 'Multiple php statements on a single line are not allowed in Plates. Split this up or extract the logic.',
         ],
         [
-            'pattern' => '/\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\s*=/m',
+            'pattern' => '/\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*\s*=[^[>=<]]/m',
             'message' => 'Variable assignments are not allowed in Plates. Move to a controller or extract into a helper function.',
         ],
         [
