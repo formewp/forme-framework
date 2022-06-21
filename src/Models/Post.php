@@ -10,15 +10,22 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int                        $ID
+ * @property int                        $id
  * @property string                     $post_title
+ * @property string                     $title
  * @property string                     $post_status
  * @property string                     $post_type
+ * @property string                     $type
  * @property int                        $post_parent
  * @property string                     $post_name
+ * @property string                     $slug
+ * @property string                     $url
  * @property Collection<array-key,self> $children
  */
 class Post extends Model
 {
+    use PostSugar;
+
     protected $table = 'posts';
 
     protected $primaryKey = 'ID';
