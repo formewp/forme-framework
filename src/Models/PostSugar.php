@@ -45,9 +45,4 @@ trait PostSugar
     {
         return $this->post_type;
     }
-
-    public function getIdAttribute(): int
-    {
-        return $this->ID;
-    }
 }
