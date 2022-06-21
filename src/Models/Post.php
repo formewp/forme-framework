@@ -4,16 +4,18 @@ declare(strict_types=1);
 namespace Forme\Framework\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property int    $ID
- * @property string $post_title
- * @property string $post_status
- * @property string $post_type
- * @property int    $post_parent
- * @property string $post_name
+ * @property int                        $ID
+ * @property string                     $post_title
+ * @property string                     $post_status
+ * @property string                     $post_type
+ * @property int                        $post_parent
+ * @property string                     $post_name
+ * @property Collection<array-key,self> $children
  */
 class Post extends Model
 {
@@ -95,5 +97,27 @@ class Post extends Model
         }
 
         return parent::save($options);
+    }
+
+    /**
+     * @return Collection<array-key,self>
+     */
+    public function getChildrenAttribute(): Collection
+    {
+        $children = get_pages([
+            'parent'      => $this->ID,
+            'post_type'   => $this->post_type,
+            'post_status' => 'publish',
+        ]);
+
+        // turn this into a collection of models
+        return collect($children)->map(function ($child) {
+            return self::find($child->ID);
+        });
+    }
+
+    public function hasChildren(): bool
+    {
+        return $this->children->isNotEmpty();
     }
 }
