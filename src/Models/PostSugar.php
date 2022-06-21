@@ -26,9 +26,19 @@ trait PostSugar
         return $this->post_title;
     }
 
+    public function setTitleAttribute(string $value): void
+    {
+        $this->post_title = $value;
+    }
+
     public function getSlugAttribute(): string
     {
         return $this->post_name;
+    }
+
+    public function setSlugAttribute(string $value): void
+    {
+        $this->post_name = $value;
     }
 
     public function getTypeAttribute(): string
