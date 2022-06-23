@@ -2,11 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3] - 2022-06-23
+
+### Miscellaneous Tasks
+
+- Typehint forme server request too
+
+## [2.1.2] - 2022-06-21
+
+### Bug Fixes
+
+- Remove broken id sugar
+- Collect typehint
+
+### Features
+
+- Mutators for title and slug
+
+## [2.1.1] - 2022-06-21
+
+### Features
+
+- Post syntactic sugar
+
+## [2.1.0] - 2022-06-21
+
+### Features
+
+- Post children
+
 ## [2.0.11] - 2022-06-20
 
 ### Bug Fixes
 
 - Variable assignment rule
+
+### Documentation
+
+- Changelog
 
 ## [2.0.10] - 2022-06-20
 
