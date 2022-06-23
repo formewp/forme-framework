@@ -3,13 +3,14 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Controllers;
 
+use Forme\Framework\Http\ServerRequest;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
 interface ControllerInterface
 {
     /**
-     * @param array|ServerRequestInterface $request
+     * @param array|ServerRequestInterface|ServerRequest $request
      *
      * @return mixed
      *
