@@ -39,27 +39,27 @@ final class Router
         return new self();
     }
 
-    public static function get(string $route, callable|string $handler, string $type = 'custom'): static
+    public static function get(string $route, callable|string|array $handler, string $type = 'custom'): static
     {
         return self::map($route, $handler, $type, 'GET');
     }
 
-    public static function post(string $route, callable|string $handler, string $type = 'custom'): static
+    public static function post(string $route, callable|string|array $handler, string $type = 'custom'): static
     {
         return self::map($route, $handler, $type, 'POST');
     }
 
-    public static function put(string $route, callable|string $handler, string $type = 'custom'): static
+    public static function put(string $route, callable|string|array $handler, string $type = 'custom'): static
     {
         return self::map($route, $handler, $type, 'PUT');
     }
 
-    public static function patch(string $route, callable|string $handler, string $type = 'custom'): static
+    public static function patch(string $route, callable|string|array $handler, string $type = 'custom'): static
     {
         return self::map($route, $handler, $type, 'PATCH');
     }
 
-    public static function delete(string $route, callable|string $handler, string $type = 'custom'): static
+    public static function delete(string $route, callable|string|array $handler, string $type = 'custom'): static
     {
         return self::map($route, $handler, $type, 'DELETE');
     }
