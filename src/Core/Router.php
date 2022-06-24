@@ -17,7 +17,7 @@ final class Router
     /**
      * Map the route onto the relevant wp route type.
      */
-    public static function map(string $route, callable|string $handler, string $type = 'custom', ?string $method = null): static
+    public static function map(string $route, callable|string|array $handler, string $type = 'custom', ?string $method = null): static
     {
         $container = getContainer();
         $strategy  = ($container->get(StrategyFactory::class))->get($type);
