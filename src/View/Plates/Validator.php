@@ -62,7 +62,7 @@ final class Validator
             return 1;
         }
 
-        list($before) = str_split($content, $characterPosition);
+        [$before] = str_split($content, $characterPosition);
 
         return strlen($before) - strlen(str_replace("\n", '', $before)) + 1;
     }
