@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Collection;
 use WP_Post;
 
 /**
- * @property string  $menuType
- * @property string  $title
- * @property string  $url
- * @property string  $classes
- * @property string  $target
- * @property string  $description
- * @property WP_Post $wordPressMenuItem
+ * @property string             $menuType
+ * @property string             $title
+ * @property string             $url
+ * @property string             $classes
+ * @property string             $target
+ * @property string             $description
+ * @property WP_Post&WPMenuItem $wordPressMenuItem
  */
 class MenuItem extends Post
 {
@@ -30,6 +30,11 @@ class MenuItem extends Post
         })->get();
 
         return self::attachWPMenuItemData($collection, $type);
+    }
+
+    public function getUrlAttribute(): string
+    {
+        return $this->wordPressMenuItem->url;
     }
 
     /**
