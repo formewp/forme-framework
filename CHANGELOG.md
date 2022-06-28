@@ -2,12 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.5] - 2022-06-28
+
+### Bug Fixes
+
+- Menu item url
+
 ## [2.1.4] - 2022-06-24
 
 ### Bug Fixes
 
 - Allow callable array in router map
 - Callable array in all route methods
+
+### Documentation
+
+- Changelog
 
 ## [2.1.3] - 2022-06-23
 
