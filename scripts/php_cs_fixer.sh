@@ -2,7 +2,7 @@
 
 echo "php-cs-fixer pre commit hook start"
 
-PHP_CS_FIXER="./vendor/bin/php-cs-fixer"
+PHP_CS_FIXER="php-cs-fixer"
 HAS_PHP_CS_FIXER=false
 
 if command -v $PHP_CS_FIXER &> /dev/null
@@ -24,7 +24,7 @@ else
     echo ""
     echo "Please install php-cs-fixer before committing, e.g.:"
     echo ""
-    echo "composer require friendsofphp/php-cs-fixer"
+    echo "composer global require friendsofphp/php-cs-fixer"
     echo ""
     exit 1
 fi

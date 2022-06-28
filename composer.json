@@ -47,20 +47,37 @@
         ]
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.4.0",
-        "szepeviktor/phpstan-wordpress": "^1.0.2",
-        "php-stubs/woocommerce-stubs": "^6.0",
-        "php-stubs/acf-pro-stubs": "^5.9.9",
         "filp/whoops": "^2.14",
-        "rector/rector": "^0.12.21",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "mockery/mockery": "^1.4",
+        "nunomaduro/mock-final-classes": "dev-master",
+        "pestphp/pest": "^1.21",
+        "php-stubs/acf-pro-stubs": "^5.9.9",
+        "php-stubs/woocommerce-stubs": "^6.0",
         "php-stubs/wp-cli-stubs": "^2.6",
-        "friendsofphp/php-cs-fixer": "^3.8"
+        "phpstan/phpstan": "^1.7",
+        "rector/rector": "^0.13.6",
+        "szepeviktor/phpstan-wordpress": "^1.0.2"
     },
     "scripts": {
-        "stan": "./vendor/bin/phpstan",
-        "rector:check": "./vendor/bin/rector process src --dry-run",
-        "rector:fix": "./vendor/bin/rector process src",
-        "cs:check": "./vendor/bin/php-cs-fixer fix --config ./.php-cs-fixer.dist --dry-run --diff",
-        "cs:fix": "./vendor/bin/php-cs-fixer fix --config ./.php-cs-fixer.dist --diff"
+        "test": "./tools/pest",
+        "stan": "./tools/phpstan",
+        "rector:check": "./tools/rector process src --dry-run",
+        "rector:fix": "./tools/rector process src",
+        "cs:check": "./tools/php-cs-fixer fix --config ./.php-cs-fixer.dist --dry-run --diff",
+        "cs:fix": "./tools/php-cs-fixer fix --config ./.php-cs-fixer.dist --diff",
+        "changelog": "git cliff -o CHANGELOG.md",
+        "hooks": "./tools/captainhook install",
+        "post-install-cmd": "@hooks",
+        "bump": "./scripts/bump.sh",
+        "infection": "./tools/infection -s",
+        "infection:log": "./tools/infection --logger-html=infection.html"
+    },
+    "config": {
+        "bin-dir": "tools",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
