@@ -2,11 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.6] - 2022-06-28
+
+### Refactor
+
+- Update list to destruct syntax
+
+### Testing
+
+- Update test system
+
 ## [2.1.5] - 2022-06-28
 
 ### Bug Fixes
 
 - Menu item url
+
+### Documentation
+
+- Changelog
 
 ## [2.1.4] - 2022-06-24
 
