@@ -17,11 +17,11 @@ final class Validator
             'message' => 'Echo statements are not allowed in Plates. Use "<?=" instead.',
         ],
         [
-            'pattern' => '/(?=.*<\?php)(?!.*\?>)/m',
+            'pattern' => '/(?=.*<\?php)(?!.*\?\>)/m',
             'message' => 'Multiline php statements are not allowed in Plates. Split this up or extract the logic.',
         ],
         [
-            'pattern' => '/.*<\?php.*;\s*[^\s]+\?>/m',
+            'pattern' => '/.*<\?php.*;\s*[^\s]+\?\>/m',
             'message' => 'Multiple php statements on a single line are not allowed in Plates. Split this up or extract the logic.',
         ],
         [
