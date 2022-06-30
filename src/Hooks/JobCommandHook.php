@@ -15,7 +15,7 @@ final class JobCommandHook implements HookInterface
             return;
         }
 
-        add_filter('cli_init', function () {
+        add_action('cli_init', function () {
             WP_CLI::add_command('forme-queue', JobQueueCommand::class);
         });
     }
