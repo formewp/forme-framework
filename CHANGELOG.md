@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.9] - 2022-06-30
+
+### Testing
+
+- Adds wp integration tests and adds hooksetup
+
 ## [2.1.8] - 2022-06-30
 
 ### Bug Fixes
 
 - Action not filter
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.1.7] - 2022-06-30
 
