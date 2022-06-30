@@ -2,7 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.7] - 2022-06-30
+
+### Features
+
+- Move forme queue cmd to core
+
+### Miscellaneous Tasks
+
+- Regex escape chars to help editor
+
+### Refactor
+
+- Extract hook add from core hooks
+
+### Testing
+
+- Token class
+
 ## [2.1.6] - 2022-06-28
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Refactor
 
