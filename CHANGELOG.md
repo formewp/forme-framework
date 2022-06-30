@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.8] - 2022-06-30
+
+### Bug Fixes
+
+- Action not filter
+
 ## [2.1.7] - 2022-06-30
 
 ### Features
@@ -11,6 +17,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Regex escape chars to help editor
+- Bump version
 
 ### Refactor
 
