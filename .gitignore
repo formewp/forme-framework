@@ -5,3 +5,6 @@ node_modules
 phpstan.neon
 .phpunit.result.cache
 tools
+wp
+wp-content
+tests/coverage
