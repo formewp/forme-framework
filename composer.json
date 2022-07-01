@@ -54,6 +54,7 @@
         "mockery/mockery": "^1.4",
         "nunomaduro/mock-final-classes": "dev-master",
         "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-mock": "^1.0",
         "php-stubs/acf-pro-stubs": "^5.9.9",
         "php-stubs/woocommerce-stubs": "^6.0",
         "php-stubs/wp-cli-stubs": "^2.6",

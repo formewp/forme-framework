@@ -3,8 +3,12 @@
 use Forme\Framework\Hooks\HookIsSet;
 use Forme\Framework\Http\Handlers\TemplateHandler;
 
-test('HookIsSet::check() returns true if a class hook is already set', function () {
-    // set up a hook - todo - use a mock here
-    add_filter('template_include', \Forme\getInstance(TemplateHandler::class), 11);
-    $this->assertTrue(HookIsSet::check('template_include', TemplateHandler::class));
+test('returns true if a class hook is already set', function () {
+    $mock = mock(TemplateHandler::class);
+    add_filter('template_include', $mock, 11);
+    expect(HookIsSet::check('template_include', get_class($mock)))->toBe(true);
+});
+
+test('returns false if a class hook is not already set', function () {
+    expect(HookIsSet::check('template_include', TemplateHandler::class))->toBe(false);
 });

@@ -1,0 +1,10 @@
+actions:
+  - hook: action_name
+    class: stdClass
+    method: method_name
+filters:
+  - hook: filter_name
+    class: stdClass
+    method: method_name
+    priority: 1
+    arguments: 2
