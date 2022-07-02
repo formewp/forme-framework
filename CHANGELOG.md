@@ -2,12 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.11] - 2022-07-02
+
+### Dev
+
+- Use ramsey conventional
+
 ## [2.1.10] - 2022-07-02
 
 ### Miscellaneous Tasks
 
 - Update php deps
 - Use local php cs fixer
+- Bump version
 
 ### Testing
 
