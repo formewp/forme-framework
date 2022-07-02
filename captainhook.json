@@ -3,7 +3,7 @@
         "enabled": true,
         "actions": [
             {
-                "action": "./scripts/conventional.sh {$FILE}"
+                "action": "\\Ramsey\\CaptainHook\\ValidateConventionalCommit"
             }
         ]
     },
@@ -26,8 +26,12 @@
         ]
     },
     "prepare-commit-msg": {
-        "enabled": false,
-        "actions": []
+        "enabled": true,
+        "actions": [
+            {
+                "action": "\\Ramsey\\CaptainHook\\PrepareConventionalCommit"
+            }
+        ]
     },
     "post-commit": {
         "enabled": false,
