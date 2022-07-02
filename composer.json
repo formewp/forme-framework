@@ -50,7 +50,6 @@
         "aaemnnosttv/wp-sqlite-db": "^1.2",
         "dingo-d/wp-pest-integration-test-setup": "dev-main",
         "filp/whoops": "^2.14",
-        "friendsofphp/php-cs-fixer": "^3.8",
         "mockery/mockery": "^1.4",
         "nunomaduro/mock-final-classes": "dev-master",
         "pestphp/pest": "^1.21",
