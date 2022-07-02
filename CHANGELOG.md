@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.10] - 2022-07-02
+
+### Miscellaneous Tasks
+
+- Update php deps
+- Use local php cs fixer
+
+### Testing
+
+- Loader tests
+
 ## [2.1.9] - 2022-06-30
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Testing
 
