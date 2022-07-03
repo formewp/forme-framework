@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Core;
 
-use Exception;
 use Forme\Framework\Http\Handlers\HandlerInterface;
 use Forme\Framework\Router\Strategy\StrategyFactory;
 use function Forme\getContainer;
@@ -31,7 +30,7 @@ final class Router
         }
 
         if (!is_callable($handler)) {
-            throw new Exception('Not a callable handler');
+            throw new RouterException('Not a callable handler');
         }
 
         static::$currentHandler = $strategy->convert($route, $handler, $method);
