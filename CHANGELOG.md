@@ -2,11 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.13] - 2022-07-03
+
+### Miscellaneous Tasks
+
+- Add a router exception
+- Add a router strategy excpetion
+
+### Testing
+
+- Test for router strategy factory
+
 ## [2.1.12] - 2022-07-03
 
 ### Bug Fixes
 
 - Fix dist path logic
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Testing
 
