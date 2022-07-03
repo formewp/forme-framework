@@ -13,8 +13,6 @@ class Assets
      */
     public static function time(string $relativefilePath): ?string
     {
-        $relativefilePath = self::resolveManifestPath($relativefilePath);
-
         return (string) filemtime(self::path($relativefilePath)) ?: null;
     }
 
@@ -22,11 +20,18 @@ class Assets
      * send back the absolute path using path relative to stylesheet dir
      * e.g. Assets::path('style.css).
      */
-    public static function path(string $relativefilePath): string
+    public static function path(string $relativefilePath): ?string
     {
-        $relativefilePath = self::resolveManifestPath($relativefilePath);
+        if (self::distExists()) {
+            $relativefilePath = self::resolveManifestPath($relativefilePath);
+            $path = realpath(ABSPATH . $relativefilePath);
+            if (!$path) {
+                return null;
+            }
+            return file_exists($path) ? $path : null;
+        }
 
-        return self::basePath() . $relativefilePath;
+        return realpath(self::basePath() . $relativefilePath) ?: null;
     }
 
     /**
