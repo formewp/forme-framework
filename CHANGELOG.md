@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.12] - 2022-07-03
+
+### Bug Fixes
+
+- Fix dist path logic
+
+### Testing
+
+- Rename test groupings
+- Tests for the assets helper
+
 ## [2.1.11] - 2022-07-02
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Dev
 
