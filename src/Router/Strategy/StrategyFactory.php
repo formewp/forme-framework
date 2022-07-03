@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Router\Strategy;
 
-use Exception;
 use Psr\Container\ContainerInterface;
 use function Symfony\Component\String\u;
 
@@ -25,7 +24,7 @@ class StrategyFactory
 
             return $this->container->get($class);
         } else {
-            throw new Exception('Undefined routing type');
+            throw new StrategyException('Undefined routing type');
         }
     }
 }
