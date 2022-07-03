@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - Add a router exception
 - Add a router strategy excpetion
+- Bump version
 
 ### Testing
 
@@ -30,13 +31,13 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.11] - 2022-07-02
 
+### Dev Worflow
+
+- Use ramsey conventional
+
 ### Miscellaneous Tasks
 
 - Bump version
-
-### Dev
-
-- Use ramsey conventional
 
 ## [2.1.10] - 2022-07-02
 
