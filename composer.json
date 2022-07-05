@@ -25,6 +25,7 @@
         "rareloop/psr7-server-request-extension": "^2.1",
         "relay/relay": "^2.1",
         "robmorgan/phinx": "^0.12.10",
+        "spatie/enum": "^3.13",
         "symfony/string": "^6.0",
         "symfony/yaml": "^6.0",
         "twig/twig": "^3.0",
