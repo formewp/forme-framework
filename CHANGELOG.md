@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.0] - 2022-07-05
+
+### Dev Worflow
+
+- Update git cliff
+- Update the conventional commits config
+
+### Features
+
+- Acf enums
+
 ## [2.1.13] - 2022-07-03
 
 ### Miscellaneous Tasks
