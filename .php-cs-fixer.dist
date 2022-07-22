@@ -15,6 +15,7 @@ return $config->setRules([
     'binary_operator_spaces'             => ['default' => 'align'],
     'increment_style'                    => ['style' => 'post'],
     'no_leading_import_slash'            => false,
+    'blank_line_between_import_groups'   => false,
 ])
     ->setFinder($finder)
 ;
