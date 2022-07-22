@@ -25,8 +25,6 @@ class CustomRouteHandler implements HandlerInterface
     public function __construct(protected AltoRouter $router, private Shutdown $shutdown)
     {
         $this->initRouter();
-        // TODO possibly move this from here, feels weird.
-        add_action('wp_loaded', $this);
     }
 
     public function __invoke(): void
@@ -95,7 +93,7 @@ class CustomRouteHandler implements HandlerInterface
 
     private function initRouter(): void
     {
-        // TODO move this, also feels wrong
+        // TODO move this, feels wrong
         $siteUrl      = get_bloginfo('url');
         $siteUrlParts = explode('/', $siteUrl);
         $siteUrlParts = array_slice($siteUrlParts, 3);

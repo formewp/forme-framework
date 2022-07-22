@@ -23,6 +23,7 @@ final class CustomStrategy implements StrategyInterface
         /** @var CustomRouteHandler */
         $customRouteHandler = $this->container->make(CustomRouteHandler::class);
         $customRouteHandler->map($route, $handler, $method ?? 'GET');
+        add_action('wp_loaded', $customRouteHandler);
 
         return $customRouteHandler;
     }
