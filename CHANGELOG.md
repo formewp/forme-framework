@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.1] - 2022-07-22
+
+### Dev Worflow
+
+- Update php cs fixer rules
+
+### Miscellaneous Tasks
+
+- Add typing to strategy
+
+### Refactor
+
+- Hook to strategy for consistency
+
 ## [2.2.0] - 2022-07-05
 
 ### Dev Worflow
@@ -12,6 +26,10 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - Acf enums
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.1.13] - 2022-07-03
 
