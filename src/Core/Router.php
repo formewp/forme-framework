@@ -5,6 +5,7 @@ namespace Forme\Framework\Core;
 
 use Forme\Framework\Http\Handlers\HandlerInterface;
 use Forme\Framework\Router\Strategy\StrategyFactory;
+use Forme\Framework\Router\Strategy\StrategyInterface;
 use function Forme\getContainer;
 use Psr\Http\Server\MiddlewareInterface;
 
@@ -19,7 +20,8 @@ final class Router
     public static function map(string $route, callable|string|array $handler, string $type = 'custom', ?string $method = null): static
     {
         $container = getContainer();
-        $strategy  = ($container->get(StrategyFactory::class))->get($type);
+        /** @var StrategyInterface */
+        $strategy  = $container->get(StrategyFactory::class)->get($type);
         // if the handler is a class we should get it via the container otherwise it won't autowire
         if (is_string($handler) && class_exists($handler)) {
             $handler = method_exists($handler, 'handle') ? [$handler, 'handle'] : $container->get($handler);
