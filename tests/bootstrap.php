@@ -3,7 +3,7 @@
 // Autoload everything for unit tests.
 $ds = DIRECTORY_SEPARATOR;
 require_once dirname(__FILE__, 2) . $ds . 'vendor' . $ds . 'autoload.php';
-require_once dirname(__FILE__, 2) . $ds . 'stubs' . $ds . 'constants.php';
+require_once dirname(__FILE__, 2) . $ds . 'stubs' . $ds . 'test-constants.php';
 
 /*
  * Include core bootstrap - see
