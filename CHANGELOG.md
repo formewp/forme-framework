@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.2] - 2022-07-27
+
+### Features
+
+- Handle testing env in connection
+
+### Testing
+
+- Forme constants to stub
+- Stub setup for phpstan and tests
+
 ## [2.2.1] - 2022-07-22
 
 ### Dev Worflow
@@ -11,6 +22,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Add typing to strategy
+- Bump version
 
 ### Refactor
 
