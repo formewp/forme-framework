@@ -15,19 +15,25 @@ class Connection
     {
         // TODO bail if there is already a global instance
         global $wpdb;
-        $args = [
-            'driver'   => 'mysql',
-            'host'     => DB_HOST,
-            'database' => DB_NAME,
-            'username' => DB_USER,
-            'password' => DB_PASSWORD,
-            'charset'  => DB_CHARSET,
-            // 'collation' => DB_COLLATE,
-            'prefix'   => $wpdb->prefix ?: 'wp_',
-        ];
-        if (DB_COLLATE) {
-            $args['collation'] = DB_COLLATE;
+        if (WP_ENV === 'testing') {
+            $args = [
+                'driver'   => 'sqlite',
+                'database' => DB_DIR . DB_FILE,
+            ];
+        } else {
+            $args = [
+                'driver'   => 'mysql',
+                'host'     => DB_HOST,
+                'database' => DB_NAME,
+                'username' => DB_USER,
+                'password' => DB_PASSWORD,
+                'charset'  => DB_CHARSET,
+            ];
+            if (DB_COLLATE) {
+                $args['collation'] = DB_COLLATE;
+            }
         }
+        $args['prefix'] = $wpdb->prefix ?: 'wp_';
 
         $this->capsule->addConnection($args);
 
