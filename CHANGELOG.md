@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.3] - 2022-08-22
+
+### Features
+
+- Magic index view resolve
+
 ## [2.2.2] - 2022-07-27
 
 ### Features
 
 - Handle testing env in connection
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Testing
 
@@ -261,7 +271,6 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- Add validator for legacy plates tpls
 - Add some line numbers to validator
 
 ### Miscellaneous Tasks
@@ -479,10 +488,6 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 
 - Add changelog
-
-### Features
-
-- Blade directives
 
 ## [1.1] - 2021-12-27
 

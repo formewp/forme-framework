@@ -81,7 +81,7 @@
         "changelog": "git cliff -o CHANGELOG.md",
         "hooks": "./tools/captainhook install -f",
         "post-install-cmd": "@hooks",
-        "bump": "./scripts/bump.sh",
+        "bump:version": "./scripts/bump.sh",
         "infection": "./tools/infection -s",
         "infection:log": "./tools/infection --logger-html=infection.html"
     },
