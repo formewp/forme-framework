@@ -4,6 +4,7 @@ namespace Forme\Framework\View\Plates\Extension\RenderContext;
 
 use Forme\Framework\View\Plates;
 use Forme\Framework\View\Plates\Exception\FuncException;
+use Forme\Framework\View\Plates\MagicResolver;
 
 function componentFunc($insert = null)
 {
@@ -87,6 +88,7 @@ function insertFunc($echo = null)
 
     return function (FuncArgs $args) use ($echo) {
         [$name, $data]     = $args->args;
+        $name              = MagicResolver::resolve($name);
         $child             = $args->template()->fork($name, $data ?: []);
         $echo($args->render->renderTemplate($child));
     };

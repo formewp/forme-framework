@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Forme\Framework\View;
 
 use Forme\Framework\View\Plates\Engine;
+use Forme\Framework\View\Plates\MagicResolver;
 
 class LegacyPlatesView implements ViewInterface
 {
@@ -20,12 +21,7 @@ class LegacyPlatesView implements ViewInterface
 
     public function render(string $template, array $context = []): string
     {
-        $template = str_replace('.', '/', $template);
-        $viewDir  = $this->getDir() . self::RELATIVE_VIEW_DIR . '/';
-
-        if (!file_exists($viewDir . $template . 'plate.php') && file_exists($viewDir . $template . '/index.plate.php')) {
-            $template .= '/index';
-        }
+        $template = MagicResolver::resolve($template);
 
         return $this->view->render($template, $context);
     }

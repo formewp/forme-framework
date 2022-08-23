@@ -40,7 +40,7 @@ final class Engine
 
     public function render(string $template, array $data = [], array $attributes = []): string
     {
-        $template = str_replace('.', '/', $template);
+        $template = MagicResolver::resolve($template);
 
         return $this->container->get('renderTemplate')->renderTemplate(new Template(
             $template,

@@ -20,13 +20,6 @@ class PlatesView implements ViewInterface
 
     public function render(string $template, array $context = []): string
     {
-        $template = str_replace('.', '/', $template);
-        $viewDir  = $this->getDir() . self::RELATIVE_VIEW_DIR . '/';
-
-        if (!file_exists($viewDir . $template . 'plate.php') && file_exists($viewDir . $template . '/index.plate.php')) {
-            $template .= '/index';
-        }
-
         return $this->view->render($template, $context);
     }
 }
