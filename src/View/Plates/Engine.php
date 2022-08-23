@@ -38,10 +38,12 @@ final class Engine
         return $plates;
     }
 
-    public function render(string $template_name, array $data = [], array $attributes = []): string
+    public function render(string $template, array $data = [], array $attributes = []): string
     {
+        $template = str_replace('.', '/', $template);
+
         return $this->container->get('renderTemplate')->renderTemplate(new Template(
-            $template_name,
+            $template,
             $data,
             $attributes
         ));
