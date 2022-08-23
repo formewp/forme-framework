@@ -2,11 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.2.3] - 2022-08-22
+## [2.3.1] - 2022-08-23
+
+### Dev Worflow
+
+- Update phive deps
+
+### Features
+
+- Dot magic in legacy plates
+
+## [2.3.0] - 2022-08-22
 
 ### Features
 
 - Magic index view resolve
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.2.2] - 2022-07-27
 
