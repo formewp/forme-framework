@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.1] - 2022-09-04
+
+### Bug Fixes
+
+- Missing import and allow string
+
 ## [2.4.0] - 2022-09-04
 
 ### Features
 
 - Make queue flexible for standalone usage
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.3.2] - 2022-08-23
 
