@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Jobs;
 
+use Psr\Container\ContainerInterface;
 use ReflectionFunction;
 use RuntimeException;
 
@@ -47,7 +48,7 @@ trait Queueable
         if (function_exists('app')) {
             $reflection = new ReflectionFunction('app');
             $returnType = $reflection->getReturnType();
-            if ($returnType && is_a((string) $returnType, ContainerInterface::class)) {
+            if ($returnType && is_a((string) $returnType, ContainerInterface::class, true)) {
                 return app()->get(Queue::class);
             }
         }
