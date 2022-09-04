@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] - 2022-09-04
+
+### Features
+
+- Make queue flexible for standalone usage
+
 ## [2.3.2] - 2022-08-23
 
 ### Bug Fixes
 
 - Magic resolver
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.3.1] - 2022-08-23
 
