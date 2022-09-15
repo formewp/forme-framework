@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Forme;
 
+use AltoRouter;
 use DI\ContainerBuilder;
 use function DI\factory;
 use Forme\Framework\Http\ServerRequest;
@@ -34,6 +35,25 @@ function getContainer(string $logFile = FORME_PRIVATE_ROOT . '/logs/forme.log'):
             $logger->pushHandler($fileHandler);
 
             return $logger;
+        }),
+        AltoRouter::class => factory(function () {
+            $siteUrl      = get_bloginfo('url');
+            $siteUrlParts = explode('/', $siteUrl);
+            $siteUrlParts = array_slice($siteUrlParts, 3);
+
+            $basePath     = implode('/', $siteUrlParts);
+            if ($basePath === '' || $basePath === '0') {
+                $basePath = '/';
+            } else {
+                $basePath = '/' . $basePath . '/';
+            }
+
+            // Clean any double slashes that have resulted
+            $basePath = str_replace('//', '/', $basePath);
+            $router   = new AltoRouter();
+            $router->setBasePath($basePath);
+
+            return $router;
         }),
     ]);
     $container  = $builder->build();

@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Http\Handlers;
 
-use \AltoRouter;
+use AltoRouter;
+use DI\FactoryInterface;
 use Forme\Framework\Http\ResponseFactory;
 use Forme\Framework\Http\Shutdown;
 
@@ -22,9 +23,13 @@ class CustomRouteHandler implements HandlerInterface
     /** @var bool */
     protected $matched = false;
 
-    public function __construct(protected AltoRouter $router, private Shutdown $shutdown)
+    /** @var AltoRouter */
+    protected $router;
+
+    public function __construct(FactoryInterface $factory, private Shutdown $shutdown)
     {
-        $this->initRouter();
+        /** @var AltoRouter */
+        $this->router = $factory->make(AltoRouter::class);
     }
 
     public function __invoke(): void
@@ -89,24 +94,5 @@ class CustomRouteHandler implements HandlerInterface
         }
 
         return $routeString;
-    }
-
-    private function initRouter(): void
-    {
-        // TODO move this, feels wrong
-        $siteUrl      = get_bloginfo('url');
-        $siteUrlParts = explode('/', $siteUrl);
-        $siteUrlParts = array_slice($siteUrlParts, 3);
-
-        $basePath     = implode('/', $siteUrlParts);
-        if ($basePath === '' || $basePath === '0') {
-            $basePath = '/';
-        } else {
-            $basePath = '/' . $basePath . '/';
-        }
-
-        // Clean any double slashes that have resulted
-        $basePath = str_replace('//', '/', $basePath);
-        $this->router->setBasePath($basePath);
     }
 }

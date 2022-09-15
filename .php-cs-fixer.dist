@@ -11,6 +11,7 @@ return $config->setRules([
     'yoda_style'                         => ['equal' => false, 'identical' => false, 'less_and_greater' => false],
     'blank_line_after_opening_tag'       => false,
     'phpdoc_no_package'                  => false,
+    'phpdoc_to_comment'                  => false,
     'concat_space'                       => ['spacing' => 'one'],
     'binary_operator_spaces'             => ['default' => 'align'],
     'increment_style'                    => ['style' => 'post'],
