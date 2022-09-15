@@ -30,8 +30,6 @@ NEW_VERSION="$MAJOR.$MINOR.$PATCH"
 # Only tag if no tag already
 if [ -z "$HAS_TAG" ]; then
     echo "Updating version to $NEW_VERSION"
-    # find the line with "const VERSION" and replace it with the new version
-    sed -i '' -e "s/const VERSION.*/const VERSION = '$NEW_VERSION';/g" forme.php
     # if git cliff is installed Generate a changelog
     if command -v git-cliff &> /dev/null
     then
