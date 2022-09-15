@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.2] - 2022-09-15
+
+### Bug Fixes
+
+- One router per custom handler
+
 ## [2.4.1] - 2022-09-04
 
 ### Bug Fixes
 
 - Missing import and allow string
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.4.0] - 2022-09-04
 
