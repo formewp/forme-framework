@@ -84,6 +84,21 @@ class Post extends Model
         return $this->hasMany(PostMeta::class, 'post_id');
     }
 
+    /**
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        // if key ends with "_meta" return the meta value
+        if (str_ends_with($key, '_meta')) {
+            return $this->meta->firstWhere('meta_key', substr($key, 0, -4))?->meta_value;
+        }
+
+        return parent::__get($key);
+    }
+
     public function generateSlug(): void
     {
         $slug = wp_unique_post_slug(
