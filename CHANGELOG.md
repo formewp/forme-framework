@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.4] - 2022-09-16
+
+### Features
+
+- Post meta magic prop
+
 ## [2.4.3] - 2022-09-16
 
 ### Dev Worflow
@@ -11,6 +17,10 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - Meta magic prop
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.4.2] - 2022-09-15
 
