@@ -2,11 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.3] - 2022-09-16
+
+### Dev Worflow
+
+- Remove irrelevant codegen bump script
+
+### Features
+
+- Meta magic prop
+
 ## [2.4.2] - 2022-09-15
 
 ### Bug Fixes
 
 - One router per custom handler
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.4.1] - 2022-09-04
 
