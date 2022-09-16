@@ -31,7 +31,7 @@ class User extends Model
     {
         // if key ends with "_meta" return the meta value
         if (str_ends_with($key, '_meta')) {
-            return $this->meta->firstWhere('meta_key', substr($key, 0, -4))?->meta_value;
+            return $this->meta->firstWhere('meta_key', substr($key, 0, -5))?->meta_value;
         }
 
         return parent::__get($key);
