@@ -135,7 +135,7 @@ class Post extends Model
         // turn this into a collection of models
         return collect($children)->map(function ($child) {
             return self::find($child->ID);
-        });
+        })->filter();
     }
 
     public function hasChildren(): bool
