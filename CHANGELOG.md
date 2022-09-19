@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.6] - 2022-09-19
+
+### Bug Fixes
+
+- Handle missing child posts
+
 ## [2.4.5] - 2022-09-16
 
 ### Bug Fixes
 
 - Str ends with correction
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.4.4] - 2022-09-16
 
