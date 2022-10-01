@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.7] - 2022-10-01
+
+### Miscellaneous Tasks
+
+- Update deps including twig security patch
+
 ## [2.4.6] - 2022-09-19
 
 ### Bug Fixes
 
 - Handle missing child posts
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.4.5] - 2022-09-16
 
