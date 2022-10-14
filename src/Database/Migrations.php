@@ -83,4 +83,18 @@ class Migrations
 
         return $messages;
     }
+
+    /**
+     * CAREFUL!!! This method rolls back all forme migrations and thereby borks your database state. You probably only want this in a testing environment.
+     */
+    public function rollback(): array
+    {
+        $messages = [];
+        // run migrations
+        $output = $this->phinxApplication->getRollback(WP_ENV ?: 'testing');
+        $this->logger->info($output);
+        $messages[] = ['type' => 'success', 'text' => 'Forme Rollback completed, check server logs for more info'];
+
+        return $messages;
+    }
 }
