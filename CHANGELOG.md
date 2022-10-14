@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.1] - 2022-10-14
+
+### Miscellaneous Tasks
+
+- Rollback should fully rollback
+
 ## [2.5.0] - 2022-10-14
 
 ### Features
 
 - Add a rollback method to migrations class
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.4.8] - 2022-10-14
 
