@@ -91,7 +91,7 @@ class Migrations
     {
         $messages = [];
         // run migrations
-        $output = $this->phinxApplication->getRollback(WP_ENV ?: 'testing');
+        $output = $this->phinxApplication->getRollback(WP_ENV ?: 'testing', 0);
         $this->logger->info($output);
         $messages[] = ['type' => 'success', 'text' => 'Forme Rollback completed, check server logs for more info'];
 
