@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.0] - 2022-10-14
+
+### Features
+
+- Add a rollback method to migrations class
+
 ## [2.4.8] - 2022-10-14
 
 ### Miscellaneous Tasks
 
 - Sqlite for testing
+- Bump version
 
 ## [2.4.7] - 2022-10-01
 
