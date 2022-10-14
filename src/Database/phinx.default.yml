@@ -26,7 +26,7 @@ environments:
     }
   testing:
     {
-      adapter: mysql,
+      adapter: sqlite,
       host: localhost,
       name: testing_db,
       user: root,
