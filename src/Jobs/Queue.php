@@ -47,7 +47,7 @@ class Queue
         // class, arguments, schedule
         $job                    = new QueuedJob();
         $job->class             = $args['class'];
-        $arguments              = json_encode($args['arguments'], JSON_THROW_ON_ERROR);
+        $arguments              = json_encode($args['arguments'] ?? null, JSON_THROW_ON_ERROR);
         $job->arguments         = $arguments === 'null' ? '{}' : $arguments;
 
         $job->scheduled_for     = Carbon::parse($args['next']);
