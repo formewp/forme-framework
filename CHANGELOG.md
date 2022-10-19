@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.2] - 2022-10-19
+
+### Bug Fixes
+
+- Coerce queue args to null
+
 ## [2.5.1] - 2022-10-14
 
 ### Miscellaneous Tasks
 
 - Rollback should fully rollback
+- Bump version
 
 ## [2.5.0] - 2022-10-14
 
