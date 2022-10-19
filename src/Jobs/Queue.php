@@ -27,7 +27,7 @@ class Queue
         // class, arguments
         $job                    = new QueuedJob();
         $job->class             =$args['class'];
-        $job->arguments         = json_encode($args['arguments'], JSON_THROW_ON_ERROR);
+        $job->arguments         = json_encode($args['arguments'] ?? null, JSON_THROW_ON_ERROR);
         $job->scheduled_for     = Carbon::now();
         $job->save();
         $this->logger->info('Added job ' . $job->id . ' to the queue');
