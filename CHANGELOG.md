@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.3] - 2022-10-19
+
+### Bug Fixes
+
+- More null coalesce
+
 ## [2.5.2] - 2022-10-19
 
 ### Bug Fixes
 
 - Coerce queue args to null
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.5.1] - 2022-10-14
 
