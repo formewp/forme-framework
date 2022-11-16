@@ -57,14 +57,20 @@ class TemplateHandler implements HandlerInterface
         $this->addMiddlewareQueue($controller->getMiddlewareQueue());
 
         $postId      = get_queried_object_id();
-        $fields      = get_fields($postId);
-        $options     = get_fields('options');
+
+        // acf sugar
+        if (function_exists('acf')) {
+            $fields      = get_fields($postId);
+            $options     = get_fields('options');
+        }
+
         $request     = \Forme\request();
         $request     = $request->withParsedBody([
             'postId'  => $postId,
             'fields'  => $fields ? arrayKeysToCamelCase($fields) : [],
             'options' => $options ? arrayKeysToCamelCase($options) : [],
         ]);
+
         // we pass the response closure into the dispatcher
         $responseFunc = function ($request, $handler) use ($controller) {
             $response   = $controller->handle($request);
