@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.4] - 2022-11-16
+
+### Miscellaneous Tasks
+
+- Only load fields/options if acf is available
+
 ## [2.5.3] - 2022-10-19
 
 ### Bug Fixes
 
 - More null coalesce
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.5.2] - 2022-10-19
 
