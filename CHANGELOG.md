@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.5] - 2022-11-22
+
+### Features
+
+- Handle started jobs with stop
+
 ## [2.5.4] - 2022-11-16
 
 ### Miscellaneous Tasks
 
 - Only load fields/options if acf is available
+- Bump version
 
 ## [2.5.3] - 2022-10-19
 
