@@ -86,7 +86,10 @@ class Queue
             $this->logger->info('Stopped recurring job ' . $args['class']);
         } else {
             // if there is a started job we set its frequency to null so it won't repeat
-            $startedJob = QueuedJob::where('class', $args['class'])->whereNull('completed_at')->first();
+            $startedJob = QueuedJob::where('class', $args['class'])
+                ->whereNull('completed_at')
+                ->whereNotNull('frequency')
+                ->first();
             if ($startedJob) {
                 $startedJob->frequency = null;
                 $startedJob->save();
