@@ -79,12 +79,21 @@ class Queue
      */
     public function stop(array $args): void
     {
-        $jobExists = QueuedJob::where('class', $args['class'])->whereNull('started_at')->first();
-        if ($jobExists) {
-            $jobExists->delete();
+        $pendingJob = QueuedJob::where('class', $args['class'])->whereNull('started_at')->first();
+        if ($pendingJob) {
+            // if there is a pending job we can just delete it
+            $pendingJob->delete();
             $this->logger->info('Stopped recurring job ' . $args['class']);
         } else {
-            $this->logger->info("Didn't stop recurring job " . $args['class'] . ' as it does not exist');
+            // if there is a started job we set its frequency to null so it won't repeat
+            $startedJob = QueuedJob::where('class', $args['class'])->whereNull('completed_at')->first();
+            if ($startedJob) {
+                $startedJob->frequency = null;
+                $startedJob->save();
+                $this->logger->info('Stopped recurring job ' . $args['class']);
+            } else {
+                $this->logger->info("Didn't stop recurring job " . $args['class'] . ' as it does not exist');
+            }
         }
     }
 
@@ -102,6 +111,7 @@ class Queue
         $job->started_at   = Carbon::now();
         $job->save();
         $response          = $jobClass->handle($arguments);
+        $job->refresh();
         $job->completed_at = Carbon::now();
         $job->save();
         $this->logger->info('Ran job ' . $job->id . ': ' . $response);
