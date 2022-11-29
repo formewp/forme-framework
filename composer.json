@@ -18,7 +18,7 @@
         "laminas/laminas-diactoros": "^2.5",
         "league/plates": "^3.4",
         "log1x/sage-directives": "^1.1",
-        "monolog/monolog": "^3.2",
+        "monolog/monolog": "^2",
         "papertower/wp-rest-api-psr7": "^0.8.0",
         "php-di/php-di": "^6.2",
         "ramsey/uuid": "^4.1",
