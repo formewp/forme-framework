@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.7] - 2022-11-29
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [2.5.6] - 2022-11-22
 
 ### Bug Fixes
 
 - Also check frequency
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.5.5] - 2022-11-22
 
