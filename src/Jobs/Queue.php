@@ -33,7 +33,7 @@ class Queue
         $arguments              = json_encode($args['arguments'] ?? null, JSON_THROW_ON_ERROR);
         $job->arguments         = $arguments === 'null' ? '{}' : $arguments;
 
-        $job->scheduled_for     = Carbon::parse($args['next']);
+        $job->scheduled_for     = Carbon::parse($args['next'] ?? 'now');
         $job->queue_name        = $args['queue_name'] ?? null;
         $job->frequency         = $args['frequency']  ?? null;
         $job->save();
