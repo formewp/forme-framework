@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.6.1] - 2022-12-04
+
+### Features
+
+- Wp cli forme queue handle name
+
 ## [2.6.0] - 2022-12-04
 
 ### Features
 
 - Named job queues
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Testing
 
