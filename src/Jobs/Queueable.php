@@ -9,10 +9,14 @@ use RuntimeException;
 
 trait Queueable
 {
-    public function dispatch(array $args = []): void
+    public function dispatch(array $args = [], ?string $queueName = null): void
     {
         $queue = $this->getQueue();
-        $queue->dispatch(['class' => $this::class, 'arguments' => $args]);
+        $queue->dispatch([
+            'class'      => $this::class,
+            'arguments'  => $args,
+            'queue_name' => $queueName,
+        ]);
     }
 
     public function schedule(array $args = []): void
@@ -29,10 +33,10 @@ trait Queueable
         $queue->start($args);
     }
 
-    public function stop(): void
+    public function stop($queueName = null): void
     {
         $queue = $this->getQueue();
-        $queue->stop(['class' => $this::class]);
+        $queue->stop(['class' => $this::class, 'queue_name' => $queueName]);
     }
 
     protected function getQueue(): Queue

@@ -17,6 +17,7 @@ return $config->setRules([
     'increment_style'                    => ['style' => 'post'],
     'no_leading_import_slash'            => false,
     'blank_line_between_import_groups'   => false,
+    'global_namespace_import'            => ['import_classes' => true],
 ])
     ->setFinder($finder)
 ;

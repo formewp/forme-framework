@@ -21,9 +21,9 @@ test('adds an action to be registered with WordPress', function () {
 
 test('adds an invokable action to be registered with WordPress', function () {
     $loader = new Loader();
-     // mock invokeable class
-     $class = new class {
-        public function __invoke():string
+    // mock invokeable class
+    $class = new class() {
+        public function __invoke(): string
         {
             return 'foo bar';
         }
@@ -55,13 +55,11 @@ test('adds a filter to be registered with WordPress', function () {
     expect($filters[0]['numberOfArgs'])->toBe(1);
 });
 
-
-
 test('adds an invokable filter to be registered with WordPress', function () {
     $loader = new Loader();
     // mock invokeable class
-    $class = new class {
-        public function __invoke():string
+    $class = new class() {
+        public function __invoke(): string
         {
             return 'foo bar';
         }
@@ -111,7 +109,7 @@ test('adds a number of arguments to a filter or action', function () {
 });
 
 test('adds a yaml config file of hooks to be registered with WordPress', function () {
-    $loader = new Loader();
+    $loader       = new Loader();
     $configString = file_get_contents(__DIR__ . '/hooks_test.yaml');
     $loader->addConfig($configString);
     // get actions by reflection
@@ -136,8 +134,8 @@ test('adds a yaml config file of hooks to be registered with WordPress', functio
     expect($filters[0]['numberOfArgs'])->toBe(2);
 });
 
-test('run adds configured hooks to WordPress', function() {
-    $loader = new Loader();
+test('run adds configured hooks to WordPress', function () {
+    $loader       = new Loader();
     $configString = file_get_contents(__DIR__ . '/hooks_test.yaml');
     $loader->addConfig($configString);
     $loader->run();

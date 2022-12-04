@@ -5,18 +5,11 @@
     colors="true"
     >
     <testsuites>
-        <testsuite name="Default Test Suite">
-            <directory>./tests/Default/</directory>
+        <testsuite name="Unit Test Suite">
+            <directory>./tests/Unit/</directory>
         </testsuite>
-        <testsuite name="WordPress Test Suite">
-            <directory>./tests/WordPress/</directory>
+        <testsuite name="Integration Test Suite">
+            <directory>./tests/Integration/</directory>
         </testsuite>
     </testsuites>
-    <php>
-        <env name="TEST" value="true" force="true" />
-        <server name="DB_NAME" value="wp_pest_test_db"/>
-        <server name="DB_USER" value="root"/>
-        <server name="DB_PASSWORD" value=""/>
-        <server name="DB_HOST" value="localhost"/>
-    </php>
 </phpunit>

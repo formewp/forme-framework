@@ -3,7 +3,7 @@
 use Forme\Framework\Core\Assets;
 
 beforeEach(function () {
-    $this->rootDir = dirname(__FILE__, 4) . '/wp/tests/phpunit/data/themedir1/default';
+    $this->rootDir = dirname(__FILE__, 4) . '/wp-test/public/wp-content/themes/twentytwentythree';
     // put a file in assets
     mkdir($this->rootDir . '/assets/static', 0777, true);
     file_put_contents($this->rootDir . '/assets/static/dummy.txt', 'dummy');
@@ -13,7 +13,6 @@ afterEach(function () {
     // remove the file in assets
     unlink($this->rootDir . '/assets/static/dummy.txt');
     rmdir($this->rootDir . '/assets/static');
-    rmdir($this->rootDir . '/assets');
 });
 
 test('time() returns the file time of the file', function () {

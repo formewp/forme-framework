@@ -16,30 +16,13 @@ class Queue
     }
 
     /**
-     * Add a job to the queue
-     * [
-     *  'class' => 'Fully\\Qualified\\Class\\Name'
-     *  'arguments' => ['foo' => 'bar']
-     * ].
-     */
-    public function dispatch(array $args): void
-    {
-        // class, arguments
-        $job                    = new QueuedJob();
-        $job->class             =$args['class'];
-        $job->arguments         = json_encode($args['arguments'] ?? null, JSON_THROW_ON_ERROR);
-        $job->scheduled_for     = Carbon::now();
-        $job->save();
-        $this->logger->info('Added job ' . $job->id . ' to the queue');
-    }
-
-    /**
      * Schedule a job
      * [
      *  'class' => 'Fully\\Qualified\\Class\\Name'
      *  'arguments' => ['foo' => 'bar']
      *  'next' => something that carbon can parse // the next time it should occur
      *  'frequency'  => if null/not set it's once, otherwise recurring so something that carbon can parse to add to the previous time
+     *  'queue_name' => 'baz' // if not set it's the default queue
      * ].
      */
     public function schedule(array $args): void
@@ -51,9 +34,24 @@ class Queue
         $job->arguments         = $arguments === 'null' ? '{}' : $arguments;
 
         $job->scheduled_for     = Carbon::parse($args['next']);
-        $job->frequency         = $args['frequency'] ?? null;
+        $job->queue_name        = $args['queue_name'] ?? null;
+        $job->frequency         = $args['frequency']  ?? null;
         $job->save();
-        $this->logger->info('Scheduled job ' . $args['class'] . ' under id ' . $job->id . ' with a frequency of ' . $args['frequency'] ?? 'unique');
+        $this->logger->info('Scheduled job ' . $args['class'] . ' under id ' . $job->id . ' with a frequency of ' . ($args['frequency'] ?? 'unique'));
+    }
+
+    /**
+     * Schedule a single job for immediate dispatch
+     * [
+     *  'class' => 'Fully\\Qualified\\Class\\Name'
+     *  'arguments' => ['foo' => 'bar']
+     *  'queue_name' => 'baz' // if not set it's the default queue
+     * ].
+     */
+    public function dispatch(array $args): void
+    {
+        $args['next'] = 'now';
+        $this->schedule($args);
     }
 
     /**
@@ -65,7 +63,12 @@ class Queue
             throw new Exception('Job frequency missing');
         }
 
-        $jobExists = QueuedJob::where('class', $args['class'])->whereNull('started_at')->first();
+        $queueName = $args['queue_name'] ?? null;
+
+        $jobExists = QueuedJob::where('class', $args['class'])
+            ->where('queue_name', $queueName)
+            ->whereNull('started_at')
+            ->first();
         if (!$jobExists) {
             $this->logger->info('Starting recurring job ' . $args['class']);
             $this->schedule($args);
@@ -79,7 +82,12 @@ class Queue
      */
     public function stop(array $args): void
     {
-        $pendingJob = QueuedJob::where('class', $args['class'])->whereNull('started_at')->first();
+        $queueName  = $args['queue_name'] ?? null;
+
+        $pendingJob = QueuedJob::where('class', $args['class'])
+            ->where('queue_name', $queueName)
+            ->whereNull('started_at')
+            ->first();
         if ($pendingJob) {
             // if there is a pending job we can just delete it
             $pendingJob->delete();
@@ -87,6 +95,7 @@ class Queue
         } else {
             // if there is a started job we set its frequency to null so it won't repeat
             $startedJob = QueuedJob::where('class', $args['class'])
+                ->where('queue_name', $queueName)
                 ->whereNull('completed_at')
                 ->whereNotNull('frequency')
                 ->first();
@@ -100,9 +109,13 @@ class Queue
         }
     }
 
-    public function next(): string
+    public function next($queueName = null): string
     {
-        $job = QueuedJob::whereNull('completed_at')->whereNull('started_at')->where('scheduled_for', '<=', Carbon::now())->first();
+        $job = QueuedJob::whereNull('completed_at')
+            ->whereNull('started_at')
+            ->where('queue_name', $queueName)
+            ->where('scheduled_for', '<=', Carbon::now())
+            ->first();
         if (!$job) {
             $this->logger->info('No jobs in the queue');
 
@@ -123,10 +136,11 @@ class Queue
         if ($job->frequency) {
             $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
             $this->schedule([
-                'class'     => $job->class,
-                'arguments' => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
-                'next'      => $nextTime,
-                'frequency' => $job->frequency,
+                'class'      => $job->class,
+                'arguments'  => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
+                'next'       => $nextTime,
+                'frequency'  => $job->frequency,
+                'queue_name' => $queueName,
             ]);
         }
 

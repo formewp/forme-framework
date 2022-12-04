@@ -24,10 +24,11 @@ class Assets
     {
         if (self::distExists()) {
             $relativefilePath = self::resolveManifestPath($relativefilePath);
-            $path = realpath(ABSPATH . $relativefilePath);
+            $path             = realpath(ABSPATH . $relativefilePath);
             if (!$path) {
                 return null;
             }
+
             return file_exists($path) ? $path : null;
         }
 

@@ -1,25 +1,10 @@
 <?php
+
+use Forme\Framework\Auth\Token;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 beforeEach(function () {
-    // set up in memory database
-    $this->capsule = new Capsule();
-    $this->capsule->addConnection([
-        'driver'        => 'sqlite',
-        'database'      => ':memory:',
-        'charset'       => 'utf8',
-        'collation'     => 'utf8_unicode_ci',
-    ]);
-    $this->capsule->setAsGlobal();
-    $this->capsule->bootEloquent();
-    // run the auth tokens migration (todo make this less brittle)
-    $this->capsule->schema()->create('forme_auth_tokens', function ($table) {
-        $table->increments('id');
-        $table->string('name');
-        $table->string('token');
-        $table->datetime('expiry');
-    });
-    $this->token= new \Forme\Framework\Auth\Token();
+    $this->token= new Token();
 });
 
 test('returns a uuid token', function () {
