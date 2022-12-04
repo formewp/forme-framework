@@ -2,11 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.6.0] - 2022-12-04
+
+### Features
+
+- Named job queues
+
+### Testing
+
+- Job queue test suite
+
 ## [2.5.8] - 2022-11-29
 
 ### Miscellaneous Tasks
 
 - Downgrade monolog for now
+- Bump version
 
 ## [2.5.7] - 2022-11-29
 
