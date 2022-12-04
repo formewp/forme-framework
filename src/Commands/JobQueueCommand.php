@@ -27,9 +27,9 @@ class JobQueueCommand
      * run the next job in the queue
      * return feedback response.
      */
-    public function __invoke(): void
+    public function __invoke(array $args = []): void
     {
-        $response = $this->queue->next();
+        $response = $this->queue->next($args[0] ?? null);
         WP_CLI::success($response);
     }
 }
