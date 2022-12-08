@@ -8,7 +8,7 @@ use Forme\Framework\Controllers\ControllerInterface;
 use Forme\Framework\Http\ResponseFactory;
 use Forme\Framework\Http\Shutdown;
 use Psr\Container\ContainerInterface;
-use function Symfony\Component\String\u;
+use Symfony\Component\String\UnicodeString;
 
 class TemplateHandler implements HandlerInterface
 {
@@ -34,7 +34,7 @@ class TemplateHandler implements HandlerInterface
 
     private function getControllerClassFromTemplate(string $template): string
     {
-        $controllerName = u(basename($template, '.php'))->camel()->title()->toString();
+        $controllerName = (new UnicodeString(basename($template, '.php')))->camel()->title()->toString();
         // if the name doesn't end with Controller then add 'Controller'
         $controllerName .= str_ends_with($controllerName, 'Controller') ? '' : 'Controller';
         // Classes can't start with a number so we have to special case the behaviour here

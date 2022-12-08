@@ -14,7 +14,7 @@ use Monolog\Logger;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
-use function Symfony\Component\String\u;
+use Symfony\Component\String\UnicodeString;
 
 /**
  * Send back a new configured DI container
@@ -141,7 +141,7 @@ function arrayKeysToCamelCase(array $array): array
     $arr = [];
     foreach ($array as $key => $value) {
         if (is_string($key)) {
-            $key = u($key)->camel()->toString();
+            $key = (new UnicodeString($key))->camel()->toString();
         }
 
         if (is_array($value)) {

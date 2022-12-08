@@ -3,7 +3,7 @@
 use Forme\Framework\Router\Strategy\StrategyFactory;
 use Forme\Framework\Router\Strategy\StrategyInterface;
 use function Forme\getContainer;
-use function Symfony\Component\String\u;
+use Symfony\Component\String\UnicodeString;
 
 beforeEach(function () {
     $this->factory = getContainer()->get(StrategyFactory::class);
@@ -24,7 +24,7 @@ test('configured route types match the existing class files', function () {
     }, $strategyClassFiles);
     $configuredTypes           = $this->factory::TYPES;
     $configuredTypeClasses     = array_map(function ($type) {
-        return u($type)->camel()->title()->toString() . 'Strategy';
+        return (new UnicodeString($type))->camel()->title()->toString() . 'Strategy';
     }, $configuredTypes);
     // check that each array contains the same values
     expect(array_diff($strategyClasses, $configuredTypeClasses))->toBeEmpty();

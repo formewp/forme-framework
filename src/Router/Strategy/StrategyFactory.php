@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Forme\Framework\Router\Strategy;
 
 use Psr\Container\ContainerInterface;
-use function Symfony\Component\String\u;
+use Symfony\Component\String\UnicodeString;
 
 class StrategyFactory
 {
@@ -20,7 +20,7 @@ class StrategyFactory
     public function get(string $type): StrategyInterface
     {
         if (in_array($type, self::TYPES)) {
-            $class = __NAMESPACE__ . '\\' . u($type)->camel()->title()->toString() . 'Strategy';
+            $class = __NAMESPACE__ . '\\' . (new UnicodeString($type))->camel()->title()->toString() . 'Strategy';
 
             return $this->container->get($class);
         } else {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Forme\Framework\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use function Symfony\Component\String\u;
+use Symfony\Component\String\UnicodeString;
 
 /**
  * @property string $postType
@@ -26,7 +26,7 @@ trait CustomPostable
         } else {
             $explode = explode('\\', static::class);
             // otherwise try snake case version of the class name
-            $postType = u(end($explode))->snake()->toString();
+            $postType = (new UnicodeString(end($explode)))->snake()->toString();
         }
 
         static::addGlobalScope('postType', fn (Builder $query) => $query->where('post_type', '=', $postType));
