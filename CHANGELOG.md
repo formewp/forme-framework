@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.6.2] - 2022-12-08
+
+### Miscellaneous Tasks
+
+- Replace string u func with class inst
+
 ## [2.6.1] - 2022-12-04
 
 ### Features
 
 - Wp cli forme queue handle name
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.6.0] - 2022-12-04
 
