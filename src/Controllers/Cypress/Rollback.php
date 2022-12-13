@@ -7,7 +7,6 @@ use Exception;
 use Forme\Framework\Controllers\AbstractController;
 use Forme\Framework\Database\Migrations;
 use Laminas\Diactoros\Response\EmptyResponse;
-use Psr\Http\Message\ResponseInterface;
 
 final class Rollback extends AbstractController
 {
@@ -15,7 +14,7 @@ final class Rollback extends AbstractController
     {
     }
 
-    public function __invoke(): ResponseInterface
+    public function __invoke($request)
     {
         // this is risky so let's make absolutely sure we are in test mode
         /** @var bool $testing */

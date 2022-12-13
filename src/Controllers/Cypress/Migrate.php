@@ -6,7 +6,6 @@ namespace Forme\Framework\Controllers\Cypress;
 use Forme\Framework\Controllers\AbstractController;
 use Forme\Framework\Database\Migrations;
 use Laminas\Diactoros\Response\EmptyResponse;
-use Psr\Http\Message\ResponseInterface;
 
 final class Migrate extends AbstractController
 {
@@ -14,7 +13,7 @@ final class Migrate extends AbstractController
     {
     }
 
-    public function __invoke(): ResponseInterface
+    public function __invoke($request)
     {
         $this->migrations->migrate();
 

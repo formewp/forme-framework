@@ -9,7 +9,7 @@ use Laminas\Diactoros\Response\JsonResponse;
 
 final class CurrentUser extends AbstractController
 {
-    public function __invoke()
+    public function __invoke($request)
     {
         return new JsonResponse(User::find(get_current_user_id()));
     }

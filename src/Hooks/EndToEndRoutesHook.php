@@ -11,10 +11,10 @@ final class EndToEndRoutesHook implements HookInterface
 {
     public function maybeAdd(): void
     {
-        if (HookIsSet::check('init', EndToEndRoutes::class)) {
+        if (HookIsSet::check('plugins_loaded', EndToEndRoutes::class)) {
             return;
         }
 
-        add_action('init', getInstance(EndToEndRoutes::class));
+        add_action('plugins_loaded', getInstance(EndToEndRoutes::class));
     }
 }
