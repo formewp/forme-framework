@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.0] - 2022-12-13
+
+### Features
+
+- End to end test routes
+
 ## [2.6.2] - 2022-12-08
 
 ### Miscellaneous Tasks
 
 - Replace string u func with class inst
+- Bump version
 
 ## [2.6.1] - 2022-12-04
 
