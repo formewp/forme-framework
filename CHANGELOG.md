@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.1] - 2022-12-13
+
+### Bug Fixes
+
+- Controller abstract signature
+
 ## [2.7.0] - 2022-12-13
 
 ### Features
 
 - End to end test routes
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.6.2] - 2022-12-08
 
