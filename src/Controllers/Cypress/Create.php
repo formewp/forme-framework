@@ -9,10 +9,6 @@ use Symfony\Component\String\UnicodeString;
 
 final class Create extends AbstractController
 {
-    public function __construct(private CaseConverter $caseConverter)
-    {
-    }
-
     public function __invoke($request)
     {
         $model               = $request->input('model');
