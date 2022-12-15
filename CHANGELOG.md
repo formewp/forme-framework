@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.3] - 2022-12-15
+
+### Bug Fixes
+
+- Remove redundant dep injection
+
 ## [2.7.2] - 2022-12-15
 
 ### Miscellaneous Tasks
 
 - Use symfony string instead of jawira
+- Bump version
 
 ## [2.7.1] - 2022-12-13
 
