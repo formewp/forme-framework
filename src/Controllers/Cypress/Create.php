@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace Forme\Framework\Controllers\Cypress;
 
 use Forme\Framework\Controllers\AbstractController;
-use Jawira\CaseConverter\CaseConverter;
 use Laminas\Diactoros\Response\JsonResponse;
+use Symfony\Component\String\UnicodeString;
 
 final class Create extends AbstractController
 {
@@ -22,7 +22,7 @@ final class Create extends AbstractController
 
         // convert the keys to snake_case
         foreach ($attributes as $key => $value) {
-            $attributesConverted[$this->caseConverter->convert($key)->toSnake()] = $value;
+            $attributesConverted[(new UnicodeString($key))->snake()->toString()] = $value;
         }
 
         if (method_exists($model, 'factory')) {
