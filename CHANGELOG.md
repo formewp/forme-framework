@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.7.4] - 2022-12-20
+
+### Miscellaneous Tasks
+
+- Function exists before declaring helpers
+
 ## [2.7.3] - 2022-12-15
 
 ### Bug Fixes
 
 - Remove redundant dep injection
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.7.2] - 2022-12-15
 
