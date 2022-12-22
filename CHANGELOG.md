@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.2] - 2022-12-22
+
+### Miscellaneous Tasks
+
+- Revert dep bump for 8.0 compat
+
 ## [2.8.1] - 2022-12-22
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Refactor
 
