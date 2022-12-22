@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.1] - 2022-12-22
+
+### Refactor
+
+- Use underlying function instead of higher level
+
 ## [2.8.0] - 2022-12-22
 
 ### Features
 
 - Option model
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.7.4] - 2022-12-20
 
