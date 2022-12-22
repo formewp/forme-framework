@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.0] - 2022-12-22
+
+### Features
+
+- Option model
+
 ## [2.7.4] - 2022-12-20
 
 ### Miscellaneous Tasks
 
 - Function exists before declaring helpers
+- Bump version
 
 ## [2.7.3] - 2022-12-15
 
