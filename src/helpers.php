@@ -196,6 +196,6 @@ if (!function_exists(__NAMESPACE__ . '\configExtract')) {
             return $result[1];
         }
 
-        throw new InvalidArgumentException('Constant does not exist in specificied config file');
+        return null;
     }
 }
