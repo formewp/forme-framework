@@ -38,7 +38,7 @@ if (!function_exists(__NAMESPACE__ . '\getContainer')) {
                 return $logger;
             }),
             AltoRouter::class => factory(function () {
-                $siteUrl      = get_bloginfo('url');
+                $siteUrl      = get_option('home') ?: get_option('siteurl');
                 $siteUrlParts = explode('/', $siteUrl);
                 $siteUrlParts = array_slice($siteUrlParts, 3);
 
