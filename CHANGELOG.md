@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.5] - 2022-12-22
+
+### Miscellaneous Tasks
+
+- Null if constant not defined rather than error
+
 ## [2.8.4] - 2022-12-22
 
 ### Miscellaneous Tasks
 
 - Function casing consistency
+- Bump version
 
 ## [2.8.3] - 2022-12-22
 
