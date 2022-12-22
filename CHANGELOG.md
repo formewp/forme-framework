@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.4] - 2022-12-22
+
+### Miscellaneous Tasks
+
+- Function casing consistency
+
 ## [2.8.3] - 2022-12-22
 
 ### Features
 
 - Handle db connection outside of WP
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.8.2] - 2022-12-22
 
