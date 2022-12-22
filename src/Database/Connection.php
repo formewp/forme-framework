@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Database;
 
-use function Forme\config_extract;
+use function Forme\configExtract;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Connection
@@ -52,7 +52,7 @@ class Connection
         } else {
             $configLocation = ABSPATH . '/wp-config.php';
 
-            return config_extract('table_prefix', $configLocation) ?: 'wp_';
+            return configExtract('table_prefix', $configLocation) ?: 'wp_';
         }
     }
 }

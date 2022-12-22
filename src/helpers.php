@@ -177,8 +177,8 @@ if (!function_exists(__NAMESPACE__ . '\log')) {
     }
 }
 
-if (!function_exists(__NAMESPACE__ . '\config_extract')) {
-    function config_extract(string $constant, string $configPath): mixed
+if (!function_exists(__NAMESPACE__ . '\configExtract')) {
+    function configExtract(string $constant, string $configPath): mixed
     {
         if (!file_exists($configPath)) {
             throw new InvalidArgumentException('File does not exist at specified path.');
