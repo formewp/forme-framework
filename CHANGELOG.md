@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.8.3] - 2022-12-22
+
+### Features
+
+- Handle db connection outside of WP
+
 ## [2.8.2] - 2022-12-22
 
 ### Miscellaneous Tasks
 
 - Revert dep bump for 8.0 compat
+- Bump version
 
 ## [2.8.1] - 2022-12-22
 
