@@ -8,6 +8,7 @@ use AltoRouter;
 use DI\ContainerBuilder;
 use function DI\factory;
 use Forme\Framework\Http\ServerRequest;
+use InvalidArgumentException;
 use Laminas\Diactoros\ServerRequestFactory;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -173,5 +174,28 @@ if (!function_exists(__NAMESPACE__ . '\log')) {
     function log(): LoggerInterface
     {
         return getInstance(LoggerInterface::class);
+    }
+}
+
+if (!function_exists(__NAMESPACE__ . '\config_extract')) {
+    function config_extract(string $constant, string $configPath): mixed
+    {
+        if (!file_exists($configPath)) {
+            throw new InvalidArgumentException('File does not exist at specified path.');
+        }
+
+        $contents = file_get_contents($configPath);
+
+        if ($constant === 'table_prefix') {
+            $found = preg_match("/\\\$table_prefix.+?'(.+?)'.+/", $contents, $result);
+        } else {
+            $found = preg_match("/define.+?'" . $constant . "'.+?'(.*?)'.+/", $contents, $result);
+        }
+
+        if ($found) {
+            return $result[1];
+        }
+
+        throw new InvalidArgumentException('Constant does not exist in specificied config file');
     }
 }

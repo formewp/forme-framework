@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Database;
 
+use function Forme\config_extract;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Connection
@@ -14,7 +15,6 @@ class Connection
     public function bootstrap(): void
     {
         // TODO bail if there is already a global instance
-        global $wpdb;
         if (WP_ENV === 'testing') {
             $args = [
                 'driver'   => 'sqlite',
@@ -33,7 +33,7 @@ class Connection
                 $args['collation'] = DB_COLLATE;
             }
         }
-        $args['prefix'] = $wpdb->prefix ?: 'wp_';
+        $args['prefix'] = $this->getPrefix();
 
         $this->capsule->addConnection($args);
 
@@ -42,5 +42,17 @@ class Connection
 
         // Setup the Eloquent ORM
         $this->capsule->bootEloquent();
+    }
+
+    protected function getPrefix(): string
+    {
+        global $wpdb;
+        if ($wpdb) {
+            return $wpdb->prefix ?: 'wp_';
+        } else {
+            $configLocation = ABSPATH . '/wp-config.php';
+
+            return config_extract('table_prefix', $configLocation) ?: 'wp_';
+        }
     }
 }
