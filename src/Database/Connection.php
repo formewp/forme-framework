@@ -50,7 +50,7 @@ class Connection
         if ($wpdb) {
             return $wpdb->prefix ?: 'wp_';
         } else {
-            $configLocation = ABSPATH . '/wp-config.php';
+            $configLocation = ABSPATH . 'wp-config.php';
 
             return configExtract('table_prefix', $configLocation) ?: 'wp_';
         }
