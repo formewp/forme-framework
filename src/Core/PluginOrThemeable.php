@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Core;
 
+use ReflectionClass;
+
 trait PluginOrThemeable
 {
     /**
@@ -18,7 +20,7 @@ trait PluginOrThemeable
      */
     protected static function getFileName(): string
     {
-        $reflector = new \ReflectionClass(static::class);
+        $reflector = new ReflectionClass(static::class);
 
         return $reflector->getFileName() ?: '';
     }
@@ -33,7 +35,7 @@ trait PluginOrThemeable
         $realClassDir = dirname(self::getFileName(), 3);
         $baseName     = basename($realClassDir);
 
-        return WP_PLUGIN_DIR . '/' . $baseName;
+        return realpath(WP_PLUGIN_DIR . '/' . $baseName) ?: '';
     }
 
     /**
@@ -41,6 +43,6 @@ trait PluginOrThemeable
      */
     protected static function getThemePath(): string
     {
-        return get_template_directory();
+        return realpath(get_template_directory()) ?: '';
     }
 }
