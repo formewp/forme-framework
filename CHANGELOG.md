@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.9.0] - 2023-01-16
+
+### Refactor
+
+- Remove end to end routes
+
 ## [2.8.7] - 2022-12-30
 
 ### Miscellaneous Tasks
 
 - Ensure absolute path in plugin or themeable
+- Bump version
 
 ## [2.8.6] - 2022-12-22
 
