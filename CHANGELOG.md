@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.0] - 2023-02-14
+
+### Features
+
+- Add a make instance helper
+
 ## [2.9.0] - 2023-01-16
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Refactor
 
