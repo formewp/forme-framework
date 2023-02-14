@@ -7,6 +7,7 @@ namespace Forme;
 use AltoRouter;
 use DI\ContainerBuilder;
 use function DI\factory;
+use DI\FactoryInterface;
 use Forme\Framework\Http\ServerRequest;
 use InvalidArgumentException;
 use Laminas\Diactoros\ServerRequestFactory;
@@ -23,7 +24,7 @@ if (!function_exists(__NAMESPACE__ . '\getContainer')) {
      * You probably only need this if you're outside of
      * the standard loader flow.
      */
-    function getContainer(string $logFile = FORME_PRIVATE_ROOT . '/logs/forme.log'): ContainerInterface
+    function getContainer(string $logFile = FORME_PRIVATE_ROOT . '/logs/forme.log'): ContainerInterface|FactoryInterface
     {
         if (isset($GLOBALS['__forme_container__'])) {
             return $GLOBALS['__forme_container__'];
@@ -78,6 +79,20 @@ if (!function_exists(__NAMESPACE__ . '\getInstance')) {
         $container = getContainer();
 
         return $container->get($className);
+    }
+}
+
+if (!function_exists(__NAMESPACE__ . '\makeInstance')) {
+    /**
+     * Get a new instance of a class via the container (i.e. not singleton).
+     *
+     * @return mixed
+     */
+    function makeInstance(string $className)
+    {
+        $container = getContainer();
+
+        return $container->make($className);
     }
 }
 
