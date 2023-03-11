@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2023-03-11
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [2.10.0] - 2023-02-14
 
 ### Features
 
 - Add a make instance helper
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.9.0] - 2023-01-16
 
