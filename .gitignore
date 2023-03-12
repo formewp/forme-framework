@@ -7,3 +7,5 @@ phpstan.neon
 tools
 wp-test
 tests/coverage
+phinx.yml
+logs

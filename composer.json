@@ -72,7 +72,7 @@
     ],
     "scripts": {
         "test": "./tools/pest",
-        "test:setup": "./tools/wp-pest setup",
+        "test:setup": "./scripts/test_setup.sh",
         "stan": "./tools/phpstan",
         "rector:check": "./tools/rector process src --dry-run",
         "rector:fix": "./tools/rector process src",
