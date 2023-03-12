@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [20230312123833.20230312123833.20230312123834] - 2023-03-12
+## [3.0.2] - 2023-03-12
 
 ### Features
 
@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file.
 
 - Update release title
 - Remove commented out cruft
+- Bump version
+- Use existing release tag
 
 ## [3.0.1] - 2023-03-12
 
