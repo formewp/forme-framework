@@ -38,8 +38,13 @@ final class Validator
     {
         // get the contents of the template
         $path     = $template->get('path');
-        $contents = file_get_contents($path);
 
+        self::validateFile($path);
+    }
+
+    public static function validateFile(string $path): void
+    {
+        $contents = file_get_contents($path);
         array_map(function (array $rule) use ($contents, $path) {
             $errorLine = self::checkAndReturnLine($rule['pattern'], $contents);
             if ($errorLine) {
