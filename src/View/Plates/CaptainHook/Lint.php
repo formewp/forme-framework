@@ -44,9 +44,9 @@ class Lint implements Action
 
         $io->write(['', '', implode(PHP_EOL, $messages), ''], true, IO::VERBOSE);
 
-        // if ($failedFilesCount > 0) {
-        throw new ActionFailed('Linting failed: View template errors in ' . $failedFilesCount . ' file(s)' . PHP_EOL . PHP_EOL . implode(PHP_EOL, $failedFiles));
-        // }
+        if ($failedFilesCount > 0) {
+            throw new ActionFailed('Linting failed: View template errors in ' . $failedFilesCount . ' file(s)' . PHP_EOL . PHP_EOL . implode(PHP_EOL, $failedFiles));
+        }
     }
 
     /**
