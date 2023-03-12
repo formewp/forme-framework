@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Forme\Framework\View\Plates;
@@ -13,7 +14,7 @@ final class Validator
             'message' => 'Single line if statements are not allowed in Plates. Use a ternary or split up the statement.',
         ],
         [
-            'pattern' => '/\s*echo\s*;/m',
+            'pattern' => '/\s*echo\s*/m',
             'message' => 'Echo statements are not allowed in Plates. Use "<?=" instead.',
         ],
         [
