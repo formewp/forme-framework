@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.3] - 2023-03-12
+
+### Bug Fixes
+
+- Plates linting
+
 ## [3.0.2] - 2023-03-12
 
 ### Features
@@ -14,6 +20,7 @@ All notable changes to this project will be documented in this file.
 - Remove commented out cruft
 - Bump version
 - Use existing release tag
+- Bump version
 
 ## [3.0.1] - 2023-03-12
 
