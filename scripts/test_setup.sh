@@ -79,6 +79,3 @@ cp stubs/db.php wp-test/public/wp-content/db.php
 
 # wp core install
 wp core install --url="http://localhost:8000" --title="Test Site" --admin_user="admin" --admin_password="p455w0rd" --admin_email="moussaclarke@gmail.com"
-
-# activate the plugin
-#wp plugin activate s3-transmit-plugin
