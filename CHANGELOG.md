@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [20230312123833.20230312123833.20230312123834] - 2023-03-12
+
+### Features
+
+- Add a plates captain hook linter
+
+### Miscellaneous Tasks
+
+- Update release title
+- Remove commented out cruft
+
 ## [3.0.1] - 2023-03-12
 
 ### Dev Worflow
@@ -15,6 +26,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Basic automated release
+- Bump version
 
 ### Testing
 
