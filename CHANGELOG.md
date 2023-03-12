@@ -2,11 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1] - 2023-03-12
+
+### Dev Worflow
+
+- Update phive tools
+
+### Documentation
+
+- Set up dev environment
+
+### Miscellaneous Tasks
+
+- Basic automated release
+
+### Testing
+
+- Test setup
+
 ## [3.0.0] - 2023-03-11
 
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [2.10.0] - 2023-02-14
 
