@@ -2,11 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.1] - 2023-03-12
+
+### Features
+
+- Add a plates captain hook linter
+
+### Miscellaneous Tasks
+
+- Basic automated release
+- Update release title
+- Use existing release tag
+- Update gitignore
+- Update gitignore and deps
+
 ## [2.10.0] - 2023-02-14
 
 ### Features
 
 - Add a make instance helper
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.9.0] - 2023-01-16
 
