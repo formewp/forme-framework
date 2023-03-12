@@ -24,14 +24,18 @@ class Lint implements Action
     public function execute(Config $config, IO $io, Repository $repository, Config\Action $action): void
     {
         // we have to provide a custom filter because we do not want to check any deleted files
-        $changedPlateFiles  = $repository->getIndexOperator()->getStagedFilesOfType('plate.php', ['A', 'C', 'M']);
+        $changedPlateFiles  = $repository->getIndexOperator()->getStagedFilesOfType('php', ['A', 'C', 'M']);
+        $changedPlateFiles  = array_filter($changedPlateFiles, fn ($file) => str_ends_with($file, 'plate.php'));
+
+        $directory = dirname($config->getPath());
+
         $failedFilesCount   = 0;
         $failedFiles        = [];
         $messages           = [];
 
         foreach ($changedPlateFiles as $file) {
             $prefix = IOUtil::PREFIX_OK;
-            if ($this->hasValidationErrors($file)) {
+            if ($this->hasValidationErrors($directory . '/' . $file)) {
                 $prefix = IOUtil::PREFIX_FAIL;
                 $failedFilesCount++;
             }
@@ -40,9 +44,9 @@ class Lint implements Action
 
         $io->write(['', '', implode(PHP_EOL, $messages), ''], true, IO::VERBOSE);
 
-        if ($failedFilesCount > 0) {
-            throw new ActionFailed('Linting failed: View template errors in ' . $failedFilesCount . ' file(s)' . PHP_EOL . PHP_EOL . implode(PHP_EOL, $failedFiles));
-        }
+        // if ($failedFilesCount > 0) {
+        throw new ActionFailed('Linting failed: View template errors in ' . $failedFilesCount . ' file(s)' . PHP_EOL . PHP_EOL . implode(PHP_EOL, $failedFiles));
+        // }
     }
 
     /**
