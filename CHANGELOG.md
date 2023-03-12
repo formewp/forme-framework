@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.2] - 2023-03-12
+
+### Bug Fixes
+
+- Plates linting
+
 ## [2.10.1] - 2023-03-12
 
 ### Features
@@ -15,6 +21,7 @@ All notable changes to this project will be documented in this file.
 - Use existing release tag
 - Update gitignore
 - Update gitignore and deps
+- Bump version
 
 ## [2.10.0] - 2023-02-14
 
