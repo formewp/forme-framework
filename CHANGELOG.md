@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.7] - 2023-03-13
+
+### Bug Fixes
+
+- Release changelog config
+
+### Documentation
+
+- Update changelog
+
 ## [2.10.6] - 2023-03-13
 
 ### Miscellaneous Tasks
