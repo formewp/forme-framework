@@ -8,9 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Generate a changelog
+      uses: orhun/git-cliff-action@v2
+      id: changelog
+      with:
+        config: cliff.toml
+        args: --current --strip header
+      env:
+        OUTPUT: CHANGES.md
     - name: Set env
       run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
     - name: Create a Release
-      run: hub release create -m "${{ env.RELEASE_VERSION }}" "${{ env.RELEASE_VERSION }}"
+      run: hub release create -m "${{ env.RELEASE_VERSION }}" -m "${{ steps.changelog.outputs.content }}" "${{ env.RELEASE_VERSION }}"
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
