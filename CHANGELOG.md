@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.13] - 2023-03-13
+
+### Bug Fixes
+
+- Try without file
+
 ## [3.0.12] - 2023-03-13
 
 ### Bug Fixes
 
 - Release fetch depth
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.0.11] - 2023-03-13
 
