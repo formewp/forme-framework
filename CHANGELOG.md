@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.9] - 2023-03-13
+
+### Bug Fixes
+
+- Release workflow file output
+
 ## [3.0.8] - 2023-03-13
 
 ### Miscellaneous Tasks
 
 - Try writing release changelog to file
+- Bump version
 
 ## [3.0.7] - 2023-03-13
 
