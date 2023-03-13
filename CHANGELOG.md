@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.11] - 2023-03-13
+
+### Miscellaneous Tasks
+
+- Try file only
+
 ## [3.0.10] - 2023-03-13
 
 ### Bug Fixes
 
 - Workflow typo
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.0.9] - 2023-03-13
 
