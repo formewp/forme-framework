@@ -24,7 +24,7 @@
         "ramsey/uuid": "^4.1",
         "rareloop/psr7-server-request-extension": "^2.1",
         "relay/relay": "^2.1",
-        "robmorgan/phinx": "^0.13.1",
+        "robmorgan/phinx": "1.x-dev",
         "spatie/enum": "^3.13",
         "symfony/string": "^6.0",
         "symfony/yaml": "^6.0",
@@ -92,5 +92,7 @@
             "pestphp/pest-plugin": true,
             "composer/installers": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
