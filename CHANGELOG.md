@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.7] - 2023-03-13
+
+### Miscellaneous Tasks
+
+- Try latest for release changelog
+
 ## [3.0.6] - 2023-03-13
 
 ### Documentation
@@ -11,6 +17,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Strip footer from release changelog
+- Bump version
 
 ## [3.0.5] - 2023-03-13
 
