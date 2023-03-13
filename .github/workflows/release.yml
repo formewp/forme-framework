@@ -13,7 +13,7 @@ jobs:
       id: changelog
       with:
         config: cliff.toml
-        args: --current --strip all
+        args: --latest --strip all
       env:
         OUTPUT: CHANGES.md
     - name: Set env
