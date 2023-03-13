@@ -2,11 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.4] - 2023-03-13
+
+### Miscellaneous Tasks
+
+- Release changelog
+
+## [2.10.3] - 2023-03-12
+
+### Bug Fixes
+
+- Uncomment plates lint exception check
+
 ## [2.10.2] - 2023-03-12
 
 ### Bug Fixes
 
 - Plates linting
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.10.1] - 2023-03-12
 
