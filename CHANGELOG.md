@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.5] - 2023-03-13
+
+### Miscellaneous Tasks
+
+- Release changelog
+
 ## [3.0.4] - 2023-03-12
 
 ### Bug Fixes
 
 - Uncomment plates lint exception check
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.0.3] - 2023-03-12
 
