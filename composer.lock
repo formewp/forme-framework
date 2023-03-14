@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce003c8151ac3228725ef6d7f1f6be31",
+    "content-hash": "8beac3d5feabbd3034da9f2c279fa499",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -124,21 +124,21 @@
         },
         {
             "name": "cakephp/core",
-            "version": "5.0.0-beta1",
+            "version": "4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/core.git",
-                "reference": "c4a54a36fae2de87cca584a141970faca65ef5a9"
+                "reference": "3730ce60f0153b609c9d756fe1b60978bc9c9fee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/core/zipball/c4a54a36fae2de87cca584a141970faca65ef5a9",
-                "reference": "c4a54a36fae2de87cca584a141970faca65ef5a9",
+                "url": "https://api.github.com/repos/cakephp/core/zipball/3730ce60f0153b609c9d756fe1b60978bc9c9fee",
+                "reference": "3730ce60f0153b609c9d756fe1b60978bc9c9fee",
                 "shasum": ""
             },
             "require": {
-                "cakephp/utility": "^5.0",
-                "php": ">=8.1"
+                "cakephp/utility": "^4.0",
+                "php": ">=7.4.0"
             },
             "suggest": {
                 "cakephp/cache": "To use Configure::store() and restore().",
@@ -177,27 +177,26 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/core"
             },
-            "time": "2022-12-09T14:29:33+00:00"
+            "time": "2023-02-09T19:55:09+00:00"
         },
         {
             "name": "cakephp/database",
-            "version": "5.x-dev",
+            "version": "4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/database.git",
-                "reference": "9d7724b91c9955e08f6355bdd1bd05ca7ff780a5"
+                "reference": "904c09ac6ac41bddd65ef62f11676870aa8837a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/database/zipball/9d7724b91c9955e08f6355bdd1bd05ca7ff780a5",
-                "reference": "9d7724b91c9955e08f6355bdd1bd05ca7ff780a5",
+                "url": "https://api.github.com/repos/cakephp/database/zipball/904c09ac6ac41bddd65ef62f11676870aa8837a0",
+                "reference": "904c09ac6ac41bddd65ef62f11676870aa8837a0",
                 "shasum": ""
             },
             "require": {
-                "cakephp/core": "^5.0",
-                "cakephp/datasource": "^5.0",
-                "php": ">=8.1",
-                "psr/log": "^3.0"
+                "cakephp/core": "^4.0",
+                "cakephp/datasource": "^4.0",
+                "php": ">=7.4.0"
             },
             "suggest": {
                 "cakephp/i18n": "If you are using locale-aware datetime formats or Chronos types.",
@@ -234,26 +233,27 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/database"
             },
-            "time": "2022-12-01T06:57:22+00:00"
+            "time": "2023-01-31T17:52:27+00:00"
         },
         {
             "name": "cakephp/datasource",
-            "version": "5.0.0-beta1",
+            "version": "4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/datasource.git",
-                "reference": "b6be94914c8f6d94dca7445452f39b1809d6c02b"
+                "reference": "cb58adb0e6f52f26fa61d03776b07c157e328c1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/datasource/zipball/b6be94914c8f6d94dca7445452f39b1809d6c02b",
-                "reference": "b6be94914c8f6d94dca7445452f39b1809d6c02b",
+                "url": "https://api.github.com/repos/cakephp/datasource/zipball/cb58adb0e6f52f26fa61d03776b07c157e328c1e",
+                "reference": "cb58adb0e6f52f26fa61d03776b07c157e328c1e",
                 "shasum": ""
             },
             "require": {
-                "cakephp/core": "^5.0",
-                "php": ">=8.1",
-                "psr/simple-cache": "^2.0 || ^3.0"
+                "cakephp/core": "^4.0",
+                "php": ">=7.4.0",
+                "psr/log": "^1.0 || ^2.0",
+                "psr/simple-cache": "^1.0 || ^2.0"
             },
             "suggest": {
                 "cakephp/cache": "If you decide to use Query caching.",
@@ -291,25 +291,25 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/datasource"
             },
-            "time": "2022-12-09T17:57:18+00:00"
+            "time": "2022-11-26T11:46:41+00:00"
         },
         {
             "name": "cakephp/utility",
-            "version": "5.0.0-beta1",
+            "version": "4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/utility.git",
-                "reference": "f51cf4f6e771c6b1b1330a4f6b9b36bd14d84a32"
+                "reference": "3694d44728fb00ab474d9e031d51ed47f3d0e31c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/utility/zipball/f51cf4f6e771c6b1b1330a4f6b9b36bd14d84a32",
-                "reference": "f51cf4f6e771c6b1b1330a4f6b9b36bd14d84a32",
+                "url": "https://api.github.com/repos/cakephp/utility/zipball/3694d44728fb00ab474d9e031d51ed47f3d0e31c",
+                "reference": "3694d44728fb00ab474d9e031d51ed47f3d0e31c",
                 "shasum": ""
             },
             "require": {
-                "cakephp/core": "^5.0",
-                "php": ">=8.1"
+                "cakephp/core": "^4.0",
+                "php": ">=7.4.0"
             },
             "suggest": {
                 "ext-intl": "To use Text::transliterate() or Text::slug()",
@@ -350,7 +350,7 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/utility"
             },
-            "time": "2022-11-06T07:21:27+00:00"
+            "time": "2023-01-07T14:14:31+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1544,41 +1544,42 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.3.1",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "9b5daeaffce5b926cac47923798bba91059e60e2"
+                "reference": "f259e2b15fb95494c83f52d3caad003bbf5ffaa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/9b5daeaffce5b926cac47923798bba91059e60e2",
-                "reference": "9b5daeaffce5b926cac47923798bba91059e60e2",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f259e2b15fb95494c83f52d3caad003bbf5ffaa1",
+                "reference": "f259e2b15fb95494c83f52d3caad003bbf5ffaa1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
-                "psr/log": "^2.0 || ^3.0"
+                "php": ">=7.2",
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
             },
             "provide": {
-                "psr/log-implementation": "3.0.0"
+                "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "^3.0",
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
                 "elasticsearch/elasticsearch": "^7 || ^8",
                 "ext-json": "*",
                 "graylog2/gelf-php": "^1.4.2 || ^2@dev",
-                "guzzlehttp/guzzle": "^7.4.5",
+                "guzzlehttp/guzzle": "^7.4",
                 "guzzlehttp/psr7": "^2.2",
                 "mongodb/mongodb": "^1.8",
                 "php-amqplib/php-amqplib": "~2.4 || ^3",
-                "phpstan/phpstan": "^1.9",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-strict-rules": "^1.4",
-                "phpunit/phpunit": "^9.5.26",
-                "predis/predis": "^1.1 || ^2",
+                "phpspec/prophecy": "^1.15",
+                "phpstan/phpstan": "^0.12.91",
+                "phpunit/phpunit": "^8.5.14",
+                "predis/predis": "^1.1 || ^2.0",
+                "rollbar/rollbar": "^1.3 || ^2 || ^3",
                 "ruflin/elastica": "^7",
+                "swiftmailer/swiftmailer": "^5.3|^6.0",
                 "symfony/mailer": "^5.4 || ^6",
                 "symfony/mime": "^5.4 || ^6"
             },
@@ -1601,7 +1602,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "3.x-dev"
+                    "dev-main": "2.x-dev"
                 }
             },
             "autoload": {
@@ -1629,7 +1630,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.3.1"
+                "source": "https://github.com/Seldaek/monolog/tree/2.9.1"
             },
             "funding": [
                 {
@@ -1641,7 +1642,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-06T13:46:10+00:00"
+            "time": "2023-02-06T13:44:46+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -2270,16 +2271,16 @@
         },
         {
             "name": "psr/log",
-            "version": "3.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/ef29f6d262798707a9edd554e2b82517ef3a9376",
+                "reference": "ef29f6d262798707a9edd554e2b82517ef3a9376",
                 "shasum": ""
             },
             "require": {
@@ -2288,7 +2289,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -2314,22 +2315,22 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
+                "source": "https://github.com/php-fig/log/tree/2.0.0"
             },
-            "time": "2021-07-14T16:46:02+00:00"
+            "time": "2021-07-14T16:41:46+00:00"
         },
         {
             "name": "psr/simple-cache",
-            "version": "3.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865"
+                "reference": "8707bf3cea6f710bf6ef05491234e3ab06f6432a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/764e0b3939f5ca87cb904f570ef9be2d78a07865",
-                "reference": "764e0b3939f5ca87cb904f570ef9be2d78a07865",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/8707bf3cea6f710bf6ef05491234e3ab06f6432a",
+                "reference": "8707bf3cea6f710bf6ef05491234e3ab06f6432a",
                 "shasum": ""
             },
             "require": {
@@ -2338,7 +2339,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -2365,9 +2366,9 @@
                 "simple-cache"
             ],
             "support": {
-                "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
+                "source": "https://github.com/php-fig/simple-cache/tree/2.0.0"
             },
-            "time": "2021-10-29T13:26:27+00:00"
+            "time": "2021-10-29T13:22:09+00:00"
         },
         {
             "name": "ramsey/collection",
@@ -2652,33 +2653,32 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "1.x-dev",
+            "version": "0.12.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/phinx.git",
-                "reference": "efec06d38f62a12b26e720e608b1c9b3c31db52c"
+                "reference": "6eb0f295e140ed2804d93396755f0ce9ada4ec07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/phinx/zipball/efec06d38f62a12b26e720e608b1c9b3c31db52c",
-                "reference": "efec06d38f62a12b26e720e608b1c9b3c31db52c",
+                "url": "https://api.github.com/repos/cakephp/phinx/zipball/6eb0f295e140ed2804d93396755f0ce9ada4ec07",
+                "reference": "6eb0f295e140ed2804d93396755f0ce9ada4ec07",
                 "shasum": ""
             },
             "require": {
-                "cakephp/database": "5.x-dev",
-                "php": ">=8.1",
-                "psr/container": "^2.0",
+                "cakephp/database": "^4.0",
+                "php": ">=7.2",
+                "psr/container": "^1.0 || ^2.0",
                 "symfony/config": "^3.4|^4.0|^5.0|^6.0",
-                "symfony/console": "^6.0"
+                "symfony/console": "^3.4|^4.0|^5.0|^6.0"
             },
             "require-dev": {
-                "cakephp/cakephp": "5.x-dev",
                 "cakephp/cakephp-codesniffer": "^4.0",
                 "ext-json": "*",
                 "ext-pdo": "*",
-                "phpunit/phpunit": "^9.5.19",
+                "phpunit/phpunit": "^8.5|^9.3",
                 "sebastian/comparator": ">=1.2.3",
-                "symfony/yaml": "^3.4|^4.0|^5.0|^6.0"
+                "symfony/yaml": "^3.4|^4.0|^5.0"
             },
             "suggest": {
                 "ext-json": "Install if using JSON configuration format",
@@ -2733,9 +2733,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cakephp/phinx/issues",
-                "source": "https://github.com/cakephp/phinx/tree/1.x"
+                "source": "https://github.com/cakephp/phinx/tree/0.12.13"
             },
-            "time": "2023-02-28T01:10:12+00:00"
+            "time": "2022-10-03T04:57:40+00:00"
         },
         {
             "name": "spatie/enum",
@@ -8950,7 +8950,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "robmorgan/phinx": 20,
         "nunomaduro/mock-final-classes": 20
     },
     "prefer-stable": true,
