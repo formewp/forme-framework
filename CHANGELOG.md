@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2023-03-14
+
+### Miscellaneous Tasks
+
+- Downgrade monolog and cake deps
+
 ## [3.0.14] - 2023-03-13
 
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [3.0.13] - 2023-03-13
 
