@@ -6,7 +6,6 @@ namespace Forme;
 
 use AltoRouter;
 use DI\ContainerBuilder;
-use function DI\factory;
 use DI\FactoryInterface;
 use Forme\Framework\Http\ServerRequest;
 use InvalidArgumentException;
@@ -17,6 +16,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\String\UnicodeString;
+use function DI\factory;
 
 if (!function_exists(__NAMESPACE__ . '\getContainer')) {
     /**
