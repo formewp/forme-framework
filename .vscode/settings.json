@@ -1,0 +1,17 @@
+{
+    "phpstan.configuration": "phpstan.neon",
+    "phpstan.level": "config",
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "(?<!\\.plate)\\.php$",
+                "cmd": "${workspaceFolder}/tools/php-cs-fixer fix --verbose --config=${workspaceFolder}/.php-cs-fixer.dist ${file}"
+            },
+        ]
+    },
+    "[php]": {
+        "editor.defaultFormatter": null
+    },
+    "editor.formatOnSave": true,
+    "intelephense.format.enable": false,
+}

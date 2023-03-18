@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "bmewburn.vscode-intelephense-client",
+        "breezelin.phpstan",
+        "sonarsource.sonarlint-vscode",
+        "emeraldwalk.runonsave"
+    ]
+}
