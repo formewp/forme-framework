@@ -18,22 +18,31 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\String\UnicodeString;
 use function DI\factory;
 
-if (!function_exists(__NAMESPACE__ . '\getContainer')) {
-    /**
-     * Send back a new configured DI container
-     * You probably only need this if you're outside of
-     * the standard loader flow.
-     */
-    function getContainer(string $logFile = FORME_PRIVATE_ROOT . '/logs/forme.log'): ContainerInterface|FactoryInterface
-    {
-        if (isset($GLOBALS['__forme_container__'])) {
-            return $GLOBALS['__forme_container__'];
-        }
+// Bootstrap functions
 
+if (!function_exists(__NAMESPACE__ . '\bootstrap')) {
+    /**
+     * Bootstrap all the things.
+     */
+    function bootstrap(): void
+    {
+        bootstrapDotenv();
+        bootstrapWhoops();
+        bootstrapContainer();
+    }
+}
+
+if (!function_exists(__NAMESPACE__ . '\bootstrapContainer')) {
+    /**
+     * Bootstrap the container and set definitions.
+     */
+    function bootstrapContainer(): ContainerInterface|FactoryInterface
+    {
         $builder = new ContainerBuilder();
         $builder->addDefinitions([
-            LoggerInterface::class => factory(function () use ($logFile) {
+            LoggerInterface::class => factory(function () {
                 $logger      = new Logger('forme');
+                $logFile     = FORME_PRIVATE_ROOT . '/logs/forme.log';
                 $fileHandler = new RotatingFileHandler($logFile);
                 $logger->pushHandler($fileHandler);
 
@@ -68,6 +77,96 @@ if (!function_exists(__NAMESPACE__ . '\getContainer')) {
     }
 }
 
+if (!function_exists(__NAMESPACE__ . '\bootstrapWhoops')) {
+    /**
+     * Load Whoops if dev and not already loaded.
+     *
+     **/
+    function bootstrapWhoops(): void
+    {
+        if (WP_ENV == 'development' && !isset($GLOBALS['__forme_whoops__'])) {
+            $whoops  = new \Whoops\Run();
+            $handler = new \Whoops\Handler\PrettyPageHandler();
+            if (env('WHOOPS_EDITOR')) {
+                $handler->setEditor(env('WHOOPS_EDITOR'));
+            }
+
+            $whoops->pushHandler($handler);
+            $whoops->register();
+            set_error_handler(function ($level, $message, $file, $line) {
+                if (\Whoops\Util\Misc::isLevelFatal($level)) {
+                    return;
+                }
+
+                return true;
+            });
+            $GLOBALS['__forme_whoops__'] = true;
+        }
+    }
+}
+
+if (!function_exists(__NAMESPACE__ . '\bootstrapDotenv')) {
+    /**
+     * Load dotenv if file exists and not already loaded.
+     * forme.env takes precedence over .env.
+     */
+    function bootstrapDotenv(): void
+    {
+        $dotenvFile = file_exists(FORME_PRIVATE_ROOT . '.env') ? '.env' : null;
+        $dotenvFile = file_exists(FORME_PRIVATE_ROOT . 'forme.env') ? 'forme.env' : $dotenvFile;
+        if ($dotenvFile && !isset($GLOBALS['__forme_dotenv__'])) {
+            $dotenv = \Dotenv\Dotenv::createImmutable(FORME_PRIVATE_ROOT, $dotenvFile);
+            $dotenv->load();
+            $GLOBALS['__forme_dotenv__'] = true;
+        }
+    }
+}
+
+// deprecated
+if (!function_exists(__NAMESPACE__ . '\loadWhoops')) {
+    /**
+     * Load Whoops if dev and not already loaded.
+     *
+     * @deprecated use bootstrapWhoops() instead
+     *
+     **/
+    function loadWhoops(): void
+    {
+        bootstrapWhoops();
+    }
+}
+
+if (!function_exists(__NAMESPACE__ . '\loadDotenv')) {
+    /**
+     * Load dotenv if file exists and not already loaded.
+     * forme.env takes precedence over .env.
+     *
+     * @deprecated use bootstrapDotenv() instead
+     */
+    function loadDotenv(): void
+    {
+        bootstrapDotenv();
+    }
+}
+
+// convenience functions/getters
+
+if (!function_exists(__NAMESPACE__ . '\getContainer')) {
+    /**
+     * Send back a new configured DI container
+     * You probably only need this if you're outside of
+     * the standard loader flow.
+     */
+    function getContainer(): ContainerInterface|FactoryInterface
+    {
+        if (isset($GLOBALS['__forme_container__'])) {
+            return $GLOBALS['__forme_container__'];
+        }
+
+        return bootstrapContainer();
+    }
+}
+
 if (!function_exists(__NAMESPACE__ . '\getInstance')) {
     /**
      * Get an instance of a class via the container.
@@ -96,51 +195,6 @@ if (!function_exists(__NAMESPACE__ . '\makeInstance')) {
     }
 }
 
-if (!function_exists(__NAMESPACE__ . '\loadWhoops')) {
-    /**
-     * Load Whoops if dev and not already loaded.
-     *
-     **/
-    function loadWhoops(): void
-    {
-        if (WP_ENV == 'development' && !isset($GLOBALS['__forme_whoops__'])) {
-            $whoops  = new \Whoops\Run();
-            $handler = new \Whoops\Handler\PrettyPageHandler();
-            if (env('WHOOPS_EDITOR')) {
-                $handler->setEditor(env('WHOOPS_EDITOR'));
-            }
-
-            $whoops->pushHandler($handler);
-            $whoops->register();
-            set_error_handler(function ($level, $message, $file, $line) {
-                if (\Whoops\Util\Misc::isLevelFatal($level)) {
-                    return;
-                }
-
-                return true;
-            });
-            $GLOBALS['__forme_whoops__'] = true;
-        }
-    }
-}
-
-if (!function_exists(__NAMESPACE__ . '\loadDotenv')) {
-    /**
-     * Load dotenv if file exists and not already loaded.
-     * forme.env takes precedence over .env.
-     */
-    function loadDotenv(): void
-    {
-        $dotenvFile = file_exists(FORME_PRIVATE_ROOT . '.env') ? '.env' : null;
-        $dotenvFile = file_exists(FORME_PRIVATE_ROOT . 'forme.env') ? 'forme.env' : $dotenvFile;
-        if ($dotenvFile && !isset($GLOBALS['__forme_dotenv__'])) {
-            $dotenv = \Dotenv\Dotenv::createImmutable(FORME_PRIVATE_ROOT, $dotenvFile);
-            $dotenv->load();
-            $GLOBALS['__forme_dotenv__'] = true;
-        }
-    }
-}
-
 if (!function_exists(__NAMESPACE__ . '\request')) {
     /**
      * Get the current request.
@@ -156,6 +210,18 @@ if (!function_exists(__NAMESPACE__ . '\request')) {
         ));
     }
 }
+
+if (!function_exists(__NAMESPACE__ . '\log')) {
+    /**
+     * Log convenience function.
+     */
+    function log(): LoggerInterface
+    {
+        return getInstance(LoggerInterface::class);
+    }
+}
+
+// utilities
 
 if (!function_exists(__NAMESPACE__ . '\arrayKeysToCamelCase')) {
     /**
@@ -179,16 +245,6 @@ if (!function_exists(__NAMESPACE__ . '\arrayKeysToCamelCase')) {
         }
 
         return $arr;
-    }
-}
-
-if (!function_exists(__NAMESPACE__ . '\log')) {
-    /**
-     * Log convenience function.
-     */
-    function log(): LoggerInterface
-    {
-        return getInstance(LoggerInterface::class);
     }
 }
 
