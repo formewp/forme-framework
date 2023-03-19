@@ -2,11 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.1] - 2023-03-19
+
+### Documentation
+
+- Update readme
+
+### Miscellaneous Tasks
+
+- Add vscode settings for dev
+
+### Refactor
+
+- Update bootstrap flow
+
 ## [3.1.0] - 2023-03-14
 
 ### Miscellaneous Tasks
 
 - Downgrade monolog and cake deps
+- Bump version
 
 ## [3.0.14] - 2023-03-13
 
