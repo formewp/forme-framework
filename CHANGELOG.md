@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.10.8] - 2023-03-19
+
+### Miscellaneous Tasks
+
+- Add vscode settings for dev
+
+### Refactor
+
+- Update bootstrap flow
+
 ## [2.10.7] - 2023-03-13
 
 ### Bug Fixes
@@ -11,6 +21,10 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 
 - Update changelog
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.10.6] - 2023-03-13
 
