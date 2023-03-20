@@ -1,12 +1,18 @@
 <?php
 
 use DI\Container;
+use Monolog\Logger;
 use function Forme\getContainer;
 use function Forme\getInstance;
+use function Forme\log;
 use function Forme\makeInstance;
 
 it('returns a container instance', function () {
     expect(getContainer())->toBeInstanceOf(Container::class);
+});
+
+it('returns a logger instance', function () {
+    expect(log())->toBeInstanceOf(Logger::class);
 });
 
 it('returns a singleton instance of a class', function () {
