@@ -8,6 +8,8 @@ use AltoRouter;
 use DI\ContainerBuilder;
 use DI\FactoryInterface;
 use Forme\Framework\Http\ServerRequest;
+use Forme\Framework\Log\LogEventHandler;
+use Forme\Framework\Log\LogHandlerType;
 use InvalidArgumentException;
 use Laminas\Diactoros\ServerRequestFactory;
 use Monolog\Handler\RotatingFileHandler;
@@ -41,10 +43,20 @@ if (!function_exists(__NAMESPACE__ . '\bootstrapContainer')) {
         $builder = new ContainerBuilder();
         $builder->addDefinitions([
             LoggerInterface::class => factory(function () {
-                $logger      = new Logger('forme');
-                $logFile     = FORME_PRIVATE_ROOT . '/logs/forme.log';
-                $fileHandler = new RotatingFileHandler($logFile);
-                $logger->pushHandler($fileHandler);
+                $logger            = new Logger('forme');
+                $logHandlerTypeVal = WP_ENV === 'production' ? 'event' : 'file';
+                // config over-ride
+                $logHandlerTypeVal = env('LOG_HANDLER') ?: $logHandlerTypeVal;
+                // this next line will throw an exception if not valid
+                $logHandlerType = LogHandlerType::from($logHandlerTypeVal);
+                if ($logHandlerType->equals(LogHandlerType::FILE())) {
+                    $logFile     = FORME_PRIVATE_ROOT . '/logs/forme.log';
+                    $fileHandler = new RotatingFileHandler($logFile);
+                    $logger->pushHandler($fileHandler);
+                } else {
+                    $logEventHandler = new LogEventHandler();
+                    $logger->pushHandler($logEventHandler);
+                }
 
                 return $logger;
             }),
