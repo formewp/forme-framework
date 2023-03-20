@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.0] - 2023-03-20
+
+### Features
+
+- Event model and log handler
+
 ## [2.10.8] - 2023-03-19
 
 ### Miscellaneous Tasks
 
 - Add vscode settings for dev
+- Bump version
 
 ### Refactor
 
