@@ -18,7 +18,6 @@ final class CreateEventsTable extends AbstractMigration
         $table->addColumn('type', 'string')
             ->addColumn('payload', 'text', ['limit' => MysqlAdapter::TEXT_LONG])
             ->addColumn('created_at', 'datetime')
-            ->addColumn('updated_at', 'datetime', ['null' => true])
             ->create();
     }
 }
