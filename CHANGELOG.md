@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.1] - 2023-03-20
+
+### Miscellaneous Tasks
+
+- Events dont need updated at
+
 ## [2.11.0] - 2023-03-20
 
 ### Features
 
 - Event model and log handler
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [2.10.8] - 2023-03-19
 
