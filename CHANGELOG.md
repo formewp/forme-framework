@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.2] - 2023-04-07
+
+### Features
+
+- User attribute sugar
+
 ## [3.2.1] - 2023-03-20
 
 ### Miscellaneous Tasks
 
 - No updated at for events
+- Bump version
 
 ## [3.2.0] - 2023-03-20
 
