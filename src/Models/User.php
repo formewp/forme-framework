@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Model
 {
+    use UserSugar;
+
     protected $primaryKey = 'ID';
 
     public $timestamps = false;

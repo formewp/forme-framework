@@ -5,7 +5,6 @@ namespace Forme\Framework\Models;
 
 /**
  * @property int    $ID
- * @property int    $id
  * @property string $post_title
  * @property string $title
  * @property string $post_type
