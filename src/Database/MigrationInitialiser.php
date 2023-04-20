@@ -47,10 +47,10 @@ class MigrationInitialiser
         // if db credentials do not match, let's set them - host/port//name/user/pass/charset
         $dbCredentials = $phinxConfig['environments'][$defaultEnvironment];
         if (
-            ($dbCredentials['host'] != DB_HOST && $dbCredentials['host'] . ':' . $dbCredentials['port'] != DB_HOST) ||
-            $dbCredentials['name'] != DB_NAME ||
-            $dbCredentials['user'] != DB_USER ||
-            $dbCredentials['pass'] != DB_PASSWORD ||
+            ($dbCredentials['host'] != DB_HOST && $dbCredentials['host'] . ':' . $dbCredentials['port'] != DB_HOST)    ||
+            $dbCredentials['name']    != DB_NAME                                                                       ||
+            $dbCredentials['user']    != DB_USER                                                                       ||
+            $dbCredentials['pass']    != DB_PASSWORD                                                                   ||
             $dbCredentials['charset'] != DB_CHARSET
         ) {
             $hostPort                                         = explode(':', DB_HOST);
@@ -62,6 +62,10 @@ class MigrationInitialiser
             $dbCredentials['charset']                         = DB_CHARSET;
             $phinxConfig['environments'][$defaultEnvironment] = $dbCredentials;
             $this->logger->info('Updating the db credentials for Phinx');
+        }
+
+        if (WP_ENV === 'testing' && (defined('USE_MYSQL') && USE_MYSQL)) {
+            $phinxConfig['environments']['testing']['adapter'] = 'mysql';
         }
 
         // add db_prefix
