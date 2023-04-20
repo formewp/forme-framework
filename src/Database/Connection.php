@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Database;
 
-use function Forme\configExtract;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use function Forme\configExtract;
 
 class Connection
 {
@@ -15,7 +15,7 @@ class Connection
     public function bootstrap(): void
     {
         // TODO bail if there is already a global instance
-        if (WP_ENV === 'testing') {
+        if (WP_ENV === 'testing' && (!defined('USE_MYSQL') || !USE_MYSQL)) {
             $args = [
                 'driver'   => 'sqlite',
                 'database' => DB_DIR . DB_FILE,
