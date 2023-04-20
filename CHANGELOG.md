@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.3] - 2023-04-20
+
+### Features
+
+- Allow mysql in testing environment
+
 ## [3.2.2] - 2023-04-07
 
 ### Features
 
 - User attribute sugar
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.2.1] - 2023-03-20
 
