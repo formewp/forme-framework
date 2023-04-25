@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.4] - 2023-04-25
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [3.2.3] - 2023-04-20
 
 ### Features
 
 - Allow mysql in testing environment
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.2.2] - 2023-04-07
 
