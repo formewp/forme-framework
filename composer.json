@@ -15,7 +15,7 @@
         "illuminate/config": "^9.52",
         "illuminate/database": "^9.52",
         "illuminate/view": "^9.52",
-        "laminas/laminas-diactoros": "^2.5",
+        "laminas/laminas-diactoros": "^2.5.2",
         "league/plates": "^3.4",
         "log1x/sage-directives": "^1.1",
         "monolog/monolog": "^2.9",
