@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.0] - 2023-04-25
+
+### Miscellaneous Tasks
+
+- Specify laminas version due to cve
+
 ## [3.2.4] - 2023-04-25
 
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [3.2.3] - 2023-04-20
 
