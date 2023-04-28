@@ -2,11 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.1] - 2023-04-28
+
+### Features
+
+- Meta relations and typing
+
+### Miscellaneous Tasks
+
+- Generics on the container helpers
+
 ## [3.3.0] - 2023-04-25
 
 ### Miscellaneous Tasks
 
 - Specify laminas version due to cve
+- Bump version
 
 ## [3.2.4] - 2023-04-25
 
