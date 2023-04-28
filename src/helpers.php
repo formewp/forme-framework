@@ -183,7 +183,11 @@ if (!function_exists(__NAMESPACE__ . '\getInstance')) {
     /**
      * Get an instance of a class via the container.
      *
-     * @return mixed
+     * @template T
+     *
+     * @param class-string<T> $className
+     *
+     * @return T
      */
     function getInstance(string $className)
     {
@@ -197,7 +201,11 @@ if (!function_exists(__NAMESPACE__ . '\makeInstance')) {
     /**
      * Get a new instance of a class via the container (i.e. not singleton).
      *
-     * @return mixed
+     * @template T
+     *
+     * @param class-string<T> $className
+     *
+     * @return T
      */
     function makeInstance(string $className)
     {
