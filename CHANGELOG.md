@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.3] - 2023-05-02
+
+### Features
+
+- Post excerpt
+
 ## [3.3.2] - 2023-05-02
 
 ### Miscellaneous Tasks
 
 - Asset time from manifest.json if dist
+- Bump version
 
 ## [3.3.1] - 2023-04-28
 
