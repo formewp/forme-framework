@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.2] - 2023-05-02
+
+### Miscellaneous Tasks
+
+- Asset time from manifest.json if dist
+
 ## [3.3.1] - 2023-04-28
 
 ### Features
@@ -11,6 +17,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Generics on the container helpers
+- Bump version
 
 ## [3.3.0] - 2023-04-25
 
