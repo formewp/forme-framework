@@ -13,6 +13,11 @@ class Assets
      */
     public static function time(string $relativefilePath): ?string
     {
+        // if there is a webpack dist then get the time from the manifest
+        if (self::distExists()) {
+            return (string) filemtime(self::basePath() . 'manifest.json');
+        }
+
         return (string) filemtime(self::path($relativefilePath)) ?: null;
     }
 
