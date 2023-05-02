@@ -13,6 +13,8 @@ use Illuminate\Support\Collection;
  * @property int                        $id
  * @property string                     $post_title
  * @property string                     $title
+ * @property string                     $post_excerpt
+ * @property string                     $excerpt
  * @property string                     $post_status
  * @property string                     $post_type
  * @property string                     $type
