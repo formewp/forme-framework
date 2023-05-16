@@ -29,20 +29,21 @@ class Lint implements Action
 
         $directory = dirname($config->getPath());
 
-        $failedFilesCount   = 0;
         $failedFiles        = [];
         $messages           = [];
 
         foreach ($changedPlateFiles as $file) {
             $prefix = IOUtil::PREFIX_OK;
             if ($this->hasValidationErrors($directory . '/' . $file)) {
-                $prefix = IOUtil::PREFIX_FAIL;
-                $failedFilesCount++;
+                $prefix        = IOUtil::PREFIX_FAIL;
+                $failedFiles[] = $directory . '/' . $file;
             }
             $messages[] = $prefix . ' ' . $file;
         }
 
         $io->write(['', '', implode(PHP_EOL, $messages), ''], true, IO::VERBOSE);
+
+        $failedFilesCount = count($failedFiles);
 
         if ($failedFilesCount > 0) {
             throw new ActionFailed('Linting failed: View template errors in ' . $failedFilesCount . ' file(s)' . PHP_EOL . PHP_EOL . implode(PHP_EOL, $failedFiles));
