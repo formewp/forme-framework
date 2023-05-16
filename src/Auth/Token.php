@@ -9,7 +9,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class Token
+class Token implements TokenInterface
 {
     public function get(string $name): ?string
     {
