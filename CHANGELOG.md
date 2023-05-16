@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.5] - 2023-05-16
+
+### Features
+
+- Slightly more helpful error message in template lint
+
 ## [3.3.4] - 2023-05-16
 
 ### Miscellaneous Tasks
 
 - Add token interface
+- Bump version
 
 ## [3.3.3] - 2023-05-02
 
