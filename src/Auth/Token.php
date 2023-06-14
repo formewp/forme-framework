@@ -11,10 +11,15 @@ use Ramsey\Uuid\Uuid;
 
 class Token implements TokenInterface
 {
+    public const DATE_FORMAT = 'Y-m-d H:i:s';
+
     public function get(string $name, string $expire = '+2 hours'): ?string
     {
         $this->purge();
-        $result = Capsule::table('forme_auth_tokens')->where('name', '=', $name)->first();
+        $result = Capsule::table('forme_auth_tokens')
+            ->where('name', '=', $name)
+            ->where('deleted_at', '=', null)
+            ->first();
         if ($result === null) {
             $result = $this->create($name, $expire);
         }
@@ -25,14 +30,20 @@ class Token implements TokenInterface
     public function validate(string $token, string $name): bool
     {
         $this->purge();
-        $result = Capsule::table('forme_auth_tokens')->where('name', '=', $name)->first();
+        $result = Capsule::table('forme_auth_tokens')
+            ->where('name', '=', $name)
+            ->where('deleted_at', '=', null)
+            ->first();
 
         return $result && $result->token === $token;
     }
 
     public function destroy(string $name): void
     {
-        Capsule::table('forme_auth_tokens')->where('name', '=', $name)->delete();
+        Capsule::table('forme_auth_tokens')
+            ->where('name', '=', $name)
+            ->where('deleted_at', '=', null)
+            ->update(['deleted_at' => (new DateTime())->format(self::DATE_FORMAT)]);
     }
 
     /**
@@ -46,10 +57,12 @@ class Token implements TokenInterface
         $dt->setTimestamp($expiry);
 
         $id = Capsule::table('forme_auth_tokens')->insertGetId(
-            ['name' => $name, 'token' => $token, 'expiry' => $dt->format('Y-m-d H:i:s')]
+            ['name' => $name, 'token' => $token, 'expiry' => $dt->format(self::DATE_FORMAT)]
         );
 
-        return Capsule::table('forme_auth_tokens')->where('id', '=', $id)->first();
+        return Capsule::table('forme_auth_tokens')
+            ->where('id', '=', $id)
+            ->first();
     }
 
     /**
@@ -58,6 +71,9 @@ class Token implements TokenInterface
     private function purge(): void
     {
         $dt = new DateTime();
-        Capsule::table('forme_auth_tokens')->where('expiry', '<=', $dt->format('Y-m-d H:i:s'))->delete();
+        Capsule::table('forme_auth_tokens')
+            ->where('expiry', '<=', $dt->format(self::DATE_FORMAT))
+            ->where('deleted_at', '=', null)
+            ->update(['deleted_at' => $dt->format(self::DATE_FORMAT)]);
     }
 }
