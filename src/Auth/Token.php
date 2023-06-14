@@ -11,12 +11,12 @@ use Ramsey\Uuid\Uuid;
 
 class Token implements TokenInterface
 {
-    public function get(string $name): ?string
+    public function get(string $name, string $expire = '+2 hours'): ?string
     {
         $this->purge();
         $result = Capsule::table('forme_auth_tokens')->where('name', '=', $name)->first();
         if ($result === null) {
-            $result = $this->create($name);
+            $result = $this->create($name, $expire);
         }
 
         return $result->token;
@@ -33,10 +33,10 @@ class Token implements TokenInterface
     /**
      * @return Model|object|static|null
      */
-    private function create(string $name)
+    private function create(string $name, string $expire)
     {
         $token  = Uuid::uuid4();
-        $expiry = strtotime('+2 hours', time());
+        $expiry = strtotime($expire, time());
         $dt     = new DateTime();
         $dt->setTimestamp($expiry);
 

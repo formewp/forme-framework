@@ -7,24 +7,24 @@ beforeEach(function () {
     $this->token= new Token();
 });
 
-test('returns a uuid token', function () {
+it('returns a uuid token', function () {
     $result = $this->token->get('test');
     expect($result)->toMatch('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/');
 });
 
-test('returns an existing token', function () {
+it('returns an existing token', function () {
     $initial = $this->token->get('test');
     $result  = $this->token->get('test');
     expect($result)->toBe($initial);
 });
 
-test('validates a token', function () {
+it('validates a token', function () {
     $result  = $this->token->get('test');
     expect($this->token->validate($result, 'test'))->toBe(true);
     expect($this->token->validate('invalid-garbage-token', 'test'))->toBe(false);
 });
 
-test('invalidates a token after expiry', function () {
+it('invalidates a token after default expiry', function () {
     $result  = $this->token->get('test');
     // expire the token by setting it to 2 hours ago
     $expiry = strtotime('-2 hours', time());
@@ -34,10 +34,30 @@ test('invalidates a token after expiry', function () {
     expect($this->token->validate($result, 'test'))->toBe(false);
 });
 
-test('returns a new token after expiry', function () {
+it('returns a new token after default expiry', function () {
     $result  = $this->token->get('test');
     // expire the token by setting it to 2 hours ago
     $expiry = strtotime('-2 hours', time());
+    $dt     = new DateTime();
+    $dt->setTimestamp($expiry);
+    Capsule::table('forme_auth_tokens')->where('name', '=', 'test')->update(['expiry' => $dt->format('Y-m-d H:i:s')]);
+    expect($this->token->get('test'))->not->toBe($result);
+});
+
+it('invalidates a token after custom expiry', function () {
+    $result  = $this->token->get('test', '+1 week');
+    // expire the token by setting it to 1 week ago
+    $expiry = strtotime('-1 week', time());
+    $dt     = new DateTime();
+    $dt->setTimestamp($expiry);
+    Capsule::table('forme_auth_tokens')->where('name', '=', 'test')->update(['expiry' => $dt->format('Y-m-d H:i:s')]);
+    expect($this->token->validate($result, 'test'))->toBe(false);
+});
+
+it('returns a new token after custom expiry', function () {
+    $result  = $this->token->get('test', '+1 month');
+    // expire the token by setting it to 1 month ago
+    $expiry = strtotime('-1 month', time());
     $dt     = new DateTime();
     $dt->setTimestamp($expiry);
     Capsule::table('forme_auth_tokens')->where('name', '=', 'test')->update(['expiry' => $dt->format('Y-m-d H:i:s')]);
