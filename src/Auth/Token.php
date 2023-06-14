@@ -15,11 +15,7 @@ class Token implements TokenInterface
 
     public function get(string $name, string $expire = '+2 hours'): ?string
     {
-        $this->purge();
-        $result = Capsule::table('forme_auth_tokens')
-            ->where('name', '=', $name)
-            ->where('deleted_at', '=', null)
-            ->first();
+        $result = $this->getFromDatabase($name);
         if ($result === null) {
             $result = $this->create($name, $expire);
         }
@@ -29,11 +25,7 @@ class Token implements TokenInterface
 
     public function validate(string $token, string $name): bool
     {
-        $this->purge();
-        $result = Capsule::table('forme_auth_tokens')
-            ->where('name', '=', $name)
-            ->where('deleted_at', '=', null)
-            ->first();
+        $result = $this->getFromDatabase($name);
 
         return $result && $result->token === $token;
     }
@@ -44,6 +36,26 @@ class Token implements TokenInterface
             ->where('name', '=', $name)
             ->where('deleted_at', '=', null)
             ->update(['deleted_at' => (new DateTime())->format(self::DATE_FORMAT)]);
+    }
+
+    public function expires(string $name): ?DateTime
+    {
+        $result = $this->getFromDatabase($name);
+
+        return $result ? new DateTime($result->expiry) : null;
+    }
+
+    /**
+     * @return Model|object|static|null
+     */
+    private function getFromDatabase(string $name)
+    {
+        $this->purge();
+
+        return Capsule::table('forme_auth_tokens')
+            ->where('name', '=', $name)
+            ->where('deleted_at', '=', null)
+            ->first();
     }
 
     /**

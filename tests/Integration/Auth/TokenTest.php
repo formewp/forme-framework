@@ -69,3 +69,10 @@ it('destroys all tokens', function () {
     $this->token->destroy('test');
     expect(Capsule::table('forme_auth_tokens')->where('name', '=', 'test')->where('deleted_at', '=', null)->count())->toBe(0);
 });
+
+it('tells you when the token expires', function () {
+    $this->token->get('test');
+    expect($this->token->expires('test'))->not->toBe(null);
+    expect($this->token->expires('test'))->toBeInstanceOf(DateTime::class);
+    expect($this->token->expires('test')->getTimestamp())->toBeGreaterThan(time());
+});
