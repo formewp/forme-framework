@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.4.1] - 2023-06-14
+
+### Miscellaneous Tasks
+
+- Update composer deps
+
 ## [3.4.0] - 2023-06-14
 
 ### Features
@@ -9,6 +15,10 @@ All notable changes to this project will be documented in this file.
 - Auth token custom expiry
 - Force invalidate all tokens by name/scope
 - Auth tokens soft delete
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.3.5] - 2023-05-16
 
