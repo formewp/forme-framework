@@ -63,3 +63,9 @@ it('returns a new token after custom expiry', function () {
     Capsule::table('forme_auth_tokens')->where('name', '=', 'test')->update(['expiry' => $dt->format('Y-m-d H:i:s')]);
     expect($this->token->get('test'))->not->toBe($result);
 });
+
+it('destroys all tokens', function () {
+    $this->token->get('test');
+    $this->token->destroy('test');
+    expect(Capsule::table('forme_auth_tokens')->where('name', '=', 'test')->count())->toBe(0);
+});

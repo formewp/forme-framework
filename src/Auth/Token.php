@@ -30,6 +30,11 @@ class Token implements TokenInterface
         return $result && $result->token === $token;
     }
 
+    public function destroy(string $name): void
+    {
+        Capsule::table('forme_auth_tokens')->where('name', '=', $name)->delete();
+    }
+
     /**
      * @return Model|object|static|null
      */
