@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Forme\Framework\Auth\Token;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -73,6 +74,6 @@ it('destroys all tokens', function () {
 it('tells you when the token expires', function () {
     $this->token->get('test');
     expect($this->token->expires('test'))->not->toBe(null);
-    expect($this->token->expires('test'))->toBeInstanceOf(DateTime::class);
+    expect($this->token->expires('test'))->toBeInstanceOf(Carbon::class);
     expect($this->token->expires('test')->getTimestamp())->toBeGreaterThan(time());
 });

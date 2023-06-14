@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Auth;
 
-use DateTime;
+use Carbon\Carbon;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
@@ -35,14 +35,14 @@ class Token implements TokenInterface
         Capsule::table('forme_auth_tokens')
             ->where('name', '=', $name)
             ->where('deleted_at', '=', null)
-            ->update(['deleted_at' => (new DateTime())->format(self::DATE_FORMAT)]);
+            ->update(['deleted_at' => Carbon::now()->format(self::DATE_FORMAT)]);
     }
 
-    public function expires(string $name): ?DateTime
+    public function expires(string $name): ?Carbon
     {
         $result = $this->getFromDatabase($name);
 
-        return $result ? new DateTime($result->expiry) : null;
+        return $result ? Carbon::parse($result->expiry) : null;
     }
 
     /**
@@ -65,7 +65,7 @@ class Token implements TokenInterface
     {
         $token  = Uuid::uuid4();
         $expiry = strtotime($expire, time());
-        $dt     = new DateTime();
+        $dt     = Carbon::now();
         $dt->setTimestamp($expiry);
 
         $id = Capsule::table('forme_auth_tokens')->insertGetId(
@@ -82,7 +82,7 @@ class Token implements TokenInterface
      */
     private function purge(): void
     {
-        $dt = new DateTime();
+        $dt = Carbon::now();
         Capsule::table('forme_auth_tokens')
             ->where('expiry', '<=', $dt->format(self::DATE_FORMAT))
             ->where('deleted_at', '=', null)
