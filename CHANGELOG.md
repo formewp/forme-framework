@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.4.2] - 2023-06-14
+
+### Features
+
+- Ability to see when token expires
+
 ## [3.4.1] - 2023-06-14
 
 ### Miscellaneous Tasks
 
 - Update composer deps
+- Bump version
 
 ## [3.4.0] - 2023-06-14
 
