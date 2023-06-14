@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.4.3] - 2023-06-14
+
+### Miscellaneous Tasks
+
+- Replace datetime with carbon
+
 ## [3.4.2] - 2023-06-14
 
 ### Features
 
 - Ability to see when token expires
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.4.1] - 2023-06-14
 
