@@ -2,11 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.4.0] - 2023-06-14
+
+### Features
+
+- Auth token custom expiry
+- Force invalidate all tokens by name/scope
+- Auth tokens soft delete
+
 ## [3.3.5] - 2023-05-16
 
 ### Features
 
 - Slightly more helpful error message in template lint
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.3.4] - 2023-05-16
 
