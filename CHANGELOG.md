@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.0] - 2023-06-17
+
+### Miscellaneous Tasks
+
+- Update laminas and rector
+
 ## [3.4.4] - 2023-06-17
 
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [3.4.3] - 2023-06-14
 
