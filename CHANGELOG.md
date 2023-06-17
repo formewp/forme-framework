@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.4.4] - 2023-06-17
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [3.4.3] - 2023-06-14
 
 ### Miscellaneous Tasks
 
 - Replace datetime with carbon
+- Bump version
 
 ## [3.4.2] - 2023-06-14
 
