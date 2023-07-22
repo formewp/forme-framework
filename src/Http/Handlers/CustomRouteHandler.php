@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Http\Handlers;
 
-use AltoRouter;
+use Forme\Framework\Router\AltoRouter;
 use DI\FactoryInterface;
 use Forme\Framework\Http\ResponseFactory;
 use Forme\Framework\Http\Shutdown;

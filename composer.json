@@ -10,7 +10,6 @@
     ],
     "require": {
         "php": "^8.0",
-        "altorouter/altorouter": "^2.0.2",
         "http-interop/response-sender": "^1.0",
         "illuminate/config": "^9.52.4",
         "illuminate/database": "^9.52.4",
