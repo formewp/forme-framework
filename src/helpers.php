@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Forme;
 
-use AltoRouter;
+use Forme\Framework\Router\AltoRouter;
 use DI\ContainerBuilder;
 use DI\FactoryInterface;
 use Forme\Framework\Http\ServerRequest;

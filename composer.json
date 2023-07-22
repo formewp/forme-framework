@@ -10,7 +10,6 @@
     ],
     "require": {
         "php": "^8.1",
-        "altorouter/altorouter": "^2.0.2",
         "cakephp/core": "^4.4.14",
         "http-interop/response-sender": "^1.0",
         "illuminate/config": "^9.52.9",
