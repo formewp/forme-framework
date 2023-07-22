@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.1] - 2023-07-22
+
+### Miscellaneous Tasks
+
+- Include altorouter directly due to upstream global namespace
+
 ## [3.5.0] - 2023-06-17
 
 ### Miscellaneous Tasks
 
 - Update laminas and rector
+- Bump version
 
 ## [3.4.4] - 2023-06-17
 
