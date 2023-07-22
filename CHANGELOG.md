@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.2] - 2023-07-22
+
+### Miscellaneous Tasks
+
+- Include altorouter directly due to upstream global namespace
+
 ## [2.11.1] - 2023-03-20
 
 ### Miscellaneous Tasks
 
 - Events dont need updated at
+- Bump version
 
 ## [2.11.0] - 2023-03-20
 
