@@ -20,6 +20,11 @@ class Event extends Model
      */
     protected $table = 'forme_events';
 
+    /** @phpstan-ignore-next-line */
+    public $timestamps = ['created_at'];
+
+    public const UPDATED_AT = null;
+
     /**
      * @var string[]
      */
