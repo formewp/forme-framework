@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.6.1] - 2023-08-01
+
+### Bug Fixes
+
+- Explicitly set event timestamps to created only
+
 ## [3.6.0] - 2023-08-01
 
 ### Bug Fixes
 
 - Event does not have updated_at
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.5.2] - 2023-08-01
 
