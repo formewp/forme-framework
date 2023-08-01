@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.2] - 2023-08-01
+
+### Miscellaneous Tasks
+
+- Make events extensible
+
 ## [3.5.1] - 2023-07-22
 
 ### Miscellaneous Tasks
 
 - Include altorouter directly due to upstream global namespace
+- Bump version
 
 ## [3.5.0] - 2023-06-17
 
