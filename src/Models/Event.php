@@ -12,7 +12,6 @@ use Illuminate\Support\Carbon;
  * @property array  $payload
  * @property string $type
  * @property Carbon $created_at
- * @property Carbon $updated_at
  */
 class Event extends Model
 {
@@ -24,7 +23,7 @@ class Event extends Model
     /**
      * @var string[]
      */
-    protected $fillable = ['type', 'payload', 'created_at', 'updated_at'];
+    protected $fillable = ['type', 'payload', 'created_at'];
 
     /**
      * @var array<string, string>
