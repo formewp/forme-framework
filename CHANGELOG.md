@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.6.0] - 2023-08-01
+
+### Bug Fixes
+
+- Event does not have updated_at
+
 ## [3.5.2] - 2023-08-01
 
 ### Miscellaneous Tasks
 
 - Make events extensible
+- Bump version
 
 ## [3.5.1] - 2023-07-22
 
