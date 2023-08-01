@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-final class Event extends Model
+class Event extends Model
 {
     /**
      * @var string
