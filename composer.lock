@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01e377d0100efa2d2913bb17e2f7bc7d",
+    "content-hash": "80f818d61129d6b32189f475e685ca0f",
     "packages": [
         {
             "name": "brick/math",
@@ -648,7 +648,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v10.0.0",
+            "version": "v10.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -795,16 +795,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v10.0.0",
+            "version": "v10.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "8afc62681b77080ae8b29298f2dd4ab2a6edd092"
+                "reference": "cb735802ee3c303494ebfa4112f3f6b78ba80ec5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/8afc62681b77080ae8b29298f2dd4ab2a6edd092",
-                "reference": "8afc62681b77080ae8b29298f2dd4ab2a6edd092",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/cb735802ee3c303494ebfa4112f3f6b78ba80ec5",
+                "reference": "cb735802ee3c303494ebfa4112f3f6b78ba80ec5",
                 "shasum": ""
             },
             "require": {
@@ -860,7 +860,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-02-14T15:00:37+00:00"
+            "time": "2023-08-14T14:50:08+00:00"
         },
         {
             "name": "illuminate/events",
@@ -1148,16 +1148,16 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v10.0.0",
+            "version": "v10.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "d0b135354ef89500b67d6e4289d8a28870777dba"
+                "reference": "e409930611f49a09b10ce78ed735ee1965bee25e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/d0b135354ef89500b67d6e4289d8a28870777dba",
-                "reference": "d0b135354ef89500b67d6e4289d8a28870777dba",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/e409930611f49a09b10ce78ed735ee1965bee25e",
+                "reference": "e409930611f49a09b10ce78ed735ee1965bee25e",
                 "shasum": ""
             },
             "require": {
@@ -1198,7 +1198,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-02-14T15:00:37+00:00"
+            "time": "2023-08-14T14:52:17+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
