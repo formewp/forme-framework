@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.7.1] - 2023-08-20
+
+### Miscellaneous Tasks
+
+- Update illuminate version
+
 ## [3.7.0] - 2023-08-20
 
 ### Miscellaneous Tasks
 
 - Allow laravel 10
+- Bump version
 
 ## [3.6.1] - 2023-08-01
 
