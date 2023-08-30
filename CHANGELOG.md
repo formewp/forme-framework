@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.3] - 2023-08-30
+
+### Features
+
+- Allow mysql in testing environment
+
 ## [2.11.2] - 2023-07-22
 
 ### Miscellaneous Tasks
 
 - Include altorouter directly due to upstream global namespace
+- Bump version
 
 ## [2.11.1] - 2023-03-20
 
