@@ -55,7 +55,7 @@
         "pestphp/pest": "^1.23",
         "pestphp/pest-plugin-mock": "^1.0.3",
         "php-stubs/acf-pro-stubs": "^6.0.6",
-        "php-stubs/woocommerce-stubs": "^7.8",
+        "php-stubs/woocommerce-stubs": "^8.1",
         "php-stubs/wp-cli-stubs": "^2.8",
         "phpstan/phpstan": "^1.10.18",
         "ramsey/conventional-commits": "^1.5",
