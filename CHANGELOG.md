@@ -2,11 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.0] - 2023-09-18
+
+### Miscellaneous Tasks
+
+- Update deps
+- Update testing libraries
+- Update cake dependencies
+
 ## [3.7.1] - 2023-08-20
 
 ### Miscellaneous Tasks
 
 - Update illuminate version
+- Bump version
 
 ## [3.7.0] - 2023-08-20
 
