@@ -24,7 +24,7 @@
         "ramsey/uuid": "^4.7.4",
         "rareloop/psr7-server-request-extension": "^2.1",
         "relay/relay": "^2.1.2",
-        "robmorgan/phinx": "^2.0",
+        "robmorgan/phinx": "^0.15",
         "spatie/enum": "^3.13",
         "symfony/string": "^6.3",
         "symfony/yaml": "^6.3",
