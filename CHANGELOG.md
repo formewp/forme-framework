@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.1] - 2023-09-22
+
+### Bug Fixes
+
+- Update deps and fix phinx 2.0 which has gone away
+
 ## [3.8.0] - 2023-09-18
 
 ### Miscellaneous Tasks
@@ -9,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - Update deps
 - Update testing libraries
 - Update cake dependencies
+- Bump version
 
 ## [3.7.1] - 2023-08-20
 
