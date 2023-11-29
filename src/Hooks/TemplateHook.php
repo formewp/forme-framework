@@ -15,7 +15,7 @@ final class TemplateHook implements HookInterface
             return;
         }
 
-        // priority set to 11 to ensure that we run after third party plugins, specifically WooCommerce
-        add_filter('template_include', \Forme\getInstance(TemplateHandler::class), 11);
+        // priority set to 12 to ensure that we run after third party plugins, specifically WooCommerce (10) and Elementor (11)
+        add_filter('template_include', \Forme\getInstance(TemplateHandler::class), 12);
     }
 }
