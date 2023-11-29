@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.2] - 2023-11-29
+
+### Miscellaneous Tasks
+
+- Slighly later for template include for elementor compat
+
 ## [3.8.1] - 2023-09-22
 
 ### Bug Fixes
 
 - Update deps and fix phinx 2.0 which has gone away
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.8.0] - 2023-09-18
 
