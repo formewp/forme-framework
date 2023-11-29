@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.4] - 2023-11-29
+
+### Miscellaneous Tasks
+
+- Slighly later for template include for elementor compat
+
 ## [2.11.3] - 2023-08-30
+
+### Documentation
+
+- Changelog
 
 ### Features
 
