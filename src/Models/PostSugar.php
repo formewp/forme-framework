@@ -7,6 +7,8 @@ namespace Forme\Framework\Models;
  * @property int    $ID
  * @property string $post_title
  * @property string $title
+ * @property string $post_content
+ * @property string $content
  * @property string $post_excerpt
  * @property string $excerpt
  * @property string $post_type
@@ -30,6 +32,16 @@ trait PostSugar
     public function setTitleAttribute(string $value): void
     {
         $this->post_title = $value;
+    }
+
+    public function getContentAttribute(): string
+    {
+        return $this->post_content;
+    }
+
+    public function setContentAttribute(string $value): void
+    {
+        $this->post_content = $value;
     }
 
     public function getExcerptAttribute(): string
