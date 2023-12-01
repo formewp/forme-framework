@@ -2,11 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.3] - 2023-12-01
+
+### Features
+
+- Also normalise post content
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [3.8.2] - 2023-11-29
 
 ### Miscellaneous Tasks
 
 - Slighly later for template include for elementor compat
+- Bump version
 
 ## [3.8.1] - 2023-09-22
 
