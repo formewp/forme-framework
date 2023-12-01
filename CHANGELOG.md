@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.4] - 2023-12-01
+
+### Features
+
+- Update release action
+
 ## [3.8.3] - 2023-12-01
 
 ### Features
@@ -11,6 +17,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [3.8.2] - 2023-11-29
 
