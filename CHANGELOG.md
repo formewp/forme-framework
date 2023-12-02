@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.5] - 2023-12-02
+
+### Performance
+
+- Child post query simplification
+
 ## [3.8.4] - 2023-12-01
 
 ### Features
 
 - Update release action
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.8.3] - 2023-12-01
 
