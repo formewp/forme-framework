@@ -124,20 +124,13 @@ class Post extends Model
     }
 
     /**
-     * @return Collection<array-key,self>
+     * @return Collection<array-key, self>
      */
     public function getChildrenAttribute(): Collection
     {
-        $children = get_pages([
-            'parent'      => $this->ID,
-            'post_type'   => $this->post_type,
-            'post_status' => 'publish',
-        ]);
-
-        // turn this into a collection of models
-        return collect($children)->map(function ($child) {
-            return self::find($child->ID);
-        })->filter();
+        return self::where('post_parent', $this->ID)
+            ->where('post_status', 'publish')
+            ->get();
     }
 
     public function hasChildren(): bool
