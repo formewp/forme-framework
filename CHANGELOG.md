@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.6] - 2024-01-09
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [3.8.5] - 2023-12-02
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Performance
 
