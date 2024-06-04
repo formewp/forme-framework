@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.7] - 2024-06-04
+
+### Miscellaneous Tasks
+
+- Remove faulty exec permission
+
 ## [3.8.6] - 2024-01-09
 
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [3.8.5] - 2023-12-02
 
