@@ -2,11 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.9] - 2024-07-05
+
+### Bug Fixes
+
+- Monolog 3 typing
+
+### Miscellaneous Tasks
+
+- Update sqlite db stub
+
+### Testing
+
+- Update tests for 24 default theme
+
 ## [3.8.8] - 2024-06-04
 
 ### Miscellaneous Tasks
 
 - Update dependencies
+- Bump version
 
 ## [3.8.7] - 2024-06-04
 
