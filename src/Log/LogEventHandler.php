@@ -6,10 +6,11 @@ namespace Forme\Framework\Log;
 use Exception;
 use Forme\Framework\Models\Event;
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\LogRecord;
 
 final class LogEventHandler extends AbstractProcessingHandler
 {
-    protected function write(array $record): void
+    protected function write(LogRecord $record): void
     {
         try {
             Event::create(['type' => 'log', 'payload' => $record]);
