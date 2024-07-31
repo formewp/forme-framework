@@ -18,6 +18,10 @@ class Assets
             return (string) filemtime(self::basePath() . 'manifest.json');
         }
 
+        if (!self::path($relativefilePath)) {
+            return null;
+        }
+
         return (string) filemtime(self::path($relativefilePath)) ?: null;
     }
 
