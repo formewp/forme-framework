@@ -115,7 +115,7 @@ class MenuItem extends Post
         }
 
         // If the menu exists, get its items.
-        $items = wp_get_nav_menu_items($menu->term_id, ['update_post_term_cache' => false]) ?: null;
+        $items = wp_get_nav_menu_items($menu->term_id, ['update_post_term_cache' => false]) ?: [];
 
         $indexedItems = [];
         foreach ($items as $item) {
