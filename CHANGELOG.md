@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.12] - 2024-08-12
+
+### Bug Fixes
+
+- Handle empty menu
+
 ## [3.8.11] - 2024-08-12
 
 ### Miscellaneous Tasks
 
 - Order menu items
+- Bump version
 
 ## [3.8.10] - 2024-07-31
 
