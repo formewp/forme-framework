@@ -27,7 +27,9 @@ class MenuItem extends Post
 
         $collection = self::with('meta')->whereHas('meta', function (Builder $query) {
             $query->where('meta_key', '_menu_item_menu_item_parent')->where('meta_value', (string) $this->ID);
-        })->get();
+        })
+        ->orderBy('menu_order')
+        ->get();
 
         return self::attachWPMenuItemData($collection, $type);
     }
@@ -54,7 +56,10 @@ class MenuItem extends Post
 
         $collection = self::with('meta')->whereHas('meta', function (Builder $query) {
             $query->where('meta_key', '_menu_item_menu_item_parent')->where('meta_value', '0');
-        })->find($itemIds);
+        })
+        ->whereIn('ID', $itemIds)
+        ->orderBy('menu_order')
+        ->get();
 
         return self::attachWPMenuItemData($collection, $type);
     }
