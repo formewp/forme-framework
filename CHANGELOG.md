@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.11] - 2024-08-12
+
+### Miscellaneous Tasks
+
+- Order menu items
+
 ## [3.8.10] - 2024-07-31
 
 ### Miscellaneous Tasks
 
 - Return null instead of error on rel asset fail
+- Bump version
 
 ## [3.8.9] - 2024-07-05
 
