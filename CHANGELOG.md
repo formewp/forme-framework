@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.8.13] - 2024-08-17
+
+### Documentation
+
+- Changelog
+
+### Miscellaneous Tasks
+
+- Allow downgrading monolog for conflict resolution
+
 ## [3.8.12] - 2024-08-12
 
 ### Bug Fixes
