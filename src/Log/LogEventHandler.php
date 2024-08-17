@@ -10,7 +10,7 @@ use Monolog\LogRecord;
 
 final class LogEventHandler extends AbstractProcessingHandler
 {
-    protected function write(LogRecord $record): void
+    protected function write(LogRecord|array $record): void
     {
         try {
             Event::create(['type' => 'log', 'payload' => $record]);
