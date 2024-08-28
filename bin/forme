@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+error_reporting(E_ERROR);
+
+if (file_exists(getcwd() . '/wp-test/public/wp-config.php')) {
+    require_once __DIR__ . '/wp-test/public/wp-config.php';
+} elseif (file_exists(getcwd() . '/public/wp-config.php')) {
+    require_once __DIR__ . '/public/wp-config.php';
+} else {
+    die('The forme cli command must be run from the root of your forme base WordPress installation or a forme plugin/theme project.');
+}
+
+use Symfony\Component\Console\Application;
+
+use function Forme\getInstance;
+
+$application = new Application();
+
+// automagically grab all the declared commands and add them to the application
+foreach (get_declared_classes() as $class) {
+    if (strpos($class, 'FormeCommand\\') !== false) {
+        $command = getInstance($class);
+        $application->add($command);
+    }
+}
+$application->run();
