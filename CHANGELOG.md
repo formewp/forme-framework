@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.0] - 2024-08-28
+
+### Features
+
+- New forme cli poc
+
 ## [3.8.13] - 2024-08-17
 
 ### Documentation
@@ -11,6 +17,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Allow downgrading monolog for conflict resolution
+- Bump version
 
 ## [3.8.12] - 2024-08-12
 
