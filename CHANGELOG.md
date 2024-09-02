@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.1] - 2024-09-02
+
+### Miscellaneous Tasks
+
+- Rename wrangle
+
 ## [3.9.0] - 2024-08-28
 
 ### Features
 
 - New forme cli poc
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.8.13] - 2024-08-17
 
