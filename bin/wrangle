@@ -4,9 +4,9 @@
 error_reporting(E_ERROR);
 
 if (file_exists(getcwd() . '/wp-test/public/wp-config.php')) {
-    require_once __DIR__ . '/wp-test/public/wp-config.php';
+    require_once getcwd() . '/wp-test/public/wp-config.php';
 } elseif (file_exists(getcwd() . '/public/wp-config.php')) {
-    require_once __DIR__ . '/public/wp-config.php';
+    require_once getcwd() . '/public/wp-config.php';
 } else {
     die('The wrangle cli command must be run from the root of your forme base WordPress installation or a forme plugin/theme project.');
 }
