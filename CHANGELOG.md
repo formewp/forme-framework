@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.2] - 2024-09-02
+
+### Bug Fixes
+
+- Wrangle rel from cwd not dir
+
 ## [3.9.1] - 2024-09-02
 
 ### Miscellaneous Tasks
 
 - Rename wrangle
+- Bump version
 
 ## [3.9.0] - 2024-08-28
 
