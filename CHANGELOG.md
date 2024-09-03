@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.3] - 2024-09-03
+
+### Miscellaneous Tasks
+
+- Explicitly require laravel/prompts
+
 ## [3.9.2] - 2024-09-02
 
 ### Bug Fixes
 
 - Wrangle rel from cwd not dir
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.9.1] - 2024-09-02
 
