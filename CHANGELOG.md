@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.9.4] - 2024-09-11
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [3.9.3] - 2024-09-03
 
 ### Miscellaneous Tasks
 
 - Explicitly require laravel/prompts
+- Bump version
 
 ## [3.9.2] - 2024-09-02
 
