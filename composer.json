@@ -29,7 +29,7 @@
         "spatie/enum": "^3.13",
         "symfony/string": "^6.3",
         "symfony/yaml": "^6.3",
-        "twig/twig": "^3.6.1",
+        "twig/twig": "^3.14",
         "vlucas/phpdotenv": "^5.5"
     },
     "autoload": {
