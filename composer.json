@@ -45,7 +45,8 @@
             "src/View/Plates/Extension/RenderContext/render-context.php",
             "src/View/Plates/Extension/LayoutSections/layout-sections.php",
             "src/View/Plates/Extension/Folders/folders.php",
-            "src/View/Plates/Util/util.php"
+            "src/View/Plates/Util/util.php",
+            "src/Commands/Wrangle/RunQueueCommand.php"
         ]
     },
     "require-dev": {

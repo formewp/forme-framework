@@ -9,6 +9,9 @@ use function Forme\getContainer;
 use Psr\Container\ContainerInterface;
 use WP_CLI;
 
+/**
+ * @deprecated Use `wrangle queue:run` in Forme\Framework\Commands\Wrangle\RunQueueCommand instead
+ **/
 class JobQueueCommand
 {
     private ContainerInterface $container;
