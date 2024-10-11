@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class RunQueueCommand extends Command
 {
-    protected static string $defaultName = 'queue:run';
+    protected static $defaultName = 'queue:run';
 
     protected function configure(): void {
         $this->addArgument(name: 'name', mode: InputArgument::OPTIONAL, description: 'The queue name');
