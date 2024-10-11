@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.0] - 2024-10-11
+
+### Features
+
+- Wrangle queue:run deprecate wpcli version
+
 ## [3.9.4] - 2024-09-11
 
 ### Miscellaneous Tasks
 
 - Update deps
+- Bump version
 
 ## [3.9.3] - 2024-09-03
 
