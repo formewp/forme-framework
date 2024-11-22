@@ -29,16 +29,19 @@
         "actions": []
     },
     "pre-commit": {
-        "enabled": true,
+        "enabled": false,
         "actions": [
             {
-                "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting"
+                "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting",
+                "options": []
             },
             {
-                "action": "composer test"
+                "action": "composer test",
+                "options": []
             },
             {
-                "action": "./scripts/php_cs_fixer.sh"
+                "action": "./scripts/php_cs_fixer.sh",
+                "options": []
             }
         ]
     },

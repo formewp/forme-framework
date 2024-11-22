@@ -2,11 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.5] - 2024-11-22
+
+### Features
+
+- Add arguments as uniqueness heurisitic
+
+### Testing
+
+- Tests for queue uniqueness including arguments
+
 ## [2.11.4] - 2023-11-29
 
 ### Miscellaneous Tasks
 
 - Slighly later for template include for elementor compat
+- Bump version
 
 ## [2.11.3] - 2023-08-30
 
