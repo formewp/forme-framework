@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.3] - 2024-11-22
+
+### Miscellaneous Tasks
+
+- Allow passing arguments to queuable stop
+
 ## [3.10.2] - 2024-11-22
 
 ### Features
 
 - Add arguments as uniqueness heurisitic
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ### Testing
 
