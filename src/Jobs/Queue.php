@@ -30,8 +30,7 @@ class Queue
         // class, arguments, schedule
         $job                    = new QueuedJob();
         $job->class             = $args['class'];
-        $arguments              = json_encode($args['arguments'] ?? null, JSON_THROW_ON_ERROR);
-        $job->arguments         = $arguments === 'null' ? '{}' : $arguments;
+        $job->arguments         = $this->encodeArguments($args['arguments'] ?? null);
 
         $job->scheduled_for     = Carbon::parse($args['next'] ?? 'now');
         $job->queue_name        = $args['queue_name'] ?? null;
@@ -55,7 +54,7 @@ class Queue
     }
 
     /**
-     * Schedule a unique recurring job. args must include frequency. uniqueness based on class name.
+     * Schedule a unique recurring job. args must include frequency. uniqueness based on class name and arguments.
      */
     public function start(array $args): void
     {
@@ -67,10 +66,11 @@ class Queue
 
         $jobExists = QueuedJob::where('class', $args['class'])
             ->where('queue_name', $queueName)
+            ->where('arguments', $this->encodeArguments($args['arguments'] ?? null))
             ->whereNull('started_at')
             ->first();
         if (!$jobExists) {
-            $this->logger->info('Starting recurring job ' . $args['class']);
+            $this->logger->info('Starting recurring job ' . $args['class'] . ' with arguments ' . $this->encodeArguments($args['arguments'] ?? null));
             $this->schedule($args);
         } else {
             $this->logger->info("Didn't start recurring job " . $args['class'] . ' as it already exists with id ' . $jobExists->id);
@@ -78,7 +78,7 @@ class Queue
     }
 
     /**
-     * Stop a unique recurring job by its class name.
+     * Stop a unique recurring job by its class name and arguments.
      */
     public function stop(array $args): void
     {
@@ -86,23 +86,25 @@ class Queue
 
         $pendingJob = QueuedJob::where('class', $args['class'])
             ->where('queue_name', $queueName)
+            ->where('arguments', $this->encodeArguments($args['arguments'] ?? null))
             ->whereNull('started_at')
             ->first();
         if ($pendingJob) {
             // if there is a pending job we can just delete it
             $pendingJob->delete();
-            $this->logger->info('Stopped recurring job ' . $args['class']);
+            $this->logger->info('Stopped recurring job ' . $args['class'] . ' with arguments ' . $this->encodeArguments($args['arguments'] ?? null));
         } else {
             // if there is a started job we set its frequency to null so it won't repeat
             $startedJob = QueuedJob::where('class', $args['class'])
                 ->where('queue_name', $queueName)
+                ->where('arguments', $this->encodeArguments($args['arguments'] ?? null))
                 ->whereNull('completed_at')
                 ->whereNotNull('frequency')
                 ->first();
             if ($startedJob) {
                 $startedJob->frequency = null;
                 $startedJob->save();
-                $this->logger->info('Stopped recurring job ' . $args['class']);
+                $this->logger->info('Stopped recurring job ' . $args['class'] . ' with arguments ' . $this->encodeArguments($args['arguments'] ?? null));
             } else {
                 $this->logger->info("Didn't stop recurring job " . $args['class'] . ' as it does not exist');
             }
@@ -145,5 +147,12 @@ class Queue
         }
 
         return 'Ran job ' . $job->id . ': ' . $response;
+    }
+
+    private function encodeArguments(array|null $arguments): string
+    {
+        $result = json_encode($arguments ?? null, JSON_THROW_ON_ERROR);
+
+        return $result === 'null' ? '{}' : $result;
     }
 }
