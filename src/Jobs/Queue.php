@@ -153,6 +153,8 @@ class Queue
     {
         $result = json_encode($arguments ?? null, JSON_THROW_ON_ERROR);
 
-        return $result === 'null' ? '{}' : $result;
+        $result = $result === 'null' ? '{}' : $result;
+
+        return $result === '[]' ? '{}' : $result;
     }
 }
