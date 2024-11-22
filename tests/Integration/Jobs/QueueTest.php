@@ -67,7 +67,7 @@ it('starts a recurring job for immediate dispatch on the default queue without a
     expect($job->frequency)->toBe('1 week');
 });
 
-it('stops a recurring job on a named queue', function () {
+it('stops a recurring job on a named queue without arguments', function () {
     $queueName = faker()->word();
     $this->queue->start(['class' => stdClass::class, 'frequency' => '1 week', 'queue_name' => $queueName]);
     $this->queue->stop(['class' => stdClass::class, 'queue_name'=>$queueName]);
@@ -75,12 +75,45 @@ it('stops a recurring job on a named queue', function () {
     expect($job)->toBeNull();
 });
 
-it('stops a recurring job already started on the default queue from spawning a new one', function () {
+it('starts a recurring job for immediate dispatch on a named queue with arguments', function () {
+    $queueName = faker()->word();
+    $arguments = fakeArguments();
+    $this->queue->start(['class' => stdClass::class, 'frequency' => '1 week', 'queue_name' => $queueName, 'arguments' => $arguments]);
+    $job = QueuedJob::first();
+    expect($job->class)->toBe(stdClass::class);
+    expect($job->queue_name)->toBe($queueName);
+    expect(json_decode($job->arguments, true))->toBe($arguments);
+    expect($job->created_at->equalTo($job->scheduled_for))->toBeTrue();
+    expect($job->frequency)->toBe('1 week');
+});
+
+it('stops a recurring job on a named queue with arguments', function () {
+    $queueName = faker()->word();
+    $arguments = fakeArguments();
+    $this->queue->start(['class' => stdClass::class, 'frequency' => '1 week', 'queue_name' => $queueName, 'arguments' => $arguments]);
+    $this->queue->stop(['class' => stdClass::class, 'queue_name'=>$queueName, 'arguments' => $arguments]);
+    $job = QueuedJob::first();
+    expect($job)->toBeNull();
+});
+
+it('stops a recurring job without arguments already started on the default queue from spawning a new one', function () {
     $this->queue->start(['class' => stdClass::class, 'frequency' => '1 week']);
     $job             = QueuedJob::first();
     $job->started_at = Carbon::now();
     $job->save();
     $this->queue->stop(['class' => stdClass::class]);
+    $job->refresh();
+    expect($job->frequency)->toBeNull();
+});
+
+it('stops a recurring job with arguments already started on a named queue from spawning a new one', function () {
+    $queueName = faker()->word();
+    $arguments = fakeArguments();
+    $this->queue->start(['class' => stdClass::class, 'frequency' => '1 week', 'queue_name' => $queueName, 'arguments' => $arguments]);
+    $job             = QueuedJob::first();
+    $job->started_at = Carbon::now();
+    $job->save();
+    $this->queue->stop(['class' => stdClass::class, 'queue_name' => $queueName, 'arguments' => $arguments]);
     $job->refresh();
     expect($job->frequency)->toBeNull();
 });
