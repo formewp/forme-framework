@@ -2,11 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.2] - 2024-11-22
+
+### Features
+
+- Add arguments as uniqueness heurisitic
+
+### Testing
+
+- Tests for queue uniqueness including arguments
+
 ## [3.10.1] - 2024-10-11
 
 ### Bug Fixes
 
 - Type cant be defined
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.10.0] - 2024-10-11
 
