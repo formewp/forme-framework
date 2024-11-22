@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.4] - 2024-11-22
+
+### Miscellaneous Tasks
+
+- Ensure empty object default for queue args
+
 ## [3.10.3] - 2024-11-22
 
 ### Miscellaneous Tasks
 
 - Allow passing arguments to queuable stop
+- Bump version
 
 ## [3.10.2] - 2024-11-22
 
