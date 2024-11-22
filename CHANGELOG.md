@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.6] - 2024-11-22
+
+### Documentation
+
+- Update changelog
+
+### Miscellaneous Tasks
+
+- Allow passing arguments to queuable stop
+
 ## [2.11.5] - 2024-11-22
 
 ### Features
