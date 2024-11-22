@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.7] - 2024-11-22
+
+### Bug Fixes
+
+- Legacy v2 release build
+
+### Miscellaneous Tasks
+
+- Ensure empty object default for queue args
+
 ## [2.11.6] - 2024-11-22
 
 ### Documentation
@@ -11,6 +21,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Allow passing arguments to queuable stop
+- Bump version
 
 ## [2.11.5] - 2024-11-22
 
