@@ -33,10 +33,10 @@ trait Queueable
         $queue->start($args);
     }
 
-    public function stop($queueName = null): void
+    public function stop(array $args = [], ?string $queueName = null): void
     {
         $queue = $this->getQueue();
-        $queue->stop(['class' => $this::class, 'queue_name' => $queueName]);
+        $queue->stop(['class' => $this::class, 'queue_name' => $queueName, 'arguments' => $args]);
     }
 
     protected function getQueue(): Queue
