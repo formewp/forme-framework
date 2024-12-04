@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.5] - 2024-12-04
+
+### Miscellaneous Tasks
+
+- Allow asset plugin/themeable over-rides
+
 ## [3.10.4] - 2024-11-22
 
 ### Miscellaneous Tasks
 
 - Ensure empty object default for queue args
+- Bump version
 
 ## [3.10.3] - 2024-11-22
 
