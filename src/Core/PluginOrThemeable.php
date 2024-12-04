@@ -12,7 +12,7 @@ trait PluginOrThemeable
      */
     protected static function isPlugin(): bool
     {
-        return file_exists(self::getPluginPath());
+        return file_exists(static::getPluginPath());
     }
 
     /**
@@ -32,7 +32,7 @@ trait PluginOrThemeable
      */
     protected static function getPluginPath(): string
     {
-        $realClassDir = dirname(self::getFileName(), 3);
+        $realClassDir = dirname(static::getFileName(), 3);
         $baseName     = basename($realClassDir);
 
         return realpath(WP_PLUGIN_DIR . '/' . $baseName) ?: '';

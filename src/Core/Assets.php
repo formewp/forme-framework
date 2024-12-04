@@ -46,7 +46,7 @@ class Assets
             return self::resolveManifestPath($relativefilePath);
         }
 
-        if (self::isPlugin()) {
+        if (static::isPlugin()) {
             // we have to add a dummy because plugin_dir_ul assumes a file in a dir
             return plugin_dir_url(self::basePath() . 'dummy') . $relativefilePath;
         } else {
@@ -72,7 +72,7 @@ class Assets
 
     protected static function rootBasePath(): string
     {
-        if (self::isPlugin()) {
+        if (static::isPlugin()) {
             return self::getPluginPath();
         } else {
             return self::getThemePath();
