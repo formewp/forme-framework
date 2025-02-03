@@ -21,10 +21,15 @@ final class Event extends Model
      */
     protected $table = 'forme_events';
 
+    /** @phpstan-ignore-next-line */
+    public $timestamps = ['created_at'];
+
+    public const UPDATED_AT = null;
+
     /**
      * @var string[]
      */
-    protected $fillable = ['type', 'payload', 'created_at', 'updated_at'];
+    protected $fillable = ['type', 'payload', 'created_at'];
 
     /**
      * @var array<string, string>
