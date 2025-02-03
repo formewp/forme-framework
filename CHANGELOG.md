@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.11.9] - 2025-02-03
+
+### Bug Fixes
+
+- Explicitly set event timestamps
+
 ## [2.11.8] - 2024-12-04
 
 ### Miscellaneous Tasks
 
 - Allow asset plugin/themeable over-rides
+- Bump version
 
 ## [2.11.7] - 2024-11-22
 
