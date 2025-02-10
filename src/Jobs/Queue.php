@@ -128,36 +128,43 @@ class Queue
         $arguments         = json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR);
         $job->started_at   = Carbon::now();
         $job->save();
+        $success = null;
 
         try {
             $response          = $jobClass->handle($arguments);
-            $job->refresh();
-            $job->completed_at = Carbon::now();
-            $job->save();
+            $response = 'Ran job ' . $job->id . ': ' . $response;
             $this->logger->info('Ran job ' . $job->id . ': ' . $response);
+            $success = true;
 
-            // if this is a recurring job, queue up the next one
-            if ($job->frequency) {
-                $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
-                $this->schedule([
-                    'class'      => $job->class,
-                    'arguments'  => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
-                    'next'       => $nextTime,
-                    'frequency'  => $job->frequency,
-                    'queue_name' => $queueName,
-                ]);
-            }
-
-            return 'Ran job ' . $job->id . ': ' . $response;
         } catch (Throwable $e) {
-            $this->logger->error('Job ' . $job->id . ' failed: ' . $e->getMessage(), [
+            $response = 'Job ' . $job->id . ' failed: ' . $e->getMessage();
+
+            $this->logger->error($response, [
                 'job_class' => $job->class,
                 'job_arguments' => $arguments,
                 'trace' => $e->getTraceAsString(),
             ]);
 
-            return 'Job ' . $job->id . ' failed: ' . $e->getMessage();
+            $success = false;
         }
+        $job->refresh();
+        $job->completed_at = Carbon::now(); // naming might need to change - not "completed" if failed
+        $job->save();
+
+        // if this is a recurring job and it didn't throw an error, queue up the next one
+        // in future, we might have retries
+        if ($job->frequency && $success) {
+            $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
+            $this->schedule([
+                'class'      => $job->class,
+                'arguments'  => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
+                'next'       => $nextTime,
+                'frequency'  => $job->frequency,
+                'queue_name' => $queueName,
+            ]);
+        }
+
+        return $response;
     }
 
     private function encodeArguments(array|null $arguments): string
