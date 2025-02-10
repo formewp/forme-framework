@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Forme\Framework\Jobs;
 
+use Throwable;
 use Exception;
 use Forme\Framework\Models\QueuedJob;
 use Illuminate\Support\Carbon;
@@ -11,9 +13,7 @@ use Psr\Log\LoggerInterface;
 
 class Queue
 {
-    public function __construct(private ContainerInterface $container, private LoggerInterface $logger)
-    {
-    }
+    public function __construct(private ContainerInterface $container, private LoggerInterface $logger) {}
 
     /**
      * Schedule a job
@@ -128,25 +128,36 @@ class Queue
         $arguments         = json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR);
         $job->started_at   = Carbon::now();
         $job->save();
-        $response          = $jobClass->handle($arguments);
-        $job->refresh();
-        $job->completed_at = Carbon::now();
-        $job->save();
-        $this->logger->info('Ran job ' . $job->id . ': ' . $response);
 
-        // if this is a recurring job, queue up the next one
-        if ($job->frequency) {
-            $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
-            $this->schedule([
-                'class'      => $job->class,
-                'arguments'  => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
-                'next'       => $nextTime,
-                'frequency'  => $job->frequency,
-                'queue_name' => $queueName,
+        try {
+            $response          = $jobClass->handle($arguments);
+            $job->refresh();
+            $job->completed_at = Carbon::now();
+            $job->save();
+            $this->logger->info('Ran job ' . $job->id . ': ' . $response);
+
+            // if this is a recurring job, queue up the next one
+            if ($job->frequency) {
+                $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
+                $this->schedule([
+                    'class'      => $job->class,
+                    'arguments'  => json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR),
+                    'next'       => $nextTime,
+                    'frequency'  => $job->frequency,
+                    'queue_name' => $queueName,
+                ]);
+            }
+
+            return 'Ran job ' . $job->id . ': ' . $response;
+        } catch (Throwable $e) {
+            $this->logger->error('Job ' . $job->id . ' failed: ' . $e->getMessage(), [
+                'job_class' => $job->class,
+                'job_arguments' => $arguments,
+                'trace' => $e->getTraceAsString(),
             ]);
-        }
 
-        return 'Ran job ' . $job->id . ': ' . $response;
+            return 'Job ' . $job->id . ' failed: ' . $e->getMessage();
+        }
     }
 
     private function encodeArguments(array|null $arguments): string
