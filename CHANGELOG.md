@@ -2,11 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.6] - 2025-02-10
+
+### Features
+
+- Handle queue job failure
+
+### Miscellaneous Tasks
+
+- Use stop instead of marking failed recurring as completed
+
+### Refactor
+
+- Try catch around the handle method only
+
+### Testing
+
+- Failed job tests
+
 ## [3.10.5] - 2024-12-04
 
 ### Miscellaneous Tasks
 
 - Allow asset plugin/themeable over-rides
+- Bump version
 
 ## [3.10.4] - 2024-11-22
 
