@@ -29,6 +29,16 @@ class TestJobClass implements JobInterface
     }
 }
 
+class FailingJobClass implements JobInterface
+{
+    use Queueable;
+
+    public function handle(array $args = []): ?string
+    {
+        throw new Exception();
+    }
+}
+
 it('dispatches an immediate job on the default queue', function () {
     $this->queue->dispatch(['class' => stdClass::class]);
     $job = QueuedJob::first();
@@ -132,3 +142,19 @@ it('runs the next job in a named queue', function () {
     $response = $this->queue->next($queueName);
     expect($response)->toContain($responseString);
 });
+
+it('handles a job that throws an exception', function () {
+    $this->queue->dispatch(['class' => FailingJobClass::class]);
+    $response = $this->queue->next();
+    expect($response)->toContain(' failed:');
+});
+
+it('stops recurring job if a job throws an exception', function () {
+    $this->queue->start(['class' => FailingJobClass::class, 'frequency' => '1 minute']);
+    $response = $this->queue->next();
+    expect($response)->toContain(' failed:');
+    $job = QueuedJob::where('class', FailingJobClass::class)->where('completed_at', null)->first();
+    expect($job)->toBeNull();
+});
+
+    
