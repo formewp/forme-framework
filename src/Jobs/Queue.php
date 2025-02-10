@@ -147,9 +147,18 @@ class Queue
 
             $success = false;
         }
-        $job->refresh();
-        $job->completed_at = Carbon::now(); // naming might need to change - not "completed" if failed
-        $job->save();
+
+        if ($success) {
+            $job->refresh();
+            $job->completed_at = Carbon::now();
+            $job->save();
+        } else {
+            $this->stop([
+                'class'      => $job->class,
+                'arguments'  => $arguments,
+                'queue_name' => $queueName,
+            ]);
+        }
 
         // if this is a recurring job and it didn't throw an error, queue up the next one
         // in future, we might have retries

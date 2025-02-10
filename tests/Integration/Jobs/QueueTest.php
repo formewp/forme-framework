@@ -153,7 +153,7 @@ it('stops recurring job if a job throws an exception', function () {
     $this->queue->start(['class' => FailingJobClass::class, 'frequency' => '1 minute']);
     $response = $this->queue->next();
     expect($response)->toContain(' failed:');
-    $job = QueuedJob::where('class', FailingJobClass::class)->where('completed_at', null)->first();
+    $job = QueuedJob::where('class', FailingJobClass::class)->where('completed_at', null)->where('frequency', '1 minute')->first();
     expect($job)->toBeNull();
 });
 
