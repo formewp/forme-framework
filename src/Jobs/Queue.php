@@ -160,9 +160,9 @@ class Queue
             ]);
         }
 
-        // if this is a recurring job and it didn't throw an error, queue up the next one
-        // in future, we might have retries
-        if ($job->frequency && $success) {
+        // if this is a recurring job, queue up the next one
+        // in future, we might have max retries in case of fails
+        if ($job->frequency) {
             $nextTime = Carbon::create($job->scheduled_for)->add($job->frequency)->toDateTimeString();
             $this->schedule([
                 'class'      => $job->class,

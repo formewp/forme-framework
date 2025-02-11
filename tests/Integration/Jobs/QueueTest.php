@@ -35,7 +35,7 @@ class FailingJobClass implements JobInterface
 
     public function handle(array $args = []): ?string
     {
-        throw new Exception();
+        throw new Exception('foobarbaz');
     }
 }
 
@@ -146,15 +146,15 @@ it('runs the next job in a named queue', function () {
 it('handles a job that throws an exception', function () {
     $this->queue->dispatch(['class' => FailingJobClass::class]);
     $response = $this->queue->next();
-    expect($response)->toContain(' failed:');
+    expect($response)->toContain(' failed: foobarbaz');
 });
 
-it('stops recurring job if a job throws an exception', function () {
+it('keeps recurring job if a job throws an exception', function () {
     $this->queue->start(['class' => FailingJobClass::class, 'frequency' => '1 minute']);
     $response = $this->queue->next();
-    expect($response)->toContain(' failed:');
-    $job = QueuedJob::where('class', FailingJobClass::class)->where('completed_at', null)->where('frequency', '1 minute')->first();
-    expect($job)->toBeNull();
+    expect($response)->toContain(' failed: foobarbaz');
+    $job = QueuedJob::where('class', FailingJobClass::class)->where('started_at', null)->where('completed_at', null)->where('frequency', '1 minute')->first();
+    expect($job)->not()->toBeNull();
 });
 
     
