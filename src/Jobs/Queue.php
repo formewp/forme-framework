@@ -128,13 +128,11 @@ class Queue
         $arguments         = json_decode($job->arguments, true, 512, JSON_THROW_ON_ERROR);
         $job->started_at   = Carbon::now();
         $job->save();
-        $success = null;
 
         try {
             $response          = $jobClass->handle($arguments);
             $response = 'Ran job ' . $job->id . ': ' . $response;
             $this->logger->info('Ran job ' . $job->id . ': ' . $response);
-            $success = true;
 
         } catch (Throwable $e) {
             $response = 'Job ' . $job->id . ' failed: ' . $e->getMessage();
@@ -144,21 +142,11 @@ class Queue
                 'job_arguments' => $arguments,
                 'trace' => $e->getTraceAsString(),
             ]);
-
-            $success = false;
         }
 
-        if ($success) {
-            $job->refresh();
-            $job->completed_at = Carbon::now();
-            $job->save();
-        } else {
-            $this->stop([
-                'class'      => $job->class,
-                'arguments'  => $arguments,
-                'queue_name' => $queueName,
-            ]);
-        }
+        $job->refresh();
+        $job->completed_at = Carbon::now(); // this doesnt quite make sense for fails, might want to save success status
+        $job->save();
 
         // if this is a recurring job, queue up the next one
         // in future, we might have max retries in case of fails
