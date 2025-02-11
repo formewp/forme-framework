@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.10.7] - 2025-02-11
+
+### Miscellaneous Tasks
+
+- Keep recurring failed jobs
+- Complete failed jobs
+
 ## [3.10.6] - 2025-02-10
 
 ### Features
@@ -11,6 +18,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Use stop instead of marking failed recurring as completed
+- Bump version
 
 ### Refactor
 
