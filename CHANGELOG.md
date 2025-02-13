@@ -2,12 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.11.0] - 2025-02-13
+
+### Features
+
+- Explicitly include wp globals
+
 ## [3.10.7] - 2025-02-11
 
 ### Miscellaneous Tasks
 
 - Keep recurring failed jobs
 - Complete failed jobs
+- Bump version
 
 ## [3.10.6] - 2025-02-10
 
