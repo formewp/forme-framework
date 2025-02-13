@@ -25,6 +25,8 @@ class TemplateHandler implements HandlerInterface
             return null;
         }
 
+        // bring wp globals into scope
+        global $post, $posts, $authordata, $currentday, $currentmonth, $page, $pages, $multipage, $more, $numpages;
         include $template;
 
         $controller = $this->getControllerClassFromTemplate($template);
