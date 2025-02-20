@@ -2,11 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.12.0] - 2025-02-20
+
+### Miscellaneous Tasks
+
+- Support laravel 11
+- Fix illuminate 11 support and drop 9
+- More dependency updates
+- Update test deps
+- Remove wp test utils
+- Update pest
+
 ## [3.11.0] - 2025-02-13
 
 ### Features
 
 - Explicitly include wp globals
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.10.7] - 2025-02-11
 
