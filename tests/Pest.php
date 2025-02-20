@@ -1,6 +1,6 @@
 <?php
 
-use Yoast\WPTestUtils\BrainMonkey\TestCase;
+include __DIR__ . '/TestCase.php';
 
 uses(TestCase::class)->in('Integration');
 

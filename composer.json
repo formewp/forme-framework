@@ -62,8 +62,7 @@
         "ramsey/conventional-commits": "^1.5",
         "rector/rector": "^2.0",
         "symfony/var-dumper": "^7.2",
-        "szepeviktor/phpstan-wordpress": "^2.0",
-        "yoast/wp-test-utils": "dev-JRF/update-for-polyfills-2.0"
+        "szepeviktor/phpstan-wordpress": "^2.0"
     },
     "repositories": [
         {
