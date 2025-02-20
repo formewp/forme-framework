@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83b2211cdd0b27bfc707d8b70db1bd9d",
+    "content-hash": "6a53d22d473a3580013882e75e0f78d5",
     "packages": [
         {
             "name": "brick/math",
@@ -794,16 +794,16 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v11.0.0",
+            "version": "v11.43.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
-                "reference": "0dea1af0006a46bd7effaa7964c47cf76214d1d9"
+                "reference": "64daa8d520cd76e505a82460a672692c56a07be8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/config/zipball/0dea1af0006a46bd7effaa7964c47cf76214d1d9",
-                "reference": "0dea1af0006a46bd7effaa7964c47cf76214d1d9",
+                "url": "https://api.github.com/repos/illuminate/config/zipball/64daa8d520cd76e505a82460a672692c56a07be8",
+                "reference": "64daa8d520cd76e505a82460a672692c56a07be8",
                 "shasum": ""
             },
             "require": {
@@ -838,7 +838,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-02-28T16:28:16+00:00"
+            "time": "2024-11-14T17:17:02+00:00"
         },
         {
             "name": "illuminate/container",
@@ -941,16 +941,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v11.0.0",
+            "version": "v11.43.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "b015292d4914735e35d41c16a3bb858aceefd2e2"
+                "reference": "1a7f7fac8d803e66658e06214b60ed66add37672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/b015292d4914735e35d41c16a3bb858aceefd2e2",
-                "reference": "b015292d4914735e35d41c16a3bb858aceefd2e2",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/1a7f7fac8d803e66658e06214b60ed66add37672",
+                "reference": "1a7f7fac8d803e66658e06214b60ed66add37672",
                 "shasum": ""
             },
             "require": {
@@ -961,11 +961,12 @@
                 "illuminate/contracts": "^11.0",
                 "illuminate/macroable": "^11.0",
                 "illuminate/support": "^11.0",
+                "laravel/serializable-closure": "^1.3|^2.0",
                 "php": "^8.2"
             },
             "suggest": {
                 "ext-filter": "Required to use the Postgres database driver.",
-                "fakerphp/faker": "Required to use the eloquent factory builder (^1.21).",
+                "fakerphp/faker": "Required to use the eloquent factory builder (^1.24).",
                 "illuminate/console": "Required to use the database commands (^11.0).",
                 "illuminate/events": "Required to use the observers with Eloquent (^11.0).",
                 "illuminate/filesystem": "Required to use the migrations (^11.0).",
@@ -1005,7 +1006,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-03-12T11:29:47+00:00"
+            "time": "2025-02-19T20:32:07+00:00"
         },
         {
             "name": "illuminate/events",
@@ -1302,16 +1303,16 @@
         },
         {
             "name": "illuminate/view",
-            "version": "v11.0.0",
+            "version": "v11.43.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "7bda84905151110c5b46454ad99e95fc735ac398"
+                "reference": "fb583cecd970d5eb1265320208fb234e1103eaa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/7bda84905151110c5b46454ad99e95fc735ac398",
-                "reference": "7bda84905151110c5b46454ad99e95fc735ac398",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/fb583cecd970d5eb1265320208fb234e1103eaa7",
+                "reference": "fb583cecd970d5eb1265320208fb234e1103eaa7",
                 "shasum": ""
             },
             "require": {
@@ -1352,7 +1353,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-03-11T17:38:40+00:00"
+            "time": "2025-02-17T16:11:15+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
