@@ -54,7 +54,7 @@
         "filp/whoops": "^2.15.2",
         "mockery/mockery": "^1.6.2",
         "nunomaduro/mock-final-classes": "dev-master",
-        "pestphp/pest": "^2.0",
+        "pestphp/pest": "^3.0",
         "php-stubs/acf-pro-stubs": "^6.0.6",
         "php-stubs/woocommerce-stubs": "^9.5",
         "php-stubs/wp-cli-stubs": "^2.8",
