@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.12.3] - 2025-03-06
+
+### Miscellaneous Tasks
+
+- Also symfony yaml 6 for 8.1
+
 ## [3.12.2] - 2025-03-06
 
 ### Miscellaneous Tasks
 
 - Allow older version of symfony string
+- Bump version
 
 ## [3.12.1] - 2025-03-06
 
