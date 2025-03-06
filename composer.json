@@ -28,7 +28,7 @@
         "robmorgan/phinx": "^0.16",
         "spatie/enum": "^3.13",
         "symfony/string": "^6.4 || ^7.2",
-        "symfony/yaml": "^7.2",
+        "symfony/yaml": "^6.4 || ^7.2",
         "twig/twig": "^3.14",
         "vlucas/phpdotenv": "^5.5"
     },
