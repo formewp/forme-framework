@@ -4,4 +4,5 @@ const WP_ENV             = 'production';
 const DB_CHARSET         = 'utf8';
 const DB_DIR             = 'path/to/db/';
 const DB_FILE            = 'database.sqlite';
-const DB_COLLATE         = 'utf8_general_ci';
+const DB_COLLATE            = 'utf8_general_ci';
+const FORME_PLATES_VALIDATION = true;

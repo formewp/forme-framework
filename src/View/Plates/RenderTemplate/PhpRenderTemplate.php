@@ -14,7 +14,9 @@ final class PhpRenderTemplate implements Plates\RenderTemplate
     }
 
     public function renderTemplate(Plates\Template $template, ?Plates\RenderTemplate $render = null) {
-        Validator::validate($template);
+        if (!defined('FORME_PLATES_VALIDATION') || FORME_PLATES_VALIDATION) {
+            Validator::validate($template);
+        }
         $inc = self::createInclude();
         $inc = $this->bind ? ($this->bind)($inc, $template) : $inc;
 
