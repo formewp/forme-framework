@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.12.1] - 2025-03-06
+
+### Features
+
+- Template validation can now be switched off
+
+### Miscellaneous Tasks
+
+- Remove rendundant test case class
+
 ## [3.12.0] - 2025-02-20
 
 ### Miscellaneous Tasks
@@ -12,6 +22,7 @@ All notable changes to this project will be documented in this file.
 - Update test deps
 - Remove wp test utils
 - Update pest
+- Bump version
 
 ## [3.11.0] - 2025-02-13
 
