@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.12.2] - 2025-03-06
+
+### Miscellaneous Tasks
+
+- Allow older version of symfony string
+
 ## [3.12.1] - 2025-03-06
 
 ### Features
@@ -11,6 +17,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous Tasks
 
 - Remove rendundant test case class
+- Bump version
 
 ## [3.12.0] - 2025-02-20
 
