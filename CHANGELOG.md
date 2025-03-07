@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.13.1] - 2025-03-07
+
+### Miscellaneous Tasks
+
+- Plates linter handle phtml
+
 ## [3.13.0] - 2025-03-07
 
 ### Features
 
 - Allow extension in views
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [3.12.3] - 2025-03-06
 
