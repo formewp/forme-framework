@@ -25,7 +25,7 @@ class Lint implements Action
     {
         // we have to provide a custom filter because we do not want to check any deleted files
         $changedPlateFiles  = $repository->getIndexOperator()->getStagedFilesOfType('php', ['A', 'C', 'M']);
-        $changedPlateFiles  = array_filter($changedPlateFiles, fn ($file) => str_ends_with($file, 'plate.php'));
+        $changedPlateFiles  = array_filter($changedPlateFiles, fn ($file) => $this->isPlatesFile($file));
 
         $directory = dirname($config->getPath());
 
@@ -62,5 +62,18 @@ class Lint implements Action
         } catch (TemplateErrorException $e) {
             return true;
         }
+    }
+
+    protected function isPlatesFile(string $file): bool
+    {
+        $filename = pathinfo($file, PATHINFO_FILENAME);
+        $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+        // handle both .php and .phtml files
+        if ($extension === 'php' || $extension === 'phtml') {
+            return str_ends_with($filename, 'plate');
+        }
+
+        return false;
     }
 }
