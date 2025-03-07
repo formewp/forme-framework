@@ -9,9 +9,9 @@ class PlatesView implements ViewInterface
 {
     use GetsDirectory;
 
-    private \League\Plates\Engine $view;
+    protected \League\Plates\Engine $view;
 
-    private const RELATIVE_VIEW_DIR = '/../../views';
+    protected const RELATIVE_VIEW_DIR = '/../../views';
 
     public function __construct()
     {

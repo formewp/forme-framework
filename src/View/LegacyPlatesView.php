@@ -10,9 +10,9 @@ class LegacyPlatesView implements ViewInterface
 {
     use GetsDirectory;
 
-    private \Forme\Framework\View\Plates\Engine $view;
+    protected \Forme\Framework\View\Plates\Engine $view;
 
-    private const RELATIVE_VIEW_DIR = '/../../views';
+    protected const RELATIVE_VIEW_DIR = '/../../views';
 
     public function __construct()
     {

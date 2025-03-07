@@ -10,7 +10,7 @@ class BladeView implements ViewInterface
 {
     use GetsDirectory;
 
-    private \Forme\Framework\View\Blade\Blade $view;
+    protected \Forme\Framework\View\Blade\Blade $view;
 
     public function __construct(Directives $directives)
     {

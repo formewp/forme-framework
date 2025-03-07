@@ -11,7 +11,7 @@ class TwigView implements ViewInterface
 {
     use GetsDirectory;
 
-    private \Twig\Environment $view;
+    protected \Twig\Environment $view;
 
     public function __construct()
     {
