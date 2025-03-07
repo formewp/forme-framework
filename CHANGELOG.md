@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.13.0] - 2025-03-07
+
+### Features
+
+- Allow extension in views
+
 ## [3.12.3] - 2025-03-06
 
 ### Miscellaneous Tasks
 
 - Also symfony yaml 6 for 8.1
+- Bump version
 
 ## [3.12.2] - 2025-03-06
 
