@@ -2,11 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.15.0] - 2025-07-11
+
+### Miscellaneous Tasks
+
+- Update tests and cs fixer
+- Attribute for console v7
+
 ## [3.14.0] - 2025-06-22
 
 ### Miscellaneous Tasks
 
 - Laravel 12 dependency support
+- Bump version
 
 ## [3.13.1] - 2025-03-07
 
