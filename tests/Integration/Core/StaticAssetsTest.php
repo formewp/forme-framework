@@ -3,7 +3,7 @@
 use Forme\Framework\Core\Assets;
 
 beforeEach(function () {
-    $this->rootDir = dirname(__FILE__, 4) . '/wp-test/public/wp-content/themes/twentytwentyfour';
+    $this->rootDir = dirname(__FILE__, 4) . '/wp-test/public/wp-content/themes/twentytwentyfive';
     // put a file in assets
     mkdir($this->rootDir . '/assets/static', 0777, true);
     file_put_contents($this->rootDir . '/assets/static/dummy.txt', 'dummy');

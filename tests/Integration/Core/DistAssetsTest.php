@@ -2,7 +2,7 @@
 
 use Forme\Framework\Core\Assets;
 
-const THEME_DIR  = '/public/wp-content/themes/twentytwentyfour';
+const THEME_DIR  = '/public/wp-content/themes/twentytwentyfive';
 const ASSETS_DIR = '/assets/dist';
 const DUMMY_FILE = 'dummy.txt';
 
@@ -31,7 +31,7 @@ test('path() returns the absolute path of the file', function () {
 });
 
 test('uri() returns the uri of the file', function () {
-    expect(Assets::uri(DUMMY_FILE))->toBe('../public/wp-content/themes/twentytwentyfour/assets/dist/dummy.txt');
+    expect(Assets::uri(DUMMY_FILE))->toBe('../public/wp-content/themes/twentytwentyfive/assets/dist/dummy.txt');
 });
 
 test('distExists() returns true if dist folder exists', function () {
