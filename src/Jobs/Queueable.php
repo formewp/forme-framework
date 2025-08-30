@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Forme\Framework\Jobs;
 
+use Exception;
 use Psr\Container\ContainerInterface;
-use ReflectionFunction;
 use RuntimeException;
 
 trait Queueable
@@ -50,10 +50,13 @@ trait Queueable
         }
 
         if (function_exists('app')) {
-            $reflection = new ReflectionFunction('app');
-            $returnType = $reflection->getReturnType();
-            if ($returnType && is_a((string) $returnType, ContainerInterface::class, true)) {
-                return app()->get(Queue::class);
+            try {
+                $app = app(); // we can't rely on the return type, might be mixed so have to get an instance and check
+                if (is_a($app, ContainerInterface::class)) {
+                    return $app->get(Queue::class);
+                }
+            } catch (Exception $e) {
+                // no-op
             }
         }
 
