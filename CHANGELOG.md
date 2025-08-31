@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.15.2] - 2025-08-31
+
+### Miscellaneous Tasks
+
+- Bump git cliff action
+
 ## [3.15.1] - 2025-08-30
 
 ### Miscellaneous Tasks
 
 - More forgiving app check in queueable
+- Bump version
 
 ## [3.15.0] - 2025-07-11
 
