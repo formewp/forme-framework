@@ -91,6 +91,9 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "composer/installers": true
+        },
+        "platform": {
+            "php": "8.2.0"
         }
     },
     "minimum-stability": "dev",
