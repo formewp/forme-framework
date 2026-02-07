@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.16.0] - 2026-02-07
+
+### Miscellaneous Tasks
+
+- Drop 8.1 support
+
 ## [3.15.2] - 2025-08-31
 
 ### Miscellaneous Tasks
 
 - Bump git cliff action
+- Bump version
 
 ## [3.15.1] - 2025-08-30
 
