@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "cakephp/core": "^5.0",
         "http-interop/response-sender": "^1.0",
         "illuminate/config": "^10.0 || ^11.0 || ^12.0",
@@ -93,7 +93,7 @@
             "composer/installers": true
         },
         "platform": {
-            "php": "8.2.0"
+            "php": "8.3.0"
         }
     },
     "minimum-stability": "dev",
