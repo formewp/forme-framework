@@ -2,12 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.1] - 2026-03-11
+
+### Miscellaneous Tasks
+
+- Use our fork of wp psr7
+
 ## [4.0.0] - 2026-03-11
 
 ### Miscellaneous Tasks
 
 - Update to php 8.3 and update deps
 - Update deps
+- Bump version
 
 ### Refactor
 
