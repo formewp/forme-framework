@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.16.2] - 2026-03-11
+
+### Miscellaneous Tasks
+
+- Remove redundant magic resolver call
+
 ## [3.16.1] - 2026-03-11
 
 ### Miscellaneous Tasks
 
 - Assert php 8.2
+- Bump version
 
 ## [3.16.0] - 2026-02-07
 
