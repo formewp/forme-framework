@@ -20,10 +20,10 @@
         "league/plates": "^3.5",
         "log1x/sage-directives": "^2.0",
         "monolog/monolog": "^2.9 || ^3.3",
-        "papertower/wp-rest-api-psr7": "^0.8.0",
+        "oak-digital/wp-rest-api-psr7": "dev-main",
         "php-di/php-di": "^7.0.2",
         "ramsey/uuid": "^4.7.4",
-        "rareloop/psr7-server-request-extension": "^2.1",
+        "rareloop/psr7-server-request-extension": "^2.2",
         "relay/relay": "^3.0",
         "robmorgan/phinx": "^0.16",
         "spatie/enum": "^3.13",
@@ -54,9 +54,9 @@
         "filp/whoops": "^2.15.2",
         "mockery/mockery": "^1.6.2",
         "nunomaduro/mock-final-classes": "dev-master",
-        "pestphp/pest": "^3.0",
+        "pestphp/pest": "^4.0",
         "php-stubs/acf-pro-stubs": "^6.0.6",
-        "php-stubs/woocommerce-stubs": "^9.5",
+        "php-stubs/woocommerce-stubs": "^10.6",
         "php-stubs/wp-cli-stubs": "^2.8",
         "phpstan/phpstan": "^2.1.6",
         "ramsey/conventional-commits": "^1.5",
@@ -68,6 +68,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/moussaclarke/wp-pest-integration-test-setup.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Oak-Digital/WP-REST-API-PSR7"
         }
     ],
     "scripts": {
