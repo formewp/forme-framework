@@ -2,11 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0] - 2026-03-11
+
+### Miscellaneous Tasks
+
+- Update to php 8.3 and update deps
+- Update deps
+
+### Refactor
+
+- Use external platine library instead of embedding plates v4
+
 ## [3.16.1] - 2026-03-11
 
 ### Miscellaneous Tasks
 
 - Assert php 8.2
+- Bump version
 
 ## [3.16.0] - 2026-02-07
 
