@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.3] - 2026-03-11
+
+### Miscellaneous Tasks
+
+- Update deps
+
 ## [4.0.2] - 2026-03-11
 
 ### Bug Fixes
 
 - Wp rest version
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [4.0.1] - 2026-03-11
 
