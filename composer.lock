@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57bc5082ec8fc3f9ecc521397da0de01",
+    "content-hash": "fdd113a431f0faed8e4f0bc9db96b788",
     "packages": [
         {
             "name": "brick/math",
@@ -551,16 +551,16 @@
         },
         {
             "name": "forme/platine",
-            "version": "v0.0.4",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/formewp/forme-platine.git",
-                "reference": "bc825aeb67beb3f89b920213fecb9e44982d6fa4"
+                "reference": "69b5c3cb9e4a46ebba2a130b75ab7ecb89db340a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/formewp/forme-platine/zipball/bc825aeb67beb3f89b920213fecb9e44982d6fa4",
-                "reference": "bc825aeb67beb3f89b920213fecb9e44982d6fa4",
+                "url": "https://api.github.com/repos/formewp/forme-platine/zipball/69b5c3cb9e4a46ebba2a130b75ab7ecb89db340a",
+                "reference": "69b5c3cb9e4a46ebba2a130b75ab7ecb89db340a",
                 "shasum": ""
             },
             "require": {
@@ -606,9 +606,9 @@
             "description": "A pure PHP templating library with layouts, components and slots.",
             "support": {
                 "issues": "https://github.com/formewp/forme-platine/issues",
-                "source": "https://github.com/formewp/forme-platine/tree/v0.0.4"
+                "source": "https://github.com/formewp/forme-platine/tree/v0.0.5"
             },
-            "time": "2026-03-11T18:27:05+00:00"
+            "time": "2026-03-11T19:03:49+00:00"
         },
         {
             "name": "forme/wp-rest-api-psr7",
