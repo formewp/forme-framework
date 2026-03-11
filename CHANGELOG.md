@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.16.1] - 2026-03-11
+
+### Miscellaneous Tasks
+
+- Assert php 8.2
+
 ## [3.16.0] - 2026-02-07
 
 ### Miscellaneous Tasks
 
 - Drop 8.1 support
+- Bump version
 
 ## [3.15.2] - 2025-08-31
 
