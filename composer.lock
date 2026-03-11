@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ae74600470d1d15fe3ce852a8ec556c",
+    "content-hash": "55bc6afbd7f1231076fd7f0a84dd7dcd",
     "packages": [
         {
             "name": "brick/math",
@@ -609,6 +609,58 @@
                 "source": "https://github.com/formewp/forme-platine/tree/v0.0.3"
             },
             "time": "2026-03-11T15:22:15+00:00"
+        },
+        {
+            "name": "forme/wp-rest-api-psr7",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/formewp/wp-rest-api-psr7.git",
+                "reference": "3a7a164de3848317b6c0d3b474bdbee119bd6dee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/formewp/wp-rest-api-psr7/zipball/3a7a164de3848317b6c0d3b474bdbee119bd6dee",
+                "reference": "3a7a164de3848317b6c0d3b474bdbee119bd6dee",
+                "shasum": ""
+            },
+            "require": {
+                "league/uri": "^7.5",
+                "psr/http-message": "^2.0"
+            },
+            "require-dev": {
+                "php-stubs/wordpress-stubs": "^6.8",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "szepeviktor/phpstan-wordpress": "^2.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WPRestApi\\PSR7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jason Adams",
+                    "email": "jason@papertower.com"
+                }
+            ],
+            "description": "Provides PSR-7 and WP REST API Response and Request classes",
+            "keywords": [
+                "psr-7",
+                "wordpress",
+                "wp rest api"
+            ],
+            "support": {
+                "source": "https://github.com/formewp/wp-rest-api-psr7/tree/v1.0.0"
+            },
+            "time": "2026-03-11T17:04:03+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -2324,58 +2376,6 @@
                 }
             ],
             "time": "2026-03-10T21:43:48+00:00"
-        },
-        {
-            "name": "oak-digital/wp-rest-api-psr7",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Oak-Digital/WP-REST-API-PSR7.git",
-                "reference": "be8f15e577f9d669f0d80c48cea801a8c958bc5e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Oak-Digital/WP-REST-API-PSR7/zipball/be8f15e577f9d669f0d80c48cea801a8c958bc5e",
-                "reference": "be8f15e577f9d669f0d80c48cea801a8c958bc5e",
-                "shasum": ""
-            },
-            "require": {
-                "league/uri": "^7.5",
-                "psr/http-message": "^2.0"
-            },
-            "require-dev": {
-                "php-stubs/wordpress-stubs": "^6.8",
-                "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.1",
-                "szepeviktor/phpstan-wordpress": "^2.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WPRestApi\\PSR7\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jason Adams",
-                    "email": "jason@papertower.com"
-                }
-            ],
-            "description": "Provides PSR-7 and WP REST API Response and Request classes",
-            "keywords": [
-                "psr-7",
-                "wordpress",
-                "wp rest api"
-            ],
-            "support": {
-                "source": "https://github.com/Oak-Digital/WP-REST-API-PSR7/tree/main",
-                "issues": "https://github.com/Oak-Digital/WP-REST-API-PSR7/issues"
-            },
-            "time": "2025-07-07T13:00:10+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -9355,8 +9355,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "nunomaduro/mock-final-classes": 20,
-        "oak-digital/wp-rest-api-psr7": 20
+        "forme/wp-rest-api-psr7": 20,
+        "nunomaduro/mock-final-classes": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

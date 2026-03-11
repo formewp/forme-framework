@@ -21,7 +21,7 @@
         "league/plates": "^3.5",
         "log1x/sage-directives": "^2.0",
         "monolog/monolog": "^2.9 || ^3.3",
-        "oak-digital/wp-rest-api-psr7": "dev-main",
+        "forme/wp-rest-api-psr7": "dev-main",
         "php-di/php-di": "^7.0.2",
         "ramsey/uuid": "^4.7.4",
         "rareloop/psr7-server-request-extension": "^2.2",
@@ -61,10 +61,6 @@
         {
             "type": "vcs",
             "url": "https://github.com/moussaclarke/wp-pest-integration-test-setup.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Oak-Digital/WP-REST-API-PSR7"
         }
     ],
     "scripts": {
