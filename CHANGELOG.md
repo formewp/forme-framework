@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.2] - 2026-03-11
+
+### Bug Fixes
+
+- Wp rest version
+
 ## [4.0.1] - 2026-03-11
 
 ### Miscellaneous Tasks
 
 - Use our fork of wp psr7
+- Bump version
 
 ## [4.0.0] - 2026-03-11
 
