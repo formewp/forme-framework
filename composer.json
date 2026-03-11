@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.3",
         "cakephp/core": "^5.0",
+        "forme/platine": "^0.0.3",
         "http-interop/response-sender": "^1.0",
         "illuminate/config": "^10.0 || ^11.0 || ^12.0",
         "illuminate/database": "^10.0 || ^11.0 || ^12.0",
@@ -38,14 +39,6 @@
         },
         "files": [
             "src/helpers.php",
-            "src/View/Plates/Template/match.php",
-            "src/View/Plates/Extension/Data/data.php",
-            "src/View/Plates/Extension/Path/path.php",
-            "src/View/Plates/Extension/RenderContext/func.php",
-            "src/View/Plates/Extension/RenderContext/render-context.php",
-            "src/View/Plates/Extension/LayoutSections/layout-sections.php",
-            "src/View/Plates/Extension/Folders/folders.php",
-            "src/View/Plates/Util/util.php",
             "src/Commands/Wrangle/RunQueueCommand.php"
         ]
     },

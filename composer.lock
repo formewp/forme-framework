@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd9432946ace2eea6a263aceee8e19fd",
+    "content-hash": "9ae74600470d1d15fe3ce852a8ec556c",
     "packages": [
         {
             "name": "brick/math",
@@ -548,6 +548,67 @@
                 }
             ],
             "time": "2025-08-10T19:31:58+00:00"
+        },
+        {
+            "name": "forme/platine",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/formewp/forme-platine.git",
+                "reference": "e3346058d7a62ac8984590755b8654eaf7e8715a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/formewp/forme-platine/zipball/e3346058d7a62ac8984590755b8654eaf7e8715a",
+                "reference": "e3346058d7a62ac8984590755b8654eaf7e8715a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "captainhook/captainhook": "^5.0",
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "pestphp/pest": "^4.0",
+                "phpstan/phpstan": "^2.0",
+                "ramsey/conventional-commits": "^1.5",
+                "rector/rector": "^2.0"
+            },
+            "suggest": {
+                "captainhook/captainhook": "Use the Lint action to validate templates in your git hooks"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Template/match.php",
+                    "src/Extension/Data/data.php",
+                    "src/Extension/Path/path.php",
+                    "src/Extension/RenderContext/func.php",
+                    "src/Extension/RenderContext/render-context.php",
+                    "src/Extension/LayoutSections/layout-sections.php",
+                    "src/Extension/Folders/folders.php",
+                    "src/Util/util.php"
+                ],
+                "psr-4": {
+                    "Forme\\Platine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moussa Clarke",
+                    "email": "moussa@moussaclarke.dev"
+                }
+            ],
+            "description": "A pure PHP templating library with layouts, components and slots.",
+            "support": {
+                "issues": "https://github.com/formewp/forme-platine/issues",
+                "source": "https://github.com/formewp/forme-platine/tree/v0.0.3"
+            },
+            "time": "2026-03-11T15:22:15+00:00"
         },
         {
             "name": "graham-campbell/result-type",

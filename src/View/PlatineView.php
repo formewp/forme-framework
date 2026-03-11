@@ -3,14 +3,13 @@ declare(strict_types=1);
 
 namespace Forme\Framework\View;
 
-use Forme\Framework\View\Plates\Engine;
-use Forme\Framework\View\Plates\MagicResolver;
+use Forme\Platine\Engine;
 
-class LegacyPlatesView implements ViewInterface
+class PlatineView implements ViewInterface
 {
     use GetsDirectory;
 
-    protected \Forme\Framework\View\Plates\Engine $view;
+    protected Engine $view;
 
     protected const RELATIVE_VIEW_DIR = '/../../views';
 
@@ -21,8 +20,6 @@ class LegacyPlatesView implements ViewInterface
 
     public function render(string $template, array $context = []): string
     {
-        $template = MagicResolver::resolve($template);
-
         return $this->view->render($template, $context);
     }
 }
