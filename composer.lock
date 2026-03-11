@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55bc6afbd7f1231076fd7f0a84dd7dcd",
+    "content-hash": "57bc5082ec8fc3f9ecc521397da0de01",
     "packages": [
         {
             "name": "brick/math",
@@ -551,16 +551,16 @@
         },
         {
             "name": "forme/platine",
-            "version": "v0.0.3",
+            "version": "v0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/formewp/forme-platine.git",
-                "reference": "e3346058d7a62ac8984590755b8654eaf7e8715a"
+                "reference": "bc825aeb67beb3f89b920213fecb9e44982d6fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/formewp/forme-platine/zipball/e3346058d7a62ac8984590755b8654eaf7e8715a",
-                "reference": "e3346058d7a62ac8984590755b8654eaf7e8715a",
+                "url": "https://api.github.com/repos/formewp/forme-platine/zipball/bc825aeb67beb3f89b920213fecb9e44982d6fa4",
+                "reference": "bc825aeb67beb3f89b920213fecb9e44982d6fa4",
                 "shasum": ""
             },
             "require": {
@@ -606,13 +606,13 @@
             "description": "A pure PHP templating library with layouts, components and slots.",
             "support": {
                 "issues": "https://github.com/formewp/forme-platine/issues",
-                "source": "https://github.com/formewp/forme-platine/tree/v0.0.3"
+                "source": "https://github.com/formewp/forme-platine/tree/v0.0.4"
             },
-            "time": "2026-03-11T15:22:15+00:00"
+            "time": "2026-03-11T18:27:05+00:00"
         },
         {
             "name": "forme/wp-rest-api-psr7",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/formewp/wp-rest-api-psr7.git",
@@ -634,7 +634,6 @@
                 "phpstan/phpstan": "^2.1",
                 "szepeviktor/phpstan-wordpress": "^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2274,16 +2273,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.11.2",
+            "version": "3.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "57d696f4ec76d8560cc13b9d16ec01afc4379d04"
+                "reference": "6a7e652845bb018c668220c2a545aded8594fbbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/57d696f4ec76d8560cc13b9d16ec01afc4379d04",
-                "reference": "57d696f4ec76d8560cc13b9d16ec01afc4379d04",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/6a7e652845bb018c668220c2a545aded8594fbbf",
+                "reference": "6a7e652845bb018c668220c2a545aded8594fbbf",
                 "shasum": ""
             },
             "require": {
@@ -2375,7 +2374,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-10T21:43:48+00:00"
+            "time": "2026-03-11T17:23:39+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -9355,7 +9354,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "forme/wp-rest-api-psr7": 20,
         "nunomaduro/mock-final-classes": 20
     },
     "prefer-stable": true,
