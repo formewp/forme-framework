@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.1] - 2026-03-17
+
+### Miscellaneous Tasks
+
+- Tweak the wrangle error message
+
 ## [4.2.0] - 2026-03-17
 
 ### Miscellaneous Tasks
 
 - Push assets logic back into framework
+- Bump version
 
 ## [4.1.0] - 2026-03-17
 
