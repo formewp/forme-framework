@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.0] - 2026-03-17
+
+### Miscellaneous Tasks
+
+- Push assets logic back into framework
+
 ## [4.1.0] - 2026-03-17
 
 ### Features
 
 - [**breaking**] Move from webpack to vite
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [4.0.4] - 2026-03-11
 
