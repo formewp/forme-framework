@@ -2,11 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0] - 2026-03-17
+
+### Features
+
+- [**breaking**] Move from webpack to vite
+
 ## [4.0.4] - 2026-03-11
 
 ### Bug Fixes
 
 - Platine fixes
+
+### Miscellaneous Tasks
+
+- Bump version
 
 ## [4.0.3] - 2026-03-11
 
